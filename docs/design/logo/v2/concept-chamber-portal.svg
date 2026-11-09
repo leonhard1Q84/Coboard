@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%" height="100%">
+  <defs>
+    <!-- macOS Squircle Shadow -->
+    <filter id="appShadowChamber" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+
+    <!-- Arc Glow -->
+    <filter id="solarGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="24" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Base Plate Gradient -->
+    <linearGradient id="bgChamber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141720" />
+      <stop offset="100%" stop-color="#090B10" />
+    </linearGradient>
+
+    <!-- Perspective Window Wall Gradients (One-Point Depth) -->
+    <!-- Top Sill: Receives indirect light from bottom -->
+    <linearGradient id="wallTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <!-- Left Sill: Lit by the warm sunrise from the outside world -->
+    <linearGradient id="wallLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <!-- Right Sill: Dark shadow side -->
+    <linearGradient id="wallRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <!-- Bottom Sill: High warm light spill -->
+    <linearGradient id="wallBottom" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.1" />
+    </linearGradient>
+
+    <!-- Outer World Sky (Beyond the Window) -->
+    <linearGradient id="skyWorld" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E1B4B" />
+    </linearGradient>
+
+    <!-- The Solar Horizon Arc (The 'C' Stroke of Coboard) -->
+    <linearGradient id="solarC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F43F5E" />
+      <stop offset="40%" stop-color="#FB923C" />
+      <stop offset="80%" stop-color="#FACC15" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <!-- Outer Rim Stroke -->
+    <linearGradient id="rimChamber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.03" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. macOS Squircle Base -->
+  <g filter="url(#appShadowChamber)">
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bgChamber)" />
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="url(#rimChamber)" stroke-width="2" />
+  </g>
+
+  <!-- 2. One-Point Perspective Architectural Window (Looking out to the world) -->
+  <!-- Outer Window Aperture: x=210, y=210, size=604 -->
+  <!-- Inner Recessed Window Opening: x=340, y=340, size=344 -->
+  <g id="perspectiveChamber">
+    <!-- Top Inset Wall -->
+    <polygon points="210,210 814,210 684,340 340,340" fill="url(#wallTop)" stroke="#475569" stroke-width="1.5" />
+    <!-- Left Inset Wall (Highlight Angle) -->
+    <polygon points="210,210 340,340 340,684 210,814" fill="url(#wallLeft)" stroke="#475569" stroke-width="1.5" />
+    <!-- Right Inset Wall (Shadow Angle) -->
+    <polygon points="814,210 814,814 684,684 684,340" fill="url(#wallRight)" stroke="#334155" stroke-width="1.5" />
+    <!-- Bottom Inset Wall (Sill Reflection) -->
+    <polygon points="210,814 340,684 684,684 814,814" fill="url(#wallBottom)" stroke="#475569" stroke-width="1.5" />
+
+    <!-- Outer Frame Crisp Border -->
+    <rect x="210" y="210" width="604" height="604" rx="36" fill="none" stroke="#64748B" stroke-width="3" />
+
+    <!-- Inner Window (The Horizon Beyond) -->
+    <rect x="340" y="340" width="344" height="344" rx="20" fill="url(#skyWorld)" stroke="#94A3B8" stroke-width="2.5" />
+  </g>
+
+  <!-- 3. The Phenomenal Solar "C" (The Vibrant World entering through the window) -->
+  <!-- Center (512, 512), Radius: 215 - breaking across the inner and outer window boundaries -->
+  <g id="solarArc">
+    <!-- Outer Glow Aura -->
+    <path d="M 664 360 A 215 215 0 1 0 664 664" 
+          fill="none" 
+          stroke="url(#solarC)" 
+          stroke-width="56" 
+          stroke-linecap="round" 
+          filter="url(#solarGlow)" 
+          opacity="0.45" />
+
+    <!-- Sharp Solid Solar Geometry Arc -->
+    <path d="M 664 360 A 215 215 0 1 0 664 664" 
+          fill="none" 
+          stroke="url(#solarC)" 
+          stroke-width="44" 
+          stroke-linecap="round" />
+
+    <!-- Terminal Focus Nodes (Definitive, no tiny stray dots) -->
+    <circle cx="664" cy="360" r="16" fill="#FFFFFF" />
+    <circle cx="664" cy="360" r="28" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-opacity="0.5" />
+
+    <circle cx="664" cy="664" r="16" fill="#38BDF8" />
+
+    <!-- Core Sun / Central Celestial Node (Replacing the tiny speck with a substantial anchor) -->
+    <circle cx="512" cy="512" r="28" fill="#F8FAFC" fill-opacity="0.9" />
+    <circle cx="512" cy="512" r="54" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="6 6" />
+  </g>
+</svg>

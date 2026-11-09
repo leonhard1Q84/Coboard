@@ -1,0 +1,16 @@
+/target/
+**/node_modules/
+**/dist/
+**/gen/
+/.cache/
+*.coboard/
+.DS_Store
+*.log
+
+# Reproducible OCR binaries: npm run handwriting:download
+/apps/coboard-desktop/public/handwriting/models/
+/apps/coboard-desktop/public/handwriting/runtime/
+
+# Python research script caches
+__pycache__/
+*.py[cod]

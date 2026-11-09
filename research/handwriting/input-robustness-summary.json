@@ -1,0 +1,533 @@
+{
+  "scope": "Scale/translation/collinear densification of seven synthetic development fixtures; not independent handwriting accuracy. One warm-up plus one measured replay per input. Compute only; no IPC or display timing.",
+  "cases": [
+    {
+      "name": "vector-english/scale=0.1/density=1",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-english/scale=0.1/density=4",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-english/scale=0.1/density=16",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-english/scale=0.5/density=1",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-english/scale=0.5/density=4",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-english/scale=0.5/density=16",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-english/scale=1/density=1",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-english/scale=1/density=4",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-english/scale=1/density=16",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-english/scale=2/density=1",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-english/scale=2/density=4",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-english/scale=2/density=16",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "vector-chinese/scale=0.1/density=1",
+      "expected": "中文",
+      "before": "巾文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-chinese/scale=0.1/density=4",
+      "expected": "中文",
+      "before": "巾文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-chinese/scale=0.1/density=16",
+      "expected": "中文",
+      "before": "巾文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-chinese/scale=0.5/density=1",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-chinese/scale=0.5/density=4",
+      "expected": "中文",
+      "before": "巾文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-chinese/scale=0.5/density=16",
+      "expected": "中文",
+      "before": "巾文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-chinese/scale=1/density=1",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-chinese/scale=1/density=4",
+      "expected": "中文",
+      "before": "巾文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-chinese/scale=1/density=16",
+      "expected": "中文",
+      "before": "巾文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-chinese/scale=2/density=1",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-chinese/scale=2/density=4",
+      "expected": "中文",
+      "before": "巾文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-chinese/scale=2/density=16",
+      "expected": "中文",
+      "before": "巾文",
+      "after": "中文"
+    },
+    {
+      "name": "vector-mixed/scale=0.1/density=1",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "vector-mixed/scale=0.1/density=4",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "vector-mixed/scale=0.1/density=16",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "vector-mixed/scale=0.5/density=1",
+      "expected": "中 API 30",
+      "before": "中 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "vector-mixed/scale=0.5/density=4",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "vector-mixed/scale=0.5/density=16",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "vector-mixed/scale=1/density=1",
+      "expected": "中 API 30",
+      "before": "中 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "vector-mixed/scale=1/density=4",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "vector-mixed/scale=1/density=16",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "vector-mixed/scale=2/density=1",
+      "expected": "中 API 30",
+      "before": "中 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "vector-mixed/scale=2/density=4",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "vector-mixed/scale=2/density=16",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-H-crossbar/scale=0.1/density=1",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-H-crossbar/scale=0.1/density=4",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-H-crossbar/scale=0.1/density=16",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-H-crossbar/scale=0.5/density=1",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-H-crossbar/scale=0.5/density=4",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-H-crossbar/scale=0.5/density=16",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-H-crossbar/scale=1/density=1",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-H-crossbar/scale=1/density=4",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-H-crossbar/scale=1/density=16",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-H-crossbar/scale=2/density=1",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-H-crossbar/scale=2/density=4",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-H-crossbar/scale=2/density=16",
+      "expected": "HI",
+      "before": "HI",
+      "after": "HI"
+    },
+    {
+      "name": "late-A-crossbar/scale=0.1/density=1",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-A-crossbar/scale=0.1/density=4",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-A-crossbar/scale=0.1/density=16",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-A-crossbar/scale=0.5/density=1",
+      "expected": "中 API 30",
+      "before": "中 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-A-crossbar/scale=0.5/density=4",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-A-crossbar/scale=0.5/density=16",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-A-crossbar/scale=1/density=1",
+      "expected": "中 API 30",
+      "before": "中 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-A-crossbar/scale=1/density=4",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-A-crossbar/scale=1/density=16",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-A-crossbar/scale=2/density=1",
+      "expected": "中 API 30",
+      "before": "中 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-A-crossbar/scale=2/density=4",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "late-A-crossbar/scale=2/density=16",
+      "expected": "中 API 30",
+      "before": "巾 API 30",
+      "after": "中 API 30"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=0.1/density=1",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=0.1/density=4",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=0.1/density=16",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=0.5/density=1",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=0.5/density=4",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=0.5/density=16",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=1/density=1",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=1/density=4",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=1/density=16",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=2/density=1",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=2/density=4",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian/scale=2/density=16",
+      "expected": "明天",
+      "before": "明天",
+      "after": "明天"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=0.1/density=1",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=0.1/density=4",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=0.1/density=16",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=0.5/density=1",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=0.5/density=4",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=0.5/density=16",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=1/density=1",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=1/density=4",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=1/density=16",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=2/density=1",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=2/density=4",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    },
+    {
+      "name": "canonical-zhong-wen/scale=2/density=16",
+      "expected": "中文",
+      "before": "中文",
+      "after": "中文"
+    }
+  ],
+  "before": {
+    "total": 84,
+    "correct": 57,
+    "jsonl_sha256": "2b46fddae27a5765db1f0ef48c2a7662196ccac884abcede598f9140b4407392"
+  },
+  "after": {
+    "total": 84,
+    "correct": 84,
+    "jsonl_sha256": "6f882abcc3a381b2cb12b9f0da81c1d708d46b86a1e091a2eb68a9e3acebc6ca"
+  },
+  "baseline_source_sha256": "b8399a07517ce7216a735253b64438e8a86e913c18ebb66394009b6d67f6da8a",
+  "normalization_source_sha256": "4df58c00676d3804f8d556a31d94c19255cf9fe7e7b40dbae402fea3268fea2a",
+  "composition_regression": {
+    "correct": 41,
+    "total": 48,
+    "scope": "original synthetic development composition set; unchanged after normalization fix"
+  },
+  "human_regression": {
+    "correct_before": 1306,
+    "correct_after": 1306,
+    "total": 2480,
+    "changed_top1_predictions": 0,
+    "baseline_jsonl_sha256": "589d6d2f93a5c1bdc2955f02b618678f304b9dd688a06f6f6e175650c63b3339"
+  }
+}

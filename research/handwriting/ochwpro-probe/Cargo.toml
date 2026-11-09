@@ -1,0 +1,18 @@
+[package]
+name = "coboard-ochwpro-probe"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+# Independent experiment: Candle is not added to the desktop dependency graph.
+[workspace]
+
+[dependencies]
+libochwpro = { git = "https://github.com/ximeiorg/ochwpro", rev = "54c326d33d86cc0754dbea5a36c1448682c8202c" }
+coboard-vision-ml = { path = "../../../crates/coboard-vision-ml" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+debug = 0
+incremental = false

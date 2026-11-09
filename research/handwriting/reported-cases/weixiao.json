@@ -1,0 +1,10 @@
+{
+  "id": "user-weixiao-20261109",
+  "expected": "微笑",
+  "label_source": "User explicitly confirmed 微笑; assistant initially misread it as 数学.",
+  "evidence": "weixiao.png",
+  "sha256": "1c688639eb75959d23dc38010420ae86c6cb88730f35b14cab9e936ff7033f0a",
+  "status": "confirmed-failure-screenshot-only",
+  "raw_strokes": null,
+  "evaluation_policy": "Preserve failure evidence; exclude from XY replay denominator until corresponding raw strokes are recovered. Screenshot is not synthetic ink or independent-writer evidence."
+}

@@ -1,0 +1,3 @@
+{"fixture": "vector-english", "expected": "HI", "actual": "-T", "confidence": [0.30000001192092896], "firstCallMs": 7257.352792, "warmSamples": 10, "warmP50Ms": 17.184625, "warmP95Ms": 20.19825}
+{"fixture": "vector-chinese", "expected": "中文", "actual": "", "confidence": [], "firstCallMs": 15.127083, "warmSamples": 10, "warmP50Ms": 14.551833, "warmP95Ms": 17.019084}
+{"fixture": "vector-mixed", "expected": "中 API 30", "actual": "口 API30", "confidence": [0.30000001192092896], "firstCallMs": 56.818083, "warmSamples": 10, "warmP50Ms": 41.021125, "warmP95Ms": 43.681542}

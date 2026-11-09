@@ -1,0 +1,77 @@
+{
+  "scope": "User trajectories and deterministic development transforms; same Rust session as desktop; no IPC, pen-up, paint or display timing; not held-out word accuracy",
+  "raw_sha256": "4854ecb5e266ff38a52b119fb1d6a52e86030b406cdac872fe999d4aa016263b",
+  "preparation": {
+    "elapsed_ms": 6.100958,
+    "kind": "prepare",
+    "scope": "local model preparation plus fixed vertical; filesystem cache uncontrolled"
+  },
+  "samples": [
+    {
+      "name": "user-connected-hello",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 219.14641600000002,
+      "p95_ms": 325.353375,
+      "retry_p95_ms": 0.001,
+      "first_trial_wall_ms": 183.90124999999998
+    },
+    {
+      "name": "user-connected-memory",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 129.89279200000001,
+      "p95_ms": 154.86175,
+      "retry_p95_ms": 0.001083,
+      "first_trial_wall_ms": 129.95624999999998
+    },
+    {
+      "name": "user-connected-goal",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "斌",
+      "p50_ms": 154.664208,
+      "p95_ms": 190.68787500000002,
+      "retry_p95_ms": 0.001083,
+      "first_trial_wall_ms": 149.80275
+    },
+    {
+      "name": "user-connected-women",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 202.957042,
+      "p95_ms": 279.191041,
+      "retry_p95_ms": 0.001,
+      "first_trial_wall_ms": 204.00125
+    }
+  ],
+  "correct_samples": 4,
+  "inputs_and_code_sha256": {
+    "research/handwriting/connected-fixtures.json": "175830e30a66730b206cb3a1dd44cdff3be4b513ca2797e59a470290de7c0c4d",
+    "research/handwriting/generate-connected-variants.py": "a9280dfab4cbe05ecddcd1ea4a31a8bed10662427a029f615d98f769efd4ba21",
+    "crates/coboard-vision-ml/src/connected.rs": "b40720f225b12797980ed1cf77836d9beaea134bc0f1dc9f100ce82d331a2b3d",
+    "crates/coboard-vision-ml/src/lib.rs": "e9e8d1d2e13c8c880f9e0201e5630243faa28e7f3dd84a9521d523d653571db1",
+    "crates/coboard-vision-ml/src/incremental.rs": "3d081cf51887f14f7573cfb5c4dd7d1c5c2019f04cf1d591b86ce4f03990f4e3"
+  },
+  "generated_variants_sha256": "276d66e947be0896e3353cc02f71f6aeb1e86cce772c767d787df219068b5728",
+  "load_caveat": "Concurrent common_eval process observed at 100% CPU, started 20:19:30 local; no isolated CPU or UI latency claim."
+}

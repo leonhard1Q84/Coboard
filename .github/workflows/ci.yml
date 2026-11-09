@@ -1,0 +1,20 @@
+name: M0 checks
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: apps/coboard-desktop/package-lock.json
+      - run: npm ci && npm test && npm run build
+        working-directory: apps/coboard-desktop
+      - run: cargo fmt --all -- --check
+      - run: cargo test --locked
+      - run: cargo clippy --locked --workspace --all-targets -- -D warnings

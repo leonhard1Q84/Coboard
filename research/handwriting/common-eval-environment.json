@@ -1,0 +1,27 @@
+{
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.9.6",
+  "rustc": "rustc 1.98.0 (88d9e12ae 2026-08-18) (Homebrew)",
+  "profile": "release, offline, locked; sequential CPU; fixed warm-up; filesystem cache/thermal state uncontrolled",
+  "sha256": {
+    "research/handwriting/common-targets.json": "3613737a531673b07a31a814c901b88c86af3ad15151f392002085778300b7a7",
+    "crates/coboard-vision-ml/src/connected.rs": "b40720f225b12797980ed1cf77836d9beaea134bc0f1dc9f100ce82d331a2b3d",
+    "crates/coboard-vision-ml/src/incremental.rs": "3d081cf51887f14f7573cfb5c4dd7d1c5c2019f04cf1d591b86ce4f03990f4e3",
+    "crates/coboard-vision-ml/src/incremental_tests.rs": "348eb4f3dd73023554b82361f73f8a81c95019e78f82c2af8cee948ebb90bdf5",
+    "crates/coboard-vision-ml/src/lib.rs": "e9e8d1d2e13c8c880f9e0201e5630243faa28e7f3dd84a9521d523d653571db1",
+    "crates/coboard-vision-ml/src/recognition.rs": "f5848bd611664023053a1e21dedf5bed42aab12923593e7a68508a0525d81aea",
+    "crates/coboard-vision-ml/src/stroke_normalization.rs": "4df58c00676d3804f8d556a31d94c19255cf9fe7e7b40dbae402fea3268fea2a",
+    "crates/coboard-vision-ml/data/english-lexicon.txt": "f1f1481ef429d0daea8ca1107ee92bac20b2b90596fc6986ecbd61f171813a47",
+    "research/handwriting/build-common-eval.py": "8edf95e207acc5f2f057c4f88e1c7a593e46801183f6ff8ca18919a8e1f408a5",
+    "research/handwriting/score-common-eval.py": "de1dd16807a9a20c365c0d73704c6e11e14d5b59d63c3038e7f044f8f6f43e8b",
+    "research/handwriting/run-common-eval.py": "d9125a141930fa6a0d2a99a368bbbcef3fd7682bad80dd7e617c8734130da87a",
+    "research/handwriting/connected-fixtures.json": "175830e30a66730b206cb3a1dd44cdff3be4b513ca2797e59a470290de7c0c4d",
+    "crates/coboard-vision-ml/examples/common_eval.rs": "7df4970c92952cb5efe20277e9344a9563e7334a3a260dab19827fb2b5d92bd3",
+    "Cargo.lock": "502be2859ea813c3d3b7eb629c52986834920ba922feecab945f099f5c8fed43",
+    "singleEngine.dll": "3908e7d0beb65dcaed238f256540937e3347bbe7a6c13d26a118a727e63cb57f",
+    "lm_HW_PB_7000_kn.arpa.7e9.prune.1e-7.lm.fixed": "f20a2428aa867eff1b92b373fdb2ae28cf298544b6c85253f5a81b98f2cec054"
+  },
+  "measurement_note": "Full 20-writer run used same engine/model; environment record collected by subsequent one-writer runner smoke. Example formatting changed during the full run; recognition implementation and weights unchanged. CPU brand query unavailable in sandbox. Filesystem cache, thermal state and background activity uncontrolled.",
+  "observed_samples": 5764
+}

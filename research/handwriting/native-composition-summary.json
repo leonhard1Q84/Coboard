@@ -1,0 +1,939 @@
+{
+  "uncompressed_jsonl_sha256": "034e56801c2761a6ad21256906aa68b475c2a1403bd76294aeb58680f33f28c2",
+  "load": {
+    "elapsed_ms": 11.504624999999999,
+    "engine": "native_sparse_cnn_phase_ensemble",
+    "kind": "load"
+  },
+  "hot_updates": 1542,
+  "decode_errors": 0,
+  "single_character_occurrences": {
+    "single_raw": {
+      "count": 198,
+      "top1_correct": 130,
+      "top10_correct": 198
+    },
+    "single_resampled": {
+      "count": 0,
+      "top1_correct": 0,
+      "top10_correct": 0
+    }
+  },
+  "fixtures": [
+    {
+      "name": "composition-0-00",
+      "expected": "中文",
+      "observed_top1": [
+        "中文"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 24,
+      "p50_ms": 3.571959,
+      "p95_ms": 4.0980419999999995,
+      "max_ms": 4.271583,
+      "classifier_calls": 24,
+      "cache_hits": 12,
+      "max_cache_entries": 8
+    },
+    {
+      "name": "composition-0-01",
+      "expected": "文明",
+      "observed_top1": [
+        "文明"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 36,
+      "p50_ms": 7.239375,
+      "p95_ms": 8.143374999999999,
+      "max_ms": 8.159084,
+      "classifier_calls": 60,
+      "cache_hits": 48,
+      "max_cache_entries": 20
+    },
+    {
+      "name": "composition-0-02",
+      "expected": "天文",
+      "observed_top1": [
+        "天文"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 24,
+      "p50_ms": 3.2755,
+      "p95_ms": 4.003875,
+      "max_ms": 4.071084,
+      "classifier_calls": 24,
+      "cache_hits": 12,
+      "max_cache_entries": 8
+    },
+    {
+      "name": "composition-0-03",
+      "expected": "明天",
+      "observed_top1": [
+        "明天"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 36,
+      "p50_ms": 3.612916,
+      "p95_ms": 8.114708,
+      "max_ms": 8.149083,
+      "classifier_calls": 48,
+      "cache_hits": 48,
+      "max_cache_entries": 16
+    },
+    {
+      "name": "composition-0-04",
+      "expected": "中天",
+      "observed_top1": [
+        "巾天"
+      ],
+      "exact_correct_trials": 0,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 1,
+      "character_edits_without_spaces": 1,
+      "updates": 24,
+      "p50_ms": 3.476958,
+      "p95_ms": 4.0279169999999995,
+      "max_ms": 4.031917,
+      "classifier_calls": 24,
+      "cache_hits": 12,
+      "max_cache_entries": 8
+    },
+    {
+      "name": "composition-0-05",
+      "expected": "文天",
+      "observed_top1": [
+        "文天"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 24,
+      "p50_ms": 3.292083,
+      "p95_ms": 4.003208,
+      "max_ms": 4.021333,
+      "classifier_calls": 24,
+      "cache_hits": 12,
+      "max_cache_entries": 8
+    },
+    {
+      "name": "composition-0-06",
+      "expected": "HAPI",
+      "observed_top1": [
+        "HAPI"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 27,
+      "p50_ms": 7.334791999999999,
+      "p95_ms": 7.775583,
+      "max_ms": 7.777832999999999,
+      "classifier_calls": 45,
+      "cache_hits": 63,
+      "max_cache_entries": 15
+    },
+    {
+      "name": "composition-0-07",
+      "expected": "PAHI",
+      "observed_top1": [
+        "PAHI"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 27,
+      "p50_ms": 7.6245,
+      "p95_ms": 11.167375,
+      "max_ms": 11.316958999999999,
+      "classifier_calls": 51,
+      "cache_hits": 87,
+      "max_cache_entries": 17
+    },
+    {
+      "name": "composition-0-08",
+      "expected": "IPHA",
+      "observed_top1": [
+        "IPHA"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 27,
+      "p50_ms": 7.477208,
+      "p95_ms": 10.954165999999999,
+      "max_ms": 10.9895,
+      "classifier_calls": 45,
+      "cache_hits": 69,
+      "max_cache_entries": 15
+    },
+    {
+      "name": "composition-0-09",
+      "expected": "AIPH",
+      "observed_top1": [
+        "AIPH"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 27,
+      "p50_ms": 7.230833,
+      "p95_ms": 11.050042,
+      "max_ms": 11.052583,
+      "classifier_calls": 48,
+      "cache_hits": 72,
+      "max_cache_entries": 16
+    },
+    {
+      "name": "composition-0-10",
+      "expected": "30",
+      "observed_top1": [
+        "30"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 6,
+      "p50_ms": 3.57925,
+      "p95_ms": 8.075042,
+      "max_ms": 8.075042,
+      "classifier_calls": 9,
+      "cache_hits": 3,
+      "max_cache_entries": 3
+    },
+    {
+      "name": "composition-0-11",
+      "expected": "03",
+      "observed_top1": [
+        "03"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 6,
+      "p50_ms": 3.69625,
+      "p95_ms": 7.919834000000001,
+      "max_ms": 7.919834000000001,
+      "classifier_calls": 9,
+      "cache_hits": 3,
+      "max_cache_entries": 3
+    },
+    {
+      "name": "composition-0-12",
+      "expected": "300",
+      "observed_top1": [
+        "300"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 9,
+      "p50_ms": 7.964834000000001,
+      "p95_ms": 8.074833,
+      "max_ms": 8.074833,
+      "classifier_calls": 15,
+      "cache_hits": 12,
+      "max_cache_entries": 5
+    },
+    {
+      "name": "composition-0-13",
+      "expected": "030",
+      "observed_top1": [
+        "030"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 9,
+      "p50_ms": 7.972207999999999,
+      "p95_ms": 8.141625,
+      "max_ms": 8.141625,
+      "classifier_calls": 15,
+      "cache_hits": 12,
+      "max_cache_entries": 5
+    },
+    {
+      "name": "composition-0-14",
+      "expected": "中 HAPI 03",
+      "observed_top1": [
+        "巾 HAPI 03"
+      ],
+      "exact_correct_trials": 0,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 1,
+      "character_edits_without_spaces": 1,
+      "updates": 45,
+      "p50_ms": 3.89475,
+      "p95_ms": 8.178708,
+      "max_ms": 8.236541,
+      "classifier_calls": 66,
+      "cache_hits": 141,
+      "max_cache_entries": 22
+    },
+    {
+      "name": "composition-0-15",
+      "expected": "文明 API 30",
+      "observed_top1": [
+        "文明 API 30"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 60,
+      "p50_ms": 7.430917,
+      "p95_ms": 8.43375,
+      "max_ms": 8.651041,
+      "classifier_calls": 99,
+      "cache_hits": 231,
+      "max_cache_entries": 33
+    },
+    {
+      "name": "composition-0-16",
+      "expected": "明天 HI 03",
+      "observed_top1": [
+        "明天 HI 03"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 60,
+      "p50_ms": 3.856958,
+      "p95_ms": 8.185291000000001,
+      "max_ms": 8.366999999999999,
+      "classifier_calls": 84,
+      "cache_hits": 177,
+      "max_cache_entries": 28
+    },
+    {
+      "name": "composition-0-17",
+      "expected": "30 API 中文",
+      "observed_top1": [
+        "30 API 中文"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 48,
+      "p50_ms": 3.841292,
+      "p95_ms": 8.067375,
+      "max_ms": 8.156666,
+      "classifier_calls": 63,
+      "cache_hits": 291,
+      "max_cache_entries": 21
+    },
+    {
+      "name": "composition-0-18",
+      "expected": "HI API 30",
+      "observed_top1": [
+        "HI API 30"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 42,
+      "p50_ms": 6.728958,
+      "p95_ms": 8.321625,
+      "max_ms": 8.603334,
+      "classifier_calls": 66,
+      "cache_hits": 147,
+      "max_cache_entries": 22
+    },
+    {
+      "name": "composition-0-19",
+      "expected": "中文 30 HI",
+      "observed_top1": [
+        "中文 30 HI"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 48,
+      "p50_ms": 3.6574590000000002,
+      "p95_ms": 8.082792,
+      "max_ms": 8.199625000000001,
+      "classifier_calls": 60,
+      "cache_hits": 129,
+      "max_cache_entries": 20
+    },
+    {
+      "name": "composition-0-20",
+      "expected": "明天 PA 300",
+      "observed_top1": [
+        "明天 PA 300"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 54,
+      "p50_ms": 3.871,
+      "p95_ms": 8.295583,
+      "max_ms": 8.344249999999999,
+      "classifier_calls": 78,
+      "cache_hits": 165,
+      "max_cache_entries": 26
+    },
+    {
+      "name": "composition-0-21",
+      "expected": "API 天文",
+      "observed_top1": [
+        "API 天文"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 42,
+      "p50_ms": 3.726375,
+      "p95_ms": 7.693791999999999,
+      "max_ms": 7.768167,
+      "classifier_calls": 54,
+      "cache_hits": 162,
+      "max_cache_entries": 18
+    },
+    {
+      "name": "composition-0-22",
+      "expected": "文 HI",
+      "observed_top1": [
+        "文 HI"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 30,
+      "p50_ms": 3.6235,
+      "p95_ms": 7.711417,
+      "max_ms": 7.777,
+      "classifier_calls": 39,
+      "cache_hits": 30,
+      "max_cache_entries": 13
+    },
+    {
+      "name": "composition-0-23",
+      "expected": "中 API 30",
+      "observed_top1": [
+        "巾 API 30"
+      ],
+      "exact_correct_trials": 0,
+      "trials": 3,
+      "final_top5_contains_expected": false,
+      "character_edits_with_spaces": 1,
+      "character_edits_without_spaces": 1,
+      "updates": 36,
+      "p50_ms": 3.7625409999999997,
+      "p95_ms": 8.236125000000001,
+      "max_ms": 8.503,
+      "classifier_calls": 51,
+      "cache_hits": 87,
+      "max_cache_entries": 17
+    },
+    {
+      "name": "composition-1-00",
+      "expected": "中文",
+      "observed_top1": [
+        "中文"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 24,
+      "p50_ms": 3.570167,
+      "p95_ms": 3.98175,
+      "max_ms": 4.08925,
+      "classifier_calls": 24,
+      "cache_hits": 12,
+      "max_cache_entries": 8
+    },
+    {
+      "name": "composition-1-01",
+      "expected": "文明",
+      "observed_top1": [
+        "文明"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 36,
+      "p50_ms": 7.374792,
+      "p95_ms": 8.13,
+      "max_ms": 8.1725,
+      "classifier_calls": 60,
+      "cache_hits": 48,
+      "max_cache_entries": 20
+    },
+    {
+      "name": "composition-1-02",
+      "expected": "天文",
+      "observed_top1": [
+        "天文"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 24,
+      "p50_ms": 3.312208,
+      "p95_ms": 4.0705409999999995,
+      "max_ms": 4.077833,
+      "classifier_calls": 24,
+      "cache_hits": 12,
+      "max_cache_entries": 8
+    },
+    {
+      "name": "composition-1-03",
+      "expected": "明天",
+      "observed_top1": [
+        "明天"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 36,
+      "p50_ms": 3.685625,
+      "p95_ms": 8.143125,
+      "max_ms": 8.442125,
+      "classifier_calls": 48,
+      "cache_hits": 48,
+      "max_cache_entries": 16
+    },
+    {
+      "name": "composition-1-04",
+      "expected": "中天",
+      "observed_top1": [
+        "巾天"
+      ],
+      "exact_correct_trials": 0,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 1,
+      "character_edits_without_spaces": 1,
+      "updates": 24,
+      "p50_ms": 3.647959,
+      "p95_ms": 4.118458,
+      "max_ms": 4.135790999999999,
+      "classifier_calls": 24,
+      "cache_hits": 12,
+      "max_cache_entries": 8
+    },
+    {
+      "name": "composition-1-05",
+      "expected": "文天",
+      "observed_top1": [
+        "文天"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 24,
+      "p50_ms": 3.5761249999999998,
+      "p95_ms": 4.292541000000001,
+      "max_ms": 4.40075,
+      "classifier_calls": 24,
+      "cache_hits": 12,
+      "max_cache_entries": 8
+    },
+    {
+      "name": "composition-1-06",
+      "expected": "HAPI",
+      "observed_top1": [
+        "HAPI"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 27,
+      "p50_ms": 7.311542,
+      "p95_ms": 7.935334,
+      "max_ms": 7.9632499999999995,
+      "classifier_calls": 45,
+      "cache_hits": 63,
+      "max_cache_entries": 15
+    },
+    {
+      "name": "composition-1-07",
+      "expected": "PAHI",
+      "observed_top1": [
+        "PAHI"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 27,
+      "p50_ms": 7.515125,
+      "p95_ms": 11.281666,
+      "max_ms": 11.335666,
+      "classifier_calls": 51,
+      "cache_hits": 87,
+      "max_cache_entries": 17
+    },
+    {
+      "name": "composition-1-08",
+      "expected": "IPHA",
+      "observed_top1": [
+        "IPHA"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 27,
+      "p50_ms": 7.673709,
+      "p95_ms": 11.002542,
+      "max_ms": 11.357167,
+      "classifier_calls": 45,
+      "cache_hits": 69,
+      "max_cache_entries": 15
+    },
+    {
+      "name": "composition-1-09",
+      "expected": "AIPH",
+      "observed_top1": [
+        "AIPH"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 27,
+      "p50_ms": 7.45725,
+      "p95_ms": 11.025875,
+      "max_ms": 11.072709,
+      "classifier_calls": 48,
+      "cache_hits": 72,
+      "max_cache_entries": 16
+    },
+    {
+      "name": "composition-1-10",
+      "expected": "30",
+      "observed_top1": [
+        "30"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 6,
+      "p50_ms": 3.7459580000000003,
+      "p95_ms": 8.388083,
+      "max_ms": 8.388083,
+      "classifier_calls": 9,
+      "cache_hits": 3,
+      "max_cache_entries": 3
+    },
+    {
+      "name": "composition-1-11",
+      "expected": "03",
+      "observed_top1": [
+        "03"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 6,
+      "p50_ms": 3.827166,
+      "p95_ms": 8.281125,
+      "max_ms": 8.281125,
+      "classifier_calls": 9,
+      "cache_hits": 3,
+      "max_cache_entries": 3
+    },
+    {
+      "name": "composition-1-12",
+      "expected": "300",
+      "observed_top1": [
+        "300"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 9,
+      "p50_ms": 8.053374999999999,
+      "p95_ms": 8.2475,
+      "max_ms": 8.2475,
+      "classifier_calls": 15,
+      "cache_hits": 12,
+      "max_cache_entries": 5
+    },
+    {
+      "name": "composition-1-13",
+      "expected": "030",
+      "observed_top1": [
+        "030"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 9,
+      "p50_ms": 8.231874999999999,
+      "p95_ms": 8.493209,
+      "max_ms": 8.493209,
+      "classifier_calls": 15,
+      "cache_hits": 12,
+      "max_cache_entries": 5
+    },
+    {
+      "name": "composition-1-14",
+      "expected": "中 HAPI 03",
+      "observed_top1": [
+        "巾 HAPI 03"
+      ],
+      "exact_correct_trials": 0,
+      "trials": 3,
+      "final_top5_contains_expected": false,
+      "character_edits_with_spaces": 1,
+      "character_edits_without_spaces": 1,
+      "updates": 45,
+      "p50_ms": 3.9185410000000003,
+      "p95_ms": 8.224791,
+      "max_ms": 8.677624999999999,
+      "classifier_calls": 66,
+      "cache_hits": 141,
+      "max_cache_entries": 22
+    },
+    {
+      "name": "composition-1-15",
+      "expected": "文明 API 30",
+      "observed_top1": [
+        "文明 API 30"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 60,
+      "p50_ms": 7.292375,
+      "p95_ms": 8.151541,
+      "max_ms": 8.644125,
+      "classifier_calls": 99,
+      "cache_hits": 231,
+      "max_cache_entries": 33
+    },
+    {
+      "name": "composition-1-16",
+      "expected": "明天 HI 03",
+      "observed_top1": [
+        "明天 HI 03"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 60,
+      "p50_ms": 3.8795409999999997,
+      "p95_ms": 8.293375000000001,
+      "max_ms": 8.46025,
+      "classifier_calls": 84,
+      "cache_hits": 177,
+      "max_cache_entries": 28
+    },
+    {
+      "name": "composition-1-17",
+      "expected": "30 API 中文",
+      "observed_top1": [
+        "30 API 中文"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 48,
+      "p50_ms": 3.821583,
+      "p95_ms": 8.054959,
+      "max_ms": 8.331708,
+      "classifier_calls": 63,
+      "cache_hits": 291,
+      "max_cache_entries": 21
+    },
+    {
+      "name": "composition-1-18",
+      "expected": "HI API 30",
+      "observed_top1": [
+        "HI API 30"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 42,
+      "p50_ms": 6.6765,
+      "p95_ms": 8.270417,
+      "max_ms": 8.413833,
+      "classifier_calls": 66,
+      "cache_hits": 147,
+      "max_cache_entries": 22
+    },
+    {
+      "name": "composition-1-19",
+      "expected": "中文 30 HI",
+      "observed_top1": [
+        "中文 30 HI"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 48,
+      "p50_ms": 3.623458,
+      "p95_ms": 8.109875,
+      "max_ms": 8.145541,
+      "classifier_calls": 60,
+      "cache_hits": 129,
+      "max_cache_entries": 20
+    },
+    {
+      "name": "composition-1-20",
+      "expected": "明天 PA 300",
+      "observed_top1": [
+        "明天 pa 300"
+      ],
+      "exact_correct_trials": 0,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 2,
+      "character_edits_without_spaces": 2,
+      "updates": 54,
+      "p50_ms": 3.983417,
+      "p95_ms": 8.544833,
+      "max_ms": 8.669125,
+      "classifier_calls": 78,
+      "cache_hits": 165,
+      "max_cache_entries": 26
+    },
+    {
+      "name": "composition-1-21",
+      "expected": "API 天文",
+      "observed_top1": [
+        "API 天文"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 42,
+      "p50_ms": 3.958458,
+      "p95_ms": 7.726542,
+      "max_ms": 7.9218329999999995,
+      "classifier_calls": 54,
+      "cache_hits": 162,
+      "max_cache_entries": 18
+    },
+    {
+      "name": "composition-1-22",
+      "expected": "文 HI",
+      "observed_top1": [
+        "文 HI"
+      ],
+      "exact_correct_trials": 3,
+      "trials": 3,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 30,
+      "p50_ms": 3.5668330000000004,
+      "p95_ms": 7.643709,
+      "max_ms": 8.229959000000001,
+      "classifier_calls": 39,
+      "cache_hits": 30,
+      "max_cache_entries": 13
+    },
+    {
+      "name": "composition-1-23",
+      "expected": "中 API 30",
+      "observed_top1": [
+        "巾 API 30"
+      ],
+      "exact_correct_trials": 0,
+      "trials": 3,
+      "final_top5_contains_expected": false,
+      "character_edits_with_spaces": 1,
+      "character_edits_without_spaces": 1,
+      "updates": 36,
+      "p50_ms": 3.771708,
+      "p95_ms": 8.271,
+      "max_ms": 8.481959000000002,
+      "classifier_calls": 51,
+      "cache_hits": 87,
+      "max_cache_entries": 17
+    }
+  ],
+  "measurement_scope": "release native CPU decoder compute; excludes IPC, queueing and UI",
+  "dataset_role": "synthetic development fixtures; not independent human accuracy",
+  "fixture_sha256": "006f9ebcd4b906699873ee149a7fa74f565a16ec210ea8eb6d904d61cfb49916"
+}

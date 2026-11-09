@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%" height="100%">
+  <defs>
+    <!-- macOS Squircle Shadow -->
+    <filter id="appShadowB" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+
+    <!-- Deep Space Gradient Base -->
+    <linearGradient id="baseBgB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181B26" />
+      <stop offset="100%" stop-color="#0B0D13" />
+    </linearGradient>
+
+    <!-- Spectrum Glow across the Window Panes -->
+    <linearGradient id="worldSpectrum" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="45%" stop-color="#8B5CF6" />
+      <stop offset="75%" stop-color="#EC4899" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+
+    <!-- Glass Pane Fill -->
+    <linearGradient id="glassPane" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.02" />
+    </linearGradient>
+
+    <!-- Rim Light -->
+    <linearGradient id="rimB" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.02" />
+    </linearGradient>
+
+    <clipPath id="innerWindowClip">
+      <rect x="230" y="230" width="564" height="564" rx="40" />
+    </clipPath>
+  </defs>
+
+  <!-- 1. Squircle Base Plate -->
+  <g filter="url(#appShadowB)">
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#baseBgB)" />
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="url(#rimB)" stroke-width="2" />
+  </g>
+
+  <!-- 2. The Main Geometric Window (The Architectural Aperture) -->
+  <g id="windowFrame">
+    <!-- Outer Window Border -->
+    <rect x="230" y="230" width="564" height="564" rx="40" fill="url(#glassPane)" stroke="#334155" stroke-width="2.5" />
+    
+    <!-- Window Dividers: Asymmetric Panes (Golden ratio geometric divisions) -->
+    <!-- Vertical Pane Divider at x=570 -->
+    <line x1="570" y1="230" x2="570" y2="794" stroke="#334155" stroke-width="2" stroke-opacity="0.7" />
+    <!-- Horizontal Pane Divider at y=480 in the right column -->
+    <line x1="570" y1="480" x2="794" y2="480" stroke="#334155" stroke-width="2" stroke-opacity="0.7" />
+    <!-- Horizontal Pane Divider at y=640 in the left column -->
+    <line x1="230" y1="640" x2="570" y2="640" stroke="#334155" stroke-width="2" stroke-opacity="0.7" />
+  </g>
+
+  <!-- 3. The Observation Disc & "C" Arc (Looking into the vibrant world) -->
+  <!-- Clapped and overlapping geometrically -->
+  <g id="worldObservationPortal">
+    <!-- Circular Window Lens (The Eye through the panes) -->
+    <!-- Center (480, 480), Radius 170 -->
+    <circle cx="480" cy="480" r="170" fill="none" stroke="url(#worldSpectrum)" stroke-width="36" stroke-linecap="round" stroke-dasharray="820 250" transform="rotate(-30 480 480)" />
+    
+    <!-- Geometric Crosshair - Aligning the observation point -->
+    <circle cx="480" cy="480" r="8" fill="#F8FAFC" />
+    <line x1="480" y1="440" x2="480" y2="464" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" />
+    <line x1="480" y1="496" x2="480" y2="520" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" />
+    <line x1="440" y1="480" x2="464" y2="480" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" />
+    <line x1="496" y1="480" x2="520" y2="480" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" />
+
+    <!-- Pure geometric accent: Observation angle mark in bottom-right pane -->
+    <path d="M 640 560 L 720 560 L 720 640" fill="none" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>

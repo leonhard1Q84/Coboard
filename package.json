@@ -1,0 +1,9 @@
+{
+  "name": "coboard",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix apps/coboard-desktop run tauri -- dev",
+    "dev:web": "npm --prefix apps/coboard-desktop run dev --"
+  }
+}

@@ -1,0 +1,51 @@
+[workspace]
+resolver = "2"
+members = ["crates/*", "apps/coboard-desktop/src-tauri"]
+default-members = ["crates/coboard-domain", "crates/coboard-storage", "crates/coboard-server", "crates/coboard-macos", "crates/coboard-vision-ml", "crates/coboard-pdf-export", "crates/coboard-ai-client"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace.dependencies]
+coboard-domain = { path = "crates/coboard-domain" }
+coboard-storage = { path = "crates/coboard-storage" }
+coboard-server = { path = "crates/coboard-server" }
+coboard-macos = { path = "crates/coboard-macos" }
+coboard-vision-ml = { path = "crates/coboard-vision-ml" }
+objc2 = "0.6.5"
+core-graphics = "0.25"
+objc2-app-kit = { version = "0.3.2", default-features = false, features = ["std", "NSWindow", "NSPanel", "NSColor", "NSScreen", "NSResponder"] }
+objc2-foundation = { version = "0.3.2", default-features = false, features = ["std"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+uuid = { version = "1", features = ["v4"] }
+blake3 = "1"
+rusqlite = { version = "0.38", features = ["bundled", "limits"] }
+loro = "1.17.1"
+zstd = "0.13"
+fs2 = "0.4"
+tempfile = "3"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "fs", "io-util", "sync", "signal", "time"] }
+axum = "0.8"
+tower = { version = "0.5", features = ["util", "limit"] }
+tower-http = { version = "0.6", features = ["cors"] }
+tokio-util = { version = "0.7", features = ["io"] }
+futures-util = "0.3"
+
+# Keep local development usable on small machines; performance baselines use release.
+[profile.dev]
+debug = 0
+incremental = false
+
+[profile.test]
+debug = 0
+incremental = false
+
+[profile.dev.package.coboard-vision-ml]
+opt-level = 3
+
+[profile.test.package.coboard-vision-ml]
+opt-level = 3

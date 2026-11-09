@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%" height="100%">
+  <defs>
+    <!-- macOS Squircle Shadow -->
+    <filter id="appShadowV2" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+
+    <!-- Glass Glow Filter -->
+    <filter id="arcGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="20" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Background Space Gradient -->
+    <linearGradient id="bgV2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141722" />
+      <stop offset="100%" stop-color="#090B10" />
+    </linearGradient>
+
+    <!-- 3D Window Glass Plane -->
+    <linearGradient id="glassFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.22" />
+      <stop offset="40%" stop-color="#818CF8" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.45" />
+    </linearGradient>
+
+    <!-- 3D Window Thickness / Sill Gradient -->
+    <linearGradient id="windowSill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64748B" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Perspective Light Shaft (Projecting onto the floor) -->
+    <linearGradient id="lightShaft" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.28" />
+      <stop offset="40%" stop-color="#EC4899" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.0" />
+    </linearGradient>
+
+    <!-- The Vibrant Arc of World ("C" Stroke) -->
+    <linearGradient id="worldArcV2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF4D4D" />
+      <stop offset="30%" stop-color="#F97316" />
+      <stop offset="65%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <!-- Squircle Inner Rim Stroke -->
+    <linearGradient id="rimV2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.03" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. macOS Squircle Base -->
+  <g filter="url(#appShadowV2)">
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bgV2)" />
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="url(#rimV2)" stroke-width="2" />
+  </g>
+
+  <!-- 2. Perspective Sunlight Projection (Light Shaft hitting the room) -->
+  <!-- A true perspective trapezoid projecting down & forward -->
+  <polygon points="340,320 680,240 820,700 380,820" fill="url(#lightShaft)" />
+
+  <!-- 3. The 3D Perspective Window Frame (Tilted in 3D Space) -->
+  <!-- Front Edge: x=340, y from 260 to 760 (height: 500) -->
+  <!-- Back Edge:  x=760, y from 340 to 660 (height: 320 - foreshortened) -->
+  <g id="perspectiveWindow">
+    <!-- Window Depth/Sill (The 3D Extrusion on the left) -->
+    <polygon points="320,270 340,260 340,760 320,770" fill="url(#windowSill)" />
+    <!-- Bottom Sill -->
+    <polygon points="320,770 340,760 760,660 740,670" fill="#0F172A" opacity="0.6" />
+
+    <!-- Main Glass Window Pane (Tilted Quad with perspective) -->
+    <polygon points="340,260 760,340 760,660 340,760" fill="url(#glassFace)" stroke="#94A3B8" stroke-width="2.5" stroke-opacity="0.7" />
+
+    <!-- Perspective Window Frame Mullions (Dividing into geometric panes, receding to vanishing point) -->
+    <!-- Perspective Vertical Mullion at approx 45% depth -->
+    <line x1="510" y1="292" x2="510" y2="718" stroke="#64748B" stroke-width="2" stroke-opacity="0.5" />
+    <!-- Perspective Horizontal Mullion -->
+    <line x1="340" y1="510" x2="760" y2="500" stroke="#64748B" stroke-width="2" stroke-opacity="0.5" />
+
+    <!-- High-tech perspective bracket accents (No traffic lights!) -->
+    <polyline points="360,285 385,290" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" />
+    <polyline points="740,355 715,350" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- 4. The World Observation: A Massive Geometric C-Arc Penetrating the Window -->
+  <!-- Tilted in isometric 3D space, crossing from inside the window to out front -->
+  <g id="worldObservationArc">
+    <!-- Back arc (passing behind the window edge) -->
+    <!-- Center (500, 500), Major Radius 230, Minor 170, rotated -->
+    <!-- Primary thick geometric C stroke -->
+    <path d="M 680 340 C 430 220 240 370 240 540 C 240 710 440 840 690 700" 
+          fill="none" 
+          stroke="url(#worldArcV2)" 
+          stroke-width="54" 
+          stroke-linecap="round" 
+          filter="url(#arcGlow)" 
+          opacity="0.4" />
+
+    <path d="M 680 340 C 430 220 240 370 240 540 C 240 710 440 840 690 700" 
+          fill="none" 
+          stroke="url(#worldArcV2)" 
+          stroke-width="44" 
+          stroke-linecap="round" />
+
+    <!-- Terminal Focal Node (Substantial and clear, replaces the tiny dot) -->
+    <!-- Size: 24px diameter, clearly readable in Dock -->
+    <circle cx="680" cy="340" r="14" fill="#FFFFFF" />
+    <circle cx="680" cy="340" r="28" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-opacity="0.4" stroke-dasharray="6 6" />
+
+    <!-- Lower Terminal Core Node -->
+    <circle cx="690" cy="700" r="12" fill="#FBBF24" />
+  </g>
+</svg>

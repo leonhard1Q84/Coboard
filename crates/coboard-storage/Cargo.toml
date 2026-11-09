@@ -1,0 +1,22 @@
+[package]
+name = "coboard-storage"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+coboard-domain.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+uuid.workspace = true
+blake3.workspace = true
+rusqlite.workspace = true
+loro.workspace = true
+zstd.workspace = true
+fs2.workspace = true
+tempfile.workspace = true
+
+[[bin]]
+name = "coboard-storage-probe"
+path = "src/bin/storage_probe.rs"

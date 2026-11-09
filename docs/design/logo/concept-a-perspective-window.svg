@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%" height="100%">
+  <defs>
+    <!-- macOS Squircle Shadow -->
+    <filter id="appShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+
+    <!-- Glassmorphism Filter -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Base Canvas Gradient -->
+    <linearGradient id="baseBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E2330" />
+      <stop offset="100%" stop-color="#0F1117" />
+    </linearGradient>
+
+    <!-- Window A Gradient (Outer World) -->
+    <linearGradient id="backWindowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.7" />
+    </linearGradient>
+
+    <!-- Window B Gradient (Focus Lens) -->
+    <linearGradient id="frontWindowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Spectrum Arc Gradient (The World Observed) -->
+    <linearGradient id="spectrumArc" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF5E62" />
+      <stop offset="35%" stop-color="#FF9966" />
+      <stop offset="70%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <!-- Viewport Grid Pattern -->
+    <pattern id="dotGrid" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="16" cy="16" r="1.5" fill="#94A3B8" fill-opacity="0.25" />
+    </pattern>
+
+    <!-- Inner Rim Stroke Highlight -->
+    <linearGradient id="rimLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.03" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. macOS Icon Base Plate (824x824 at 100,100) with Squircle -->
+  <g filter="url(#appShadow)">
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#baseBg)" />
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="url(#rimLight)" stroke-width="2" />
+  </g>
+
+  <!-- 2. The Back Window (Screen / Outer World) -->
+  <g id="backWindow">
+    <rect x="230" y="220" width="440" height="440" rx="44" fill="url(#backWindowGrad)" stroke="#475569" stroke-width="2" stroke-opacity="0.4" />
+    <!-- Grid inside window representing coordinate / digital space -->
+    <rect x="230" y="220" width="440" height="440" rx="44" fill="url(#dotGrid)" />
+    <!-- Window Traffic Lights (macOS Sub-metaphor) -->
+    <circle cx="270" cy="260" r="6" fill="#EF4444" fill-opacity="0.6" />
+    <circle cx="292" cy="260" r="6" fill="#F59E0B" fill-opacity="0.6" />
+    <circle cx="314" cy="260" r="6" fill="#10B981" fill-opacity="0.6" />
+    <!-- Geometric framing marks (Viewfinder ticks) -->
+    <path d="M630 250 H650 V270" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M250 630 H270 V650" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- 3. The Front Lens Window (Coboard Overlay / Focus Aperture) -->
+  <g id="frontWindow">
+    <rect x="354" y="344" width="440" height="440" rx="44" fill="url(#frontWindowGrad)" stroke="#94A3B8" stroke-width="2" stroke-opacity="0.6" backdrop-filter="blur(20px)" />
+    <!-- Inner subtle bevel -->
+    <rect x="356" y="346" width="436" height="436" rx="42" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.15" />
+    <!-- Viewfinder Brackets -->
+    <path d="M754 384 H774 V404" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" />
+    <path d="M374 764 H394 V744" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- 4. The Observation Arc (The 'C' of Coboard penetrating the portals) -->
+  <!-- Center: 512, 512 | Radius: 210 | Arc from 40 deg to 320 deg -->
+  <g id="observationArc">
+    <!-- Glow Underlay -->
+    <path d="M 645 350 A 210 210 0 1 0 645 674" fill="none" stroke="url(#spectrumArc)" stroke-width="48" stroke-linecap="round" opacity="0.35" filter="url(#softGlow)" />
+    <!-- Main Razor-sharp Geometric Stroke -->
+    <path d="M 645 350 A 210 210 0 1 0 645 674" fill="none" stroke="url(#spectrumArc)" stroke-width="40" stroke-linecap="round" />
+    <!-- Focus Crosshair Needle at top entry (Where observation starts) -->
+    <circle cx="645" cy="350" r="8" fill="#FFFFFF" />
+    <!-- Viewport Center Target Dot -->
+    <circle cx="512" cy="512" r="6" fill="#F8FAFC" fill-opacity="0.9" />
+    <circle cx="512" cy="512" r="14" fill="none" stroke="#F8FAFC" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="3 3" />
+  </g>
+</svg>

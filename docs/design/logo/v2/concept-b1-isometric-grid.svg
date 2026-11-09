@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%" height="100%">
+  <defs>
+    <!-- macOS Squircle Shadow -->
+    <filter id="appShadowB1" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+
+    <!-- Aperture Glow -->
+    <filter id="apertureGlowB1" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="22" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Deep Space Background -->
+    <linearGradient id="bgB1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141722" />
+      <stop offset="100%" stop-color="#090B10" />
+    </linearGradient>
+
+    <!-- Perspective Window Glass Plane -->
+    <linearGradient id="glassFaceB1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.16" />
+      <stop offset="60%" stop-color="#818CF8" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.35" />
+    </linearGradient>
+
+    <!-- 3D Bevel/Extrusion Depth -->
+    <linearGradient id="bevelGradB1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64748B" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0.15" />
+    </linearGradient>
+
+    <!-- World Spectrum Gradient (Vibrant C Arc) -->
+    <linearGradient id="spectrumB1" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="35%" stop-color="#EC4899" />
+      <stop offset="70%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <!-- Squircle Rim Light -->
+    <linearGradient id="rimB1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.03" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. macOS Squircle Base -->
+  <g filter="url(#appShadowB1)">
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bgB1)" />
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="url(#rimB1)" stroke-width="2" />
+  </g>
+
+  <!-- 2. Perspective Projection of the Asymmetric Window (True 3D Spatial Panes) -->
+  <!-- Left Near Edge: x=250, y=270 to y=770 (height: 500) -->
+  <!-- Right Receding Edge: x=770, y=340 to y=690 (height: 350) -->
+  <g id="perspectiveWindowB1">
+    <!-- 3D Window Bevel Thickness (Extrusion on Left Edge) -->
+    <polygon points="230,285 250,270 250,770 230,785" fill="url(#bevelGradB1)" />
+    <!-- 3D Bottom Sill -->
+    <polygon points="230,785 250,770 770,690 750,705" fill="#0F172A" opacity="0.7" />
+
+    <!-- Main Perspective Glass Face (The tilted window) -->
+    <polygon points="250,270 770,340 770,690 250,770" fill="url(#glassFaceB1)" stroke="#94A3B8" stroke-width="2.5" stroke-opacity="0.75" />
+
+    <!-- Perspective Window Grid Dividers (Asymmetric Panes in 3D Perspective) -->
+    <!-- Vertical Pane Divider (receding at approx 60% depth) -->
+    <!-- Top at (560, 312), Bottom at (560, 722) -->
+    <line x1="560" y1="312" x2="560" y2="722" stroke="#64748B" stroke-width="2" stroke-opacity="0.6" />
+    
+    <!-- Right Horizontal Divider: from (560, 480) to (770, 500) -->
+    <line x1="560" y1="480" x2="770" y2="500" stroke="#64748B" stroke-width="2" stroke-opacity="0.6" />
+    
+    <!-- Left Horizontal Divider: from (250, 620) to (560, 590) -->
+    <line x1="250" y1="620" x2="560" y2="590" stroke="#64748B" stroke-width="2" stroke-opacity="0.6" />
+  </g>
+
+  <!-- 3. The Aperture Arc (The Grand C Stroke passing through the 3D window) -->
+  <!-- Elliptical perspective projection of the circle, center around (470, 510) -->
+  <g id="worldApertureB1">
+    <!-- Glow Backdrop -->
+    <path d="M 690 380 C 460 260 270 380 270 530 C 270 680 470 790 710 660" 
+          fill="none" 
+          stroke="url(#spectrumB1)" 
+          stroke-width="56" 
+          stroke-linecap="round" 
+          filter="url(#apertureGlowB1)" 
+          opacity="0.4" />
+
+    <!-- Sharp Solid Geometric Spectrum Arc -->
+    <path d="M 690 380 C 460 260 270 380 270 530 C 270 680 470 790 710 660" 
+          fill="none" 
+          stroke="url(#spectrumB1)" 
+          stroke-width="44" 
+          stroke-linecap="round" />
+
+    <!-- Top Focus Node (Bold, high contrast, anchor of the C) -->
+    <circle cx="690" cy="380" r="14" fill="#FFFFFF" />
+    <circle cx="690" cy="380" r="26" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-opacity="0.4" />
+
+    <!-- Bottom Node (Warm Amber terminal) -->
+    <circle cx="710" cy="660" r="12" fill="#F59E0B" />
+  </g>
+</svg>

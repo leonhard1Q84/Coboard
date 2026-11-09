@@ -1,0 +1,109 @@
+/* Coboard design tokens. Components reference only these semantic variables. See docs/design/ui-guidelines.md. */
+:root {
+  color-scheme: light dark;
+
+  --font-ui: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-md: 13px;
+  --text-lg: 15px;
+  --text-xl: 20px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  --size-tool: 36px;
+  --size-screen-panel: 680px;
+  --size-grip: 24px;
+  --color-screen-dim: #121418;
+  --size-border: 1px;
+  --size-icon: 20px;
+  --size-toolbar: 48px;
+  --size-titlebar: 40px;
+  --inset-traffic-lights: 80px;
+
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-hud: 700ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --z-objects: 1;
+  --z-live: 2;
+  --z-floating: 10;
+  --z-toast: 20;
+  --z-hud: 30;
+
+  --color-canvas: #f5f6f7;
+  --color-grid: #d9dce1;
+  --color-surface: rgba(255, 255, 255, 0.92);
+  --color-surface-solid: #ffffff;
+  --color-border: rgba(31, 35, 41, 0.1);
+  --color-divider: rgba(31, 35, 41, 0.1);
+  --color-text: #1f2329;
+  --color-text-secondary: #646a73;
+  --color-text-tertiary: #8f959e;
+  --color-hover: rgba(31, 35, 41, 0.06);
+  --color-pressed: rgba(31, 35, 41, 0.1);
+  --color-selected: rgba(47, 111, 237, 0.12);
+  --color-accent: #2f6fed;
+  --color-accent-contrast: #ffffff;
+  --color-focus: rgba(47, 111, 237, 0.6);
+  --color-success: #2b9a66;
+  --color-warning: #c27c0e;
+  --color-danger: #d93f45;
+  --color-danger-surface: #fff1f0;
+  --color-selection: #2f6fed;
+  --color-card: #ffffff;
+  --color-card-border: rgba(31, 35, 41, 0.12);
+  --color-hud: rgba(31, 35, 41, 0.82);
+  --color-hud-text: #ffffff;
+  --color-spot: rgba(255, 255, 255, 0.95);
+  --color-spot-glow: rgba(255, 255, 255, 0.4);
+  --shadow-floating: 0 1px 2px rgba(31, 35, 41, 0.06), 0 8px 24px rgba(31, 35, 41, 0.12);
+  --shadow-card: 0 1px 2px rgba(31, 35, 41, 0.06);
+
+  /* Ink palette: stored hex values are fixed; dark canvas remaps ink-1 at render time. */
+  --ink-1: #1f2329;
+  --ink-1-display: #1f2329;
+  --ink-2: #e5484d;
+  --ink-3: #2f6fed;
+  --ink-4: #2b9a66;
+  --ink-laser: #ff3b30;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-canvas: #1b1d21;
+    --color-grid: #30343b;
+    --color-surface: rgba(43, 46, 52, 0.92);
+    --color-surface-solid: #2b2e34;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-divider: rgba(255, 255, 255, 0.1);
+    --color-text: #f2f3f5;
+    --color-text-secondary: #a6abb4;
+    --color-text-tertiary: #7d828b;
+    --color-hover: rgba(255, 255, 255, 0.08);
+    --color-pressed: rgba(255, 255, 255, 0.12);
+    --color-selected: rgba(94, 145, 255, 0.2);
+    --color-accent: #5e91ff;
+    --color-focus: rgba(94, 145, 255, 0.7);
+    --color-danger-surface: #3a2224;
+    --color-selection: #5e91ff;
+    --color-card: #25282d;
+    --color-card-border: rgba(255, 255, 255, 0.12);
+    --color-hud: rgba(242, 243, 245, 0.9);
+    --color-hud-text: #1f2329;
+    --shadow-floating: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.4);
+    --ink-1-display: #f2f3f5;
+  }
+}

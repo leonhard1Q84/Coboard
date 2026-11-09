@@ -1,0 +1,20 @@
+[package]
+name = "coboard-server"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+coboard-storage.workspace = true
+axum.workspace = true
+tokio.workspace = true
+tokio-util.workspace = true
+tower.workspace = true
+tower-http.workspace = true
+uuid.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+futures-util.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

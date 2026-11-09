@@ -1,0 +1,2546 @@
+{
+  "uncompressed_jsonl_sha256": "3418917a2ce079b2a92b10e8cfba0586801a7855ce16bc0759b9ef2d8104c58a",
+  "scope": "Original isolated human strokes, deployed mixed character range; no segmentation, LM, IPC or UI; no claim that proprietary model training excluded UJI",
+  "load": {
+    "elapsed_ms": 10.255791,
+    "kind": "load",
+    "scope": "isolated raw human XY ink; unrestricted deployed character range; no LM or label-conditioned filtering"
+  },
+  "overall": {
+    "samples": 2480,
+    "errors": 0,
+    "top1_correct": 1306,
+    "top1_accuracy": 0.5266129032258065,
+    "top5_correct": 2104,
+    "top5_accuracy": 0.8483870967741935,
+    "top10_correct": 2224,
+    "top10_accuracy": 0.896774193548387,
+    "character_error_rate": 0.47338709677419355,
+    "casefold_top1_correct": 1622,
+    "compute_p50_ms": 3.8467919999999998,
+    "compute_p95_ms": 4.344958
+  },
+  "by_category": {
+    "digit": {
+      "samples": 400,
+      "errors": 0,
+      "top1_correct": 176,
+      "top1_accuracy": 0.44,
+      "top5_correct": 321,
+      "top5_accuracy": 0.8025,
+      "top10_correct": 345,
+      "top10_accuracy": 0.8625,
+      "character_error_rate": 0.56,
+      "casefold_top1_correct": 176,
+      "compute_p50_ms": 3.799291,
+      "compute_p95_ms": 4.220042
+    },
+    "uppercase": {
+      "samples": 1040,
+      "errors": 0,
+      "top1_correct": 561,
+      "top1_accuracy": 0.5394230769230769,
+      "top5_correct": 882,
+      "top5_accuracy": 0.8480769230769231,
+      "top10_correct": 931,
+      "top10_accuracy": 0.8951923076923077,
+      "character_error_rate": 0.4605769230769231,
+      "casefold_top1_correct": 734,
+      "compute_p50_ms": 3.906125,
+      "compute_p95_ms": 4.357708
+    },
+    "lowercase": {
+      "samples": 1040,
+      "errors": 0,
+      "top1_correct": 569,
+      "top1_accuracy": 0.5471153846153847,
+      "top5_correct": 901,
+      "top5_accuracy": 0.8663461538461539,
+      "top10_correct": 948,
+      "top10_accuracy": 0.9115384615384615,
+      "character_error_rate": 0.45288461538461533,
+      "casefold_top1_correct": 712,
+      "compute_p50_ms": 3.806709,
+      "compute_p95_ms": 4.389708
+    }
+  },
+  "by_writer": {
+    "tst_UJI_W12": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 45,
+      "top1_accuracy": 0.3629032258064516,
+      "top5_correct": 83,
+      "top5_accuracy": 0.6693548387096774,
+      "top10_correct": 91,
+      "top10_accuracy": 0.7338709677419355,
+      "character_error_rate": 0.6370967741935484,
+      "casefold_top1_correct": 69,
+      "compute_p50_ms": 3.9597909999999996,
+      "compute_p95_ms": 4.644042
+    },
+    "tst_UJI_W13": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 61,
+      "top1_accuracy": 0.49193548387096775,
+      "top5_correct": 96,
+      "top5_accuracy": 0.7741935483870968,
+      "top10_correct": 106,
+      "top10_accuracy": 0.8548387096774194,
+      "character_error_rate": 0.5080645161290323,
+      "casefold_top1_correct": 72,
+      "compute_p50_ms": 3.752583,
+      "compute_p95_ms": 4.160375
+    },
+    "tst_UJI_W14": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 81,
+      "top1_accuracy": 0.6532258064516129,
+      "top5_correct": 118,
+      "top5_accuracy": 0.9516129032258065,
+      "top10_correct": 119,
+      "top10_accuracy": 0.9596774193548387,
+      "character_error_rate": 0.3467741935483871,
+      "casefold_top1_correct": 96,
+      "compute_p50_ms": 3.736125,
+      "compute_p95_ms": 4.162125
+    },
+    "tst_UJI_W15": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 82,
+      "top1_accuracy": 0.6612903225806451,
+      "top5_correct": 113,
+      "top5_accuracy": 0.9112903225806451,
+      "top10_correct": 116,
+      "top10_accuracy": 0.9354838709677419,
+      "character_error_rate": 0.33870967741935487,
+      "casefold_top1_correct": 97,
+      "compute_p50_ms": 3.809292,
+      "compute_p95_ms": 4.159209
+    },
+    "tst_UJI_W16": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 47,
+      "top1_accuracy": 0.3790322580645161,
+      "top5_correct": 85,
+      "top5_accuracy": 0.6854838709677419,
+      "top10_correct": 96,
+      "top10_accuracy": 0.7741935483870968,
+      "character_error_rate": 0.6209677419354839,
+      "casefold_top1_correct": 56,
+      "compute_p50_ms": 3.889042,
+      "compute_p95_ms": 4.250458
+    },
+    "tst_UPV_W18": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 88,
+      "top1_accuracy": 0.7096774193548387,
+      "top5_correct": 122,
+      "top5_accuracy": 0.9838709677419355,
+      "top10_correct": 122,
+      "top10_accuracy": 0.9838709677419355,
+      "character_error_rate": 0.29032258064516125,
+      "casefold_top1_correct": 106,
+      "compute_p50_ms": 3.715625,
+      "compute_p95_ms": 4.288125
+    },
+    "tst_UPV_W21": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 70,
+      "top1_accuracy": 0.5645161290322581,
+      "top5_correct": 114,
+      "top5_accuracy": 0.9193548387096774,
+      "top10_correct": 116,
+      "top10_accuracy": 0.9354838709677419,
+      "character_error_rate": 0.4354838709677419,
+      "casefold_top1_correct": 87,
+      "compute_p50_ms": 3.6254999999999997,
+      "compute_p95_ms": 4.036084
+    },
+    "tst_UPV_W24": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 63,
+      "top1_accuracy": 0.5080645161290323,
+      "top5_correct": 118,
+      "top5_accuracy": 0.9516129032258065,
+      "top10_correct": 123,
+      "top10_accuracy": 0.9919354838709677,
+      "character_error_rate": 0.49193548387096775,
+      "casefold_top1_correct": 84,
+      "compute_p50_ms": 3.802709,
+      "compute_p95_ms": 4.2205
+    },
+    "tst_UPV_W27": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 64,
+      "top1_accuracy": 0.5161290322580645,
+      "top5_correct": 105,
+      "top5_accuracy": 0.8467741935483871,
+      "top10_correct": 111,
+      "top10_accuracy": 0.8951612903225806,
+      "character_error_rate": 0.4838709677419355,
+      "casefold_top1_correct": 80,
+      "compute_p50_ms": 3.852916,
+      "compute_p95_ms": 4.281875
+    },
+    "tst_UPV_W30": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 43,
+      "top1_accuracy": 0.3467741935483871,
+      "top5_correct": 94,
+      "top5_accuracy": 0.7580645161290323,
+      "top10_correct": 104,
+      "top10_accuracy": 0.8387096774193549,
+      "character_error_rate": 0.6532258064516129,
+      "casefold_top1_correct": 52,
+      "compute_p50_ms": 3.8366670000000003,
+      "compute_p95_ms": 4.300208
+    },
+    "tst_UPV_W33": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 77,
+      "top1_accuracy": 0.6209677419354839,
+      "top5_correct": 115,
+      "top5_accuracy": 0.9274193548387096,
+      "top10_correct": 120,
+      "top10_accuracy": 0.967741935483871,
+      "character_error_rate": 0.3790322580645161,
+      "casefold_top1_correct": 95,
+      "compute_p50_ms": 3.838333,
+      "compute_p95_ms": 4.2550419999999995
+    },
+    "tst_UPV_W36": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 40,
+      "top1_accuracy": 0.3225806451612903,
+      "top5_correct": 91,
+      "top5_accuracy": 0.7338709677419355,
+      "top10_correct": 102,
+      "top10_accuracy": 0.8225806451612904,
+      "character_error_rate": 0.6774193548387097,
+      "casefold_top1_correct": 54,
+      "compute_p50_ms": 3.858083,
+      "compute_p95_ms": 4.333042
+    },
+    "tst_UPV_W39": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 77,
+      "top1_accuracy": 0.6209677419354839,
+      "top5_correct": 119,
+      "top5_accuracy": 0.9596774193548387,
+      "top10_correct": 121,
+      "top10_accuracy": 0.9758064516129032,
+      "character_error_rate": 0.3790322580645161,
+      "casefold_top1_correct": 94,
+      "compute_p50_ms": 4.02225,
+      "compute_p95_ms": 4.481167
+    },
+    "tst_UPV_W42": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 65,
+      "top1_accuracy": 0.5241935483870968,
+      "top5_correct": 109,
+      "top5_accuracy": 0.8790322580645161,
+      "top10_correct": 115,
+      "top10_accuracy": 0.9274193548387096,
+      "character_error_rate": 0.47580645161290325,
+      "casefold_top1_correct": 77,
+      "compute_p50_ms": 3.9269580000000004,
+      "compute_p95_ms": 4.331875
+    },
+    "tst_UPV_W45": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 77,
+      "top1_accuracy": 0.6209677419354839,
+      "top5_correct": 110,
+      "top5_accuracy": 0.8870967741935484,
+      "top10_correct": 118,
+      "top10_accuracy": 0.9516129032258065,
+      "character_error_rate": 0.3790322580645161,
+      "casefold_top1_correct": 96,
+      "compute_p50_ms": 3.865458,
+      "compute_p95_ms": 4.259833
+    },
+    "tst_UPV_W48": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 61,
+      "top1_accuracy": 0.49193548387096775,
+      "top5_correct": 111,
+      "top5_accuracy": 0.8951612903225806,
+      "top10_correct": 116,
+      "top10_accuracy": 0.9354838709677419,
+      "character_error_rate": 0.5080645161290323,
+      "casefold_top1_correct": 81,
+      "compute_p50_ms": 3.883958,
+      "compute_p95_ms": 10.798458
+    },
+    "tst_UPV_W51": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 67,
+      "top1_accuracy": 0.5403225806451613,
+      "top5_correct": 107,
+      "top5_accuracy": 0.8629032258064516,
+      "top10_correct": 112,
+      "top10_accuracy": 0.9032258064516129,
+      "character_error_rate": 0.45967741935483875,
+      "casefold_top1_correct": 81,
+      "compute_p50_ms": 3.850375,
+      "compute_p95_ms": 4.281333
+    },
+    "tst_UPV_W54": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 67,
+      "top1_accuracy": 0.5403225806451613,
+      "top5_correct": 107,
+      "top5_accuracy": 0.8629032258064516,
+      "top10_correct": 114,
+      "top10_accuracy": 0.9193548387096774,
+      "character_error_rate": 0.45967741935483875,
+      "casefold_top1_correct": 81,
+      "compute_p50_ms": 3.8218750000000004,
+      "compute_p95_ms": 6.929333000000001
+    },
+    "tst_UPV_W57": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 90,
+      "top1_accuracy": 0.7258064516129032,
+      "top5_correct": 119,
+      "top5_accuracy": 0.9596774193548387,
+      "top10_correct": 120,
+      "top10_accuracy": 0.967741935483871,
+      "character_error_rate": 0.27419354838709675,
+      "casefold_top1_correct": 104,
+      "compute_p50_ms": 3.855375,
+      "compute_p95_ms": 4.297459
+    },
+    "tst_UPV_W60": {
+      "samples": 124,
+      "errors": 0,
+      "top1_correct": 41,
+      "top1_accuracy": 0.33064516129032256,
+      "top5_correct": 68,
+      "top5_accuracy": 0.5483870967741935,
+      "top10_correct": 82,
+      "top10_accuracy": 0.6612903225806451,
+      "character_error_rate": 0.6693548387096775,
+      "casefold_top1_correct": 60,
+      "compute_p50_ms": 3.978542,
+      "compute_p95_ms": 4.3655409999999994
+    }
+  },
+  "confusions": [
+    {
+      "expected": "W",
+      "actual": "w",
+      "count": 26
+    },
+    {
+      "expected": "Y",
+      "actual": "y",
+      "count": 25
+    },
+    {
+      "expected": "x",
+      "actual": "X",
+      "count": 23
+    },
+    {
+      "expected": "c",
+      "actual": "C",
+      "count": 22
+    },
+    {
+      "expected": "o",
+      "actual": "O",
+      "count": 20
+    },
+    {
+      "expected": "k",
+      "actual": "K",
+      "count": 19
+    },
+    {
+      "expected": "P",
+      "actual": "p",
+      "count": 18
+    },
+    {
+      "expected": "S",
+      "actual": "s",
+      "count": 18
+    },
+    {
+      "expected": "f",
+      "actual": "扌",
+      "count": 17
+    },
+    {
+      "expected": "0",
+      "actual": "O",
+      "count": 16
+    },
+    {
+      "expected": "C",
+      "actual": "c",
+      "count": 16
+    },
+    {
+      "expected": "z",
+      "actual": "Z",
+      "count": 15
+    },
+    {
+      "expected": "3",
+      "actual": "了",
+      "count": 15
+    },
+    {
+      "expected": "0",
+      "actual": "o",
+      "count": 15
+    },
+    {
+      "expected": "9",
+      "actual": "q",
+      "count": 15
+    },
+    {
+      "expected": "s",
+      "actual": "S",
+      "count": 14
+    },
+    {
+      "expected": "v",
+      "actual": "V",
+      "count": 14
+    },
+    {
+      "expected": "2",
+      "actual": "z",
+      "count": 13
+    },
+    {
+      "expected": "l",
+      "actual": "Q",
+      "count": 12
+    },
+    {
+      "expected": "X",
+      "actual": "x",
+      "count": 11
+    },
+    {
+      "expected": "O",
+      "actual": "o",
+      "count": 11
+    },
+    {
+      "expected": "G",
+      "actual": "6",
+      "count": 11
+    },
+    {
+      "expected": "U",
+      "actual": "u",
+      "count": 10
+    },
+    {
+      "expected": "Z",
+      "actual": "z",
+      "count": 10
+    },
+    {
+      "expected": "l",
+      "actual": "e",
+      "count": 10
+    },
+    {
+      "expected": "4",
+      "actual": "厶",
+      "count": 9
+    },
+    {
+      "expected": "1",
+      "actual": "l",
+      "count": 9
+    },
+    {
+      "expected": "b",
+      "actual": "6",
+      "count": 8
+    },
+    {
+      "expected": "v",
+      "actual": "U",
+      "count": 7
+    },
+    {
+      "expected": "T",
+      "actual": "厂",
+      "count": 7
+    },
+    {
+      "expected": "o",
+      "actual": "0",
+      "count": 7
+    },
+    {
+      "expected": "j",
+      "actual": "疒",
+      "count": 7
+    },
+    {
+      "expected": "l",
+      "actual": "t",
+      "count": 7
+    },
+    {
+      "expected": "V",
+      "actual": "U",
+      "count": 7
+    },
+    {
+      "expected": "V",
+      "actual": "v",
+      "count": 6
+    },
+    {
+      "expected": "5",
+      "actual": "S",
+      "count": 6
+    },
+    {
+      "expected": "w",
+      "actual": "比",
+      "count": 6
+    },
+    {
+      "expected": "O",
+      "actual": "0",
+      "count": 6
+    },
+    {
+      "expected": "W",
+      "actual": "比",
+      "count": 6
+    },
+    {
+      "expected": "7",
+      "actual": "彐",
+      "count": 6
+    },
+    {
+      "expected": "D",
+      "actual": "0",
+      "count": 6
+    },
+    {
+      "expected": "p",
+      "actual": "P",
+      "count": 6
+    },
+    {
+      "expected": "X",
+      "actual": "N",
+      "count": 6
+    },
+    {
+      "expected": "A",
+      "actual": "a",
+      "count": 5
+    },
+    {
+      "expected": "M",
+      "actual": "m",
+      "count": 5
+    },
+    {
+      "expected": "I",
+      "actual": "l",
+      "count": 5
+    },
+    {
+      "expected": "I",
+      "actual": "丨",
+      "count": 5
+    },
+    {
+      "expected": "J",
+      "actual": "丿",
+      "count": 5
+    },
+    {
+      "expected": "I",
+      "actual": "1",
+      "count": 5
+    },
+    {
+      "expected": "k",
+      "actual": "长",
+      "count": 5
+    },
+    {
+      "expected": "M",
+      "actual": "u",
+      "count": 5
+    },
+    {
+      "expected": "4",
+      "actual": "丩",
+      "count": 5
+    },
+    {
+      "expected": "5",
+      "actual": "s",
+      "count": 5
+    },
+    {
+      "expected": "1",
+      "actual": "n",
+      "count": 5
+    },
+    {
+      "expected": "y",
+      "actual": "g",
+      "count": 5
+    },
+    {
+      "expected": "K",
+      "actual": "u",
+      "count": 5
+    },
+    {
+      "expected": "g",
+      "actual": "8",
+      "count": 5
+    },
+    {
+      "expected": "q",
+      "actual": "9",
+      "count": 4
+    },
+    {
+      "expected": "B",
+      "actual": "乃",
+      "count": 4
+    },
+    {
+      "expected": "N",
+      "actual": "n",
+      "count": 4
+    },
+    {
+      "expected": "2",
+      "actual": "Z",
+      "count": 4
+    },
+    {
+      "expected": "z",
+      "actual": "E",
+      "count": 4
+    },
+    {
+      "expected": "D",
+      "actual": "口",
+      "count": 4
+    },
+    {
+      "expected": "7",
+      "actual": "又",
+      "count": 4
+    },
+    {
+      "expected": "7",
+      "actual": "子",
+      "count": 4
+    },
+    {
+      "expected": "L",
+      "actual": "l",
+      "count": 4
+    },
+    {
+      "expected": "J",
+      "actual": "丁",
+      "count": 4
+    },
+    {
+      "expected": "w",
+      "actual": "W",
+      "count": 4
+    },
+    {
+      "expected": "d",
+      "actual": "a",
+      "count": 4
+    },
+    {
+      "expected": "p",
+      "actual": "n",
+      "count": 4
+    },
+    {
+      "expected": "r",
+      "actual": "n",
+      "count": 4
+    },
+    {
+      "expected": "Z",
+      "actual": "E",
+      "count": 4
+    },
+    {
+      "expected": "n",
+      "actual": "m",
+      "count": 4
+    },
+    {
+      "expected": "Y",
+      "actual": "冫",
+      "count": 4
+    },
+    {
+      "expected": "2",
+      "actual": "乙",
+      "count": 4
+    },
+    {
+      "expected": "7",
+      "actual": "Z",
+      "count": 4
+    },
+    {
+      "expected": "j",
+      "actual": "孑",
+      "count": 3
+    },
+    {
+      "expected": "o",
+      "actual": "C",
+      "count": 3
+    },
+    {
+      "expected": "o",
+      "actual": "Q",
+      "count": 3
+    },
+    {
+      "expected": "t",
+      "actual": "l",
+      "count": 3
+    },
+    {
+      "expected": "E",
+      "actual": "q",
+      "count": 3
+    },
+    {
+      "expected": "s",
+      "actual": "8",
+      "count": 3
+    },
+    {
+      "expected": "N",
+      "actual": "儿",
+      "count": 3
+    },
+    {
+      "expected": "P",
+      "actual": "卩",
+      "count": 3
+    },
+    {
+      "expected": "q",
+      "actual": "g",
+      "count": 3
+    },
+    {
+      "expected": "G",
+      "actual": "c",
+      "count": 3
+    },
+    {
+      "expected": "4",
+      "actual": "个",
+      "count": 3
+    },
+    {
+      "expected": "7",
+      "actual": "孑",
+      "count": 3
+    },
+    {
+      "expected": "n",
+      "actual": "h",
+      "count": 3
+    },
+    {
+      "expected": "4",
+      "actual": "凵",
+      "count": 3
+    },
+    {
+      "expected": "7",
+      "actual": "z",
+      "count": 3
+    },
+    {
+      "expected": "k",
+      "actual": "h",
+      "count": 3
+    },
+    {
+      "expected": "x",
+      "actual": "孔",
+      "count": 3
+    },
+    {
+      "expected": "J",
+      "actual": "y",
+      "count": 3
+    },
+    {
+      "expected": "P",
+      "actual": "Q",
+      "count": 3
+    },
+    {
+      "expected": "P",
+      "actual": "口",
+      "count": 3
+    },
+    {
+      "expected": "1",
+      "actual": "u",
+      "count": 3
+    },
+    {
+      "expected": "f",
+      "actual": "8",
+      "count": 3
+    },
+    {
+      "expected": "r",
+      "actual": "v",
+      "count": 3
+    },
+    {
+      "expected": "l",
+      "actual": "1",
+      "count": 3
+    },
+    {
+      "expected": "v",
+      "actual": "心",
+      "count": 3
+    },
+    {
+      "expected": "A",
+      "actual": "n",
+      "count": 3
+    },
+    {
+      "expected": "H",
+      "actual": "凵",
+      "count": 3
+    },
+    {
+      "expected": "1",
+      "actual": "丨",
+      "count": 3
+    },
+    {
+      "expected": "k",
+      "actual": "u",
+      "count": 3
+    },
+    {
+      "expected": "u",
+      "actual": "U",
+      "count": 3
+    },
+    {
+      "expected": "J",
+      "actual": "孑",
+      "count": 3
+    },
+    {
+      "expected": "W",
+      "actual": "u",
+      "count": 3
+    },
+    {
+      "expected": "n",
+      "actual": "兀",
+      "count": 2
+    },
+    {
+      "expected": "u",
+      "actual": "m",
+      "count": 2
+    },
+    {
+      "expected": "D",
+      "actual": "b",
+      "count": 2
+    },
+    {
+      "expected": "K",
+      "actual": "七",
+      "count": 2
+    },
+    {
+      "expected": "L",
+      "actual": "人",
+      "count": 2
+    },
+    {
+      "expected": "O",
+      "actual": "C",
+      "count": 2
+    },
+    {
+      "expected": "1",
+      "actual": "r",
+      "count": 2
+    },
+    {
+      "expected": "8",
+      "actual": "r",
+      "count": 2
+    },
+    {
+      "expected": "g",
+      "actual": "了",
+      "count": 2
+    },
+    {
+      "expected": "i",
+      "actual": "l",
+      "count": 2
+    },
+    {
+      "expected": "p",
+      "actual": "卩",
+      "count": 2
+    },
+    {
+      "expected": "u",
+      "actual": "h",
+      "count": 2
+    },
+    {
+      "expected": "z",
+      "actual": "t",
+      "count": 2
+    },
+    {
+      "expected": "L",
+      "actual": "C",
+      "count": 2
+    },
+    {
+      "expected": "T",
+      "actual": "丁",
+      "count": 2
+    },
+    {
+      "expected": "Z",
+      "actual": "t",
+      "count": 2
+    },
+    {
+      "expected": "R",
+      "actual": "n",
+      "count": 2
+    },
+    {
+      "expected": "U",
+      "actual": "0",
+      "count": 2
+    },
+    {
+      "expected": "r",
+      "actual": "q",
+      "count": 2
+    },
+    {
+      "expected": "t",
+      "actual": "匕",
+      "count": 2
+    },
+    {
+      "expected": "1",
+      "actual": "士",
+      "count": 2
+    },
+    {
+      "expected": "1",
+      "actual": "土",
+      "count": 2
+    },
+    {
+      "expected": "m",
+      "actual": "u",
+      "count": 2
+    },
+    {
+      "expected": "n",
+      "actual": "u",
+      "count": 2
+    },
+    {
+      "expected": "r",
+      "actual": "几",
+      "count": 2
+    },
+    {
+      "expected": "s",
+      "actual": "J",
+      "count": 2
+    },
+    {
+      "expected": "B",
+      "actual": "凸",
+      "count": 2
+    },
+    {
+      "expected": "E",
+      "actual": "c",
+      "count": 2
+    },
+    {
+      "expected": "F",
+      "actual": "5",
+      "count": 2
+    },
+    {
+      "expected": "7",
+      "actual": "r",
+      "count": 2
+    },
+    {
+      "expected": "d",
+      "actual": "y",
+      "count": 2
+    },
+    {
+      "expected": "j",
+      "actual": "y",
+      "count": 2
+    },
+    {
+      "expected": "z",
+      "actual": "飞",
+      "count": 2
+    },
+    {
+      "expected": "U",
+      "actual": "v",
+      "count": 2
+    },
+    {
+      "expected": "4",
+      "actual": "y",
+      "count": 2
+    },
+    {
+      "expected": "7",
+      "actual": "刁",
+      "count": 2
+    },
+    {
+      "expected": "8",
+      "actual": "6",
+      "count": 2
+    },
+    {
+      "expected": "m",
+      "actual": "灬",
+      "count": 2
+    },
+    {
+      "expected": "u",
+      "actual": "w",
+      "count": 2
+    },
+    {
+      "expected": "K",
+      "actual": "氏",
+      "count": 2
+    },
+    {
+      "expected": "R",
+      "actual": "口",
+      "count": 2
+    },
+    {
+      "expected": "4",
+      "actual": "u",
+      "count": 2
+    },
+    {
+      "expected": "b",
+      "actual": "e",
+      "count": 2
+    },
+    {
+      "expected": "g",
+      "actual": "q",
+      "count": 2
+    },
+    {
+      "expected": "h",
+      "actual": "Q",
+      "count": 2
+    },
+    {
+      "expected": "F",
+      "actual": "r",
+      "count": 2
+    },
+    {
+      "expected": "h",
+      "actual": "u",
+      "count": 2
+    },
+    {
+      "expected": "j",
+      "actual": "扌",
+      "count": 2
+    },
+    {
+      "expected": "p",
+      "actual": "m",
+      "count": 2
+    },
+    {
+      "expected": "x",
+      "actual": "N",
+      "count": 2
+    },
+    {
+      "expected": "Z",
+      "actual": "己",
+      "count": 2
+    },
+    {
+      "expected": "1",
+      "actual": "丬",
+      "count": 2
+    },
+    {
+      "expected": "4",
+      "actual": "U",
+      "count": 2
+    },
+    {
+      "expected": "5",
+      "actual": "J",
+      "count": 2
+    },
+    {
+      "expected": "f",
+      "actual": "r",
+      "count": 2
+    },
+    {
+      "expected": "z",
+      "actual": "王",
+      "count": 2
+    },
+    {
+      "expected": "V",
+      "actual": "Y",
+      "count": 2
+    },
+    {
+      "expected": "b",
+      "actual": "Q",
+      "count": 2
+    },
+    {
+      "expected": "m",
+      "actual": "巧",
+      "count": 2
+    },
+    {
+      "expected": "p",
+      "actual": "口",
+      "count": 2
+    },
+    {
+      "expected": "v",
+      "actual": "凵",
+      "count": 2
+    },
+    {
+      "expected": "x",
+      "actual": "y",
+      "count": 2
+    },
+    {
+      "expected": "I",
+      "actual": "了",
+      "count": 2
+    },
+    {
+      "expected": "X",
+      "actual": "r",
+      "count": 2
+    },
+    {
+      "expected": "1",
+      "actual": "7",
+      "count": 2
+    },
+    {
+      "expected": "4",
+      "actual": "9",
+      "count": 2
+    },
+    {
+      "expected": "r",
+      "actual": "V",
+      "count": 2
+    },
+    {
+      "expected": "H",
+      "actual": "u",
+      "count": 2
+    },
+    {
+      "expected": "M",
+      "actual": "n",
+      "count": 2
+    },
+    {
+      "expected": "Q",
+      "actual": "a",
+      "count": 2
+    },
+    {
+      "expected": "S",
+      "actual": "8",
+      "count": 2
+    },
+    {
+      "expected": "5",
+      "actual": "万",
+      "count": 2
+    },
+    {
+      "expected": "p",
+      "actual": "Q",
+      "count": 2
+    },
+    {
+      "expected": "R",
+      "actual": "阝",
+      "count": 2
+    },
+    {
+      "expected": "a",
+      "actual": "Q",
+      "count": 2
+    },
+    {
+      "expected": "f",
+      "actual": "t",
+      "count": 2
+    },
+    {
+      "expected": "7",
+      "actual": "下",
+      "count": 2
+    },
+    {
+      "expected": "s",
+      "actual": "了",
+      "count": 2
+    },
+    {
+      "expected": "B",
+      "actual": "Q",
+      "count": 2
+    },
+    {
+      "expected": "J",
+      "actual": "二",
+      "count": 2
+    },
+    {
+      "expected": "b",
+      "actual": "长",
+      "count": 2
+    },
+    {
+      "expected": "O",
+      "actual": "Q",
+      "count": 2
+    },
+    {
+      "expected": "R",
+      "actual": "卫",
+      "count": 2
+    },
+    {
+      "expected": "a",
+      "actual": "G",
+      "count": 1
+    },
+    {
+      "expected": "a",
+      "actual": "C",
+      "count": 1
+    },
+    {
+      "expected": "k",
+      "actual": "质",
+      "count": 1
+    },
+    {
+      "expected": "t",
+      "actual": "厂",
+      "count": 1
+    },
+    {
+      "expected": "w",
+      "actual": "u",
+      "count": 1
+    },
+    {
+      "expected": "y",
+      "actual": "与",
+      "count": 1
+    },
+    {
+      "expected": "D",
+      "actual": "勹",
+      "count": 1
+    },
+    {
+      "expected": "E",
+      "actual": "e",
+      "count": 1
+    },
+    {
+      "expected": "F",
+      "actual": "爻",
+      "count": 1
+    },
+    {
+      "expected": "F",
+      "actual": "廷",
+      "count": 1
+    },
+    {
+      "expected": "H",
+      "actual": "y",
+      "count": 1
+    },
+    {
+      "expected": "H",
+      "actual": "q",
+      "count": 1
+    },
+    {
+      "expected": "I",
+      "actual": "孓",
+      "count": 1
+    },
+    {
+      "expected": "I",
+      "actual": "又",
+      "count": 1
+    },
+    {
+      "expected": "J",
+      "actual": "g",
+      "count": 1
+    },
+    {
+      "expected": "L",
+      "actual": "处",
+      "count": 1
+    },
+    {
+      "expected": "Q",
+      "actual": "o",
+      "count": 1
+    },
+    {
+      "expected": "Q",
+      "actual": "男",
+      "count": 1
+    },
+    {
+      "expected": "R",
+      "actual": "欠",
+      "count": 1
+    },
+    {
+      "expected": "R",
+      "actual": "饣",
+      "count": 1
+    },
+    {
+      "expected": "S",
+      "actual": "丈",
+      "count": 1
+    },
+    {
+      "expected": "X",
+      "actual": "Y",
+      "count": 1
+    },
+    {
+      "expected": "Z",
+      "actual": "无",
+      "count": 1
+    },
+    {
+      "expected": "7",
+      "actual": "疒",
+      "count": 1
+    },
+    {
+      "expected": "8",
+      "actual": "f",
+      "count": 1
+    },
+    {
+      "expected": "d",
+      "actual": "水",
+      "count": 1
+    },
+    {
+      "expected": "d",
+      "actual": "孔",
+      "count": 1
+    },
+    {
+      "expected": "m",
+      "actual": "w",
+      "count": 1
+    },
+    {
+      "expected": "o",
+      "actual": "口",
+      "count": 1
+    },
+    {
+      "expected": "q",
+      "actual": "廴",
+      "count": 1
+    },
+    {
+      "expected": "q",
+      "actual": "丬",
+      "count": 1
+    },
+    {
+      "expected": "s",
+      "actual": "i",
+      "count": 1
+    },
+    {
+      "expected": "y",
+      "actual": "1",
+      "count": 1
+    },
+    {
+      "expected": "A",
+      "actual": "丹",
+      "count": 1
+    },
+    {
+      "expected": "E",
+      "actual": "t",
+      "count": 1
+    },
+    {
+      "expected": "G",
+      "actual": "匕",
+      "count": 1
+    },
+    {
+      "expected": "H",
+      "actual": "廾",
+      "count": 1
+    },
+    {
+      "expected": "O",
+      "actual": "8",
+      "count": 1
+    },
+    {
+      "expected": "S",
+      "actual": "兌",
+      "count": 1
+    },
+    {
+      "expected": "S",
+      "actual": "二",
+      "count": 1
+    },
+    {
+      "expected": "U",
+      "actual": "凵",
+      "count": 1
+    },
+    {
+      "expected": "Y",
+      "actual": "x",
+      "count": 1
+    },
+    {
+      "expected": "Z",
+      "actual": "王",
+      "count": 1
+    },
+    {
+      "expected": "0",
+      "actual": "8",
+      "count": 1
+    },
+    {
+      "expected": "1",
+      "actual": "寸",
+      "count": 1
+    },
+    {
+      "expected": "2",
+      "actual": "l",
+      "count": 1
+    },
+    {
+      "expected": "9",
+      "actual": "n",
+      "count": 1
+    },
+    {
+      "expected": "9",
+      "actual": "p",
+      "count": 1
+    },
+    {
+      "expected": "b",
+      "actual": "r",
+      "count": 1
+    },
+    {
+      "expected": "g",
+      "actual": "夕",
+      "count": 1
+    },
+    {
+      "expected": "g",
+      "actual": "9",
+      "count": 1
+    },
+    {
+      "expected": "j",
+      "actual": "r",
+      "count": 1
+    },
+    {
+      "expected": "K",
+      "actual": "k",
+      "count": 1
+    },
+    {
+      "expected": "0",
+      "actual": "6",
+      "count": 1
+    },
+    {
+      "expected": "1",
+      "actual": "f",
+      "count": 1
+    },
+    {
+      "expected": "4",
+      "actual": "乡",
+      "count": 1
+    },
+    {
+      "expected": "t",
+      "actual": "匚",
+      "count": 1
+    },
+    {
+      "expected": "J",
+      "actual": "寸",
+      "count": 1
+    },
+    {
+      "expected": "4",
+      "actual": "士",
+      "count": 1
+    },
+    {
+      "expected": "c",
+      "actual": "e",
+      "count": 1
+    },
+    {
+      "expected": "s",
+      "actual": "5",
+      "count": 1
+    },
+    {
+      "expected": "y",
+      "actual": "对",
+      "count": 1
+    },
+    {
+      "expected": "z",
+      "actual": "攵",
+      "count": 1
+    },
+    {
+      "expected": "z",
+      "actual": "亡",
+      "count": 1
+    },
+    {
+      "expected": "A",
+      "actual": "丬",
+      "count": 1
+    },
+    {
+      "expected": "A",
+      "actual": "u",
+      "count": 1
+    },
+    {
+      "expected": "C",
+      "actual": "e",
+      "count": 1
+    },
+    {
+      "expected": "D",
+      "actual": "o",
+      "count": 1
+    },
+    {
+      "expected": "E",
+      "actual": "足",
+      "count": 1
+    },
+    {
+      "expected": "H",
+      "actual": "N",
+      "count": 1
+    },
+    {
+      "expected": "H",
+      "actual": "壮",
+      "count": 1
+    },
+    {
+      "expected": "I",
+      "actual": "y",
+      "count": 1
+    },
+    {
+      "expected": "I",
+      "actual": "疒",
+      "count": 1
+    },
+    {
+      "expected": "L",
+      "actual": "寸",
+      "count": 1
+    },
+    {
+      "expected": "L",
+      "actual": "丈",
+      "count": 1
+    },
+    {
+      "expected": "N",
+      "actual": "w",
+      "count": 1
+    },
+    {
+      "expected": "R",
+      "actual": "贝",
+      "count": 1
+    },
+    {
+      "expected": "T",
+      "actual": "8",
+      "count": 1
+    },
+    {
+      "expected": "T",
+      "actual": "6",
+      "count": 1
+    },
+    {
+      "expected": "X",
+      "actual": "犯",
+      "count": 1
+    },
+    {
+      "expected": "Y",
+      "actual": "叫",
+      "count": 1
+    },
+    {
+      "expected": "Z",
+      "actual": "处",
+      "count": 1
+    },
+    {
+      "expected": "Z",
+      "actual": "过",
+      "count": 1
+    },
+    {
+      "expected": "2",
+      "actual": "见",
+      "count": 1
+    },
+    {
+      "expected": "2",
+      "actual": "工",
+      "count": 1
+    },
+    {
+      "expected": "m",
+      "actual": "M",
+      "count": 1
+    },
+    {
+      "expected": "K",
+      "actual": "个",
+      "count": 1
+    },
+    {
+      "expected": "1",
+      "actual": "t",
+      "count": 1
+    },
+    {
+      "expected": "w",
+      "actual": "匕",
+      "count": 1
+    },
+    {
+      "expected": "z",
+      "actual": "己",
+      "count": 1
+    },
+    {
+      "expected": "J",
+      "actual": "了",
+      "count": 1
+    },
+    {
+      "expected": "T",
+      "actual": "7",
+      "count": 1
+    },
+    {
+      "expected": "f",
+      "actual": "s",
+      "count": 1
+    },
+    {
+      "expected": "g",
+      "actual": "S",
+      "count": 1
+    },
+    {
+      "expected": "h",
+      "actual": "n",
+      "count": 1
+    },
+    {
+      "expected": "k",
+      "actual": "氏",
+      "count": 1
+    },
+    {
+      "expected": "u",
+      "actual": "a",
+      "count": 1
+    },
+    {
+      "expected": "v",
+      "actual": "r",
+      "count": 1
+    },
+    {
+      "expected": "B",
+      "actual": "阝",
+      "count": 1
+    },
+    {
+      "expected": "X",
+      "actual": "入",
+      "count": 1
+    },
+    {
+      "expected": "8",
+      "actual": "口",
+      "count": 1
+    },
+    {
+      "expected": "a",
+      "actual": "u",
+      "count": 1
+    },
+    {
+      "expected": "c",
+      "actual": "匚",
+      "count": 1
+    },
+    {
+      "expected": "d",
+      "actual": "u",
+      "count": 1
+    },
+    {
+      "expected": "h",
+      "actual": "e",
+      "count": 1
+    },
+    {
+      "expected": "o",
+      "actual": "8",
+      "count": 1
+    },
+    {
+      "expected": "p",
+      "actual": "w",
+      "count": 1
+    },
+    {
+      "expected": "s",
+      "actual": "刁",
+      "count": 1
+    },
+    {
+      "expected": "v",
+      "actual": "N",
+      "count": 1
+    },
+    {
+      "expected": "G",
+      "actual": "a",
+      "count": 1
+    },
+    {
+      "expected": "H",
+      "actual": "w",
+      "count": 1
+    },
+    {
+      "expected": "I",
+      "actual": "工",
+      "count": 1
+    },
+    {
+      "expected": "J",
+      "actual": "厂",
+      "count": 1
+    },
+    {
+      "expected": "7",
+      "actual": "习",
+      "count": 1
+    },
+    {
+      "expected": "b",
+      "actual": "比",
+      "count": 1
+    },
+    {
+      "expected": "b",
+      "actual": "u",
+      "count": 1
+    },
+    {
+      "expected": "f",
+      "actual": "寸",
+      "count": 1
+    },
+    {
+      "expected": "k",
+      "actual": "个",
+      "count": 1
+    },
+    {
+      "expected": "k",
+      "actual": "n",
+      "count": 1
+    },
+    {
+      "expected": "m",
+      "actual": "吣",
+      "count": 1
+    },
+    {
+      "expected": "q",
+      "actual": "个",
+      "count": 1
+    },
+    {
+      "expected": "r",
+      "actual": "口",
+      "count": 1
+    },
+    {
+      "expected": "v",
+      "actual": "w",
+      "count": 1
+    },
+    {
+      "expected": "A",
+      "actual": "卜",
+      "count": 1
+    },
+    {
+      "expected": "D",
+      "actual": "囗",
+      "count": 1
+    },
+    {
+      "expected": "F",
+      "actual": "口",
+      "count": 1
+    },
+    {
+      "expected": "F",
+      "actual": "囗",
+      "count": 1
+    },
+    {
+      "expected": "L",
+      "actual": "c",
+      "count": 1
+    },
+    {
+      "expected": "X",
+      "actual": "u",
+      "count": 1
+    },
+    {
+      "expected": "5",
+      "actual": "丁",
+      "count": 1
+    },
+    {
+      "expected": "e",
+      "actual": "Q",
+      "count": 1
+    },
+    {
+      "expected": "j",
+      "actual": "卜",
+      "count": 1
+    },
+    {
+      "expected": "k",
+      "actual": "从",
+      "count": 1
+    },
+    {
+      "expected": "z",
+      "actual": "2",
+      "count": 1
+    },
+    {
+      "expected": "M",
+      "actual": "N",
+      "count": 1
+    },
+    {
+      "expected": "3",
+      "actual": "可",
+      "count": 1
+    },
+    {
+      "expected": "6",
+      "actual": "c",
+      "count": 1
+    },
+    {
+      "expected": "8",
+      "actual": "毖",
+      "count": 1
+    },
+    {
+      "expected": "h",
+      "actual": "长",
+      "count": 1
+    },
+    {
+      "expected": "i",
+      "actual": "冫",
+      "count": 1
+    },
+    {
+      "expected": "j",
+      "actual": "丬",
+      "count": 1
+    },
+    {
+      "expected": "j",
+      "actual": "冫",
+      "count": 1
+    },
+    {
+      "expected": "r",
+      "actual": "工",
+      "count": 1
+    },
+    {
+      "expected": "t",
+      "actual": "A",
+      "count": 1
+    },
+    {
+      "expected": "t",
+      "actual": "n",
+      "count": 1
+    },
+    {
+      "expected": "w",
+      "actual": "允",
+      "count": 1
+    },
+    {
+      "expected": "w",
+      "actual": "讧",
+      "count": 1
+    },
+    {
+      "expected": "y",
+      "actual": "f",
+      "count": 1
+    },
+    {
+      "expected": "A",
+      "actual": "日",
+      "count": 1
+    },
+    {
+      "expected": "E",
+      "actual": "匕",
+      "count": 1
+    },
+    {
+      "expected": "I",
+      "actual": "J",
+      "count": 1
+    },
+    {
+      "expected": "J",
+      "actual": "1",
+      "count": 1
+    },
+    {
+      "expected": "K",
+      "actual": "斤",
+      "count": 1
+    },
+    {
+      "expected": "K",
+      "actual": "G",
+      "count": 1
+    },
+    {
+      "expected": "L",
+      "actual": "厶",
+      "count": 1
+    },
+    {
+      "expected": "T",
+      "actual": "r",
+      "count": 1
+    },
+    {
+      "expected": "7",
+      "actual": "F",
+      "count": 1
+    },
+    {
+      "expected": "9",
+      "actual": "g",
+      "count": 1
+    },
+    {
+      "expected": "9",
+      "actual": "S",
+      "count": 1
+    },
+    {
+      "expected": "p",
+      "actual": "o",
+      "count": 1
+    },
+    {
+      "expected": "J",
+      "actual": "S",
+      "count": 1
+    },
+    {
+      "expected": "K",
+      "actual": "R",
+      "count": 1
+    },
+    {
+      "expected": "K",
+      "actual": "长",
+      "count": 1
+    },
+    {
+      "expected": "7",
+      "actual": "舌",
+      "count": 1
+    },
+    {
+      "expected": "a",
+      "actual": "己",
+      "count": 1
+    },
+    {
+      "expected": "d",
+      "actual": "6",
+      "count": 1
+    },
+    {
+      "expected": "f",
+      "actual": "才",
+      "count": 1
+    },
+    {
+      "expected": "r",
+      "actual": "囗",
+      "count": 1
+    },
+    {
+      "expected": "t",
+      "actual": "七",
+      "count": 1
+    },
+    {
+      "expected": "t",
+      "actual": "L",
+      "count": 1
+    },
+    {
+      "expected": "u",
+      "actual": "0",
+      "count": 1
+    },
+    {
+      "expected": "z",
+      "actual": "了",
+      "count": 1
+    },
+    {
+      "expected": "z",
+      "actual": "3",
+      "count": 1
+    },
+    {
+      "expected": "A",
+      "actual": "囗",
+      "count": 1
+    },
+    {
+      "expected": "D",
+      "actual": "万",
+      "count": 1
+    },
+    {
+      "expected": "F",
+      "actual": "扌",
+      "count": 1
+    },
+    {
+      "expected": "G",
+      "actual": "Q",
+      "count": 1
+    },
+    {
+      "expected": "P",
+      "actual": "D",
+      "count": 1
+    },
+    {
+      "expected": "P",
+      "actual": "o",
+      "count": 1
+    },
+    {
+      "expected": "R",
+      "actual": "孓",
+      "count": 1
+    },
+    {
+      "expected": "R",
+      "actual": "乙",
+      "count": 1
+    },
+    {
+      "expected": "T",
+      "actual": "f",
+      "count": 1
+    },
+    {
+      "expected": "j",
+      "actual": "J",
+      "count": 1
+    },
+    {
+      "expected": "H",
+      "actual": "囗",
+      "count": 1
+    },
+    {
+      "expected": "I",
+      "actual": "士",
+      "count": 1
+    },
+    {
+      "expected": "J",
+      "actual": "j",
+      "count": 1
+    },
+    {
+      "expected": "K",
+      "actual": "水",
+      "count": 1
+    },
+    {
+      "expected": "S",
+      "actual": "g",
+      "count": 1
+    },
+    {
+      "expected": "V",
+      "actual": "y",
+      "count": 1
+    },
+    {
+      "expected": "b",
+      "actual": "勹",
+      "count": 1
+    },
+    {
+      "expected": "b",
+      "actual": "5",
+      "count": 1
+    },
+    {
+      "expected": "p",
+      "actual": "r",
+      "count": 1
+    },
+    {
+      "expected": "y",
+      "actual": "Y",
+      "count": 1
+    },
+    {
+      "expected": "H",
+      "actual": "什",
+      "count": 1
+    },
+    {
+      "expected": "J",
+      "actual": "刁",
+      "count": 1
+    },
+    {
+      "expected": "M",
+      "actual": "H",
+      "count": 1
+    },
+    {
+      "expected": "1",
+      "actual": "厂",
+      "count": 1
+    },
+    {
+      "expected": "5",
+      "actual": "了",
+      "count": 1
+    },
+    {
+      "expected": "9",
+      "actual": "s",
+      "count": 1
+    },
+    {
+      "expected": "t",
+      "actual": "卜",
+      "count": 1
+    },
+    {
+      "expected": "t",
+      "actual": "r",
+      "count": 1
+    },
+    {
+      "expected": "y",
+      "actual": "q",
+      "count": 1
+    },
+    {
+      "expected": "A",
+      "actual": "d",
+      "count": 1
+    },
+    {
+      "expected": "D",
+      "actual": "冂",
+      "count": 1
+    },
+    {
+      "expected": "E",
+      "actual": "巨",
+      "count": 1
+    },
+    {
+      "expected": "F",
+      "actual": "尸",
+      "count": 1
+    },
+    {
+      "expected": "1",
+      "actual": "李",
+      "count": 1
+    },
+    {
+      "expected": "2",
+      "actual": "己",
+      "count": 1
+    },
+    {
+      "expected": "4",
+      "actual": "饣",
+      "count": 1
+    },
+    {
+      "expected": "r",
+      "actual": "u",
+      "count": 1
+    },
+    {
+      "expected": "A",
+      "actual": "凡",
+      "count": 1
+    },
+    {
+      "expected": "I",
+      "actual": "冫",
+      "count": 1
+    },
+    {
+      "expected": "M",
+      "actual": "川",
+      "count": 1
+    },
+    {
+      "expected": "7",
+      "actual": "孓",
+      "count": 1
+    },
+    {
+      "expected": "u",
+      "actual": "儿",
+      "count": 1
+    },
+    {
+      "expected": "D",
+      "actual": "刀",
+      "count": 1
+    },
+    {
+      "expected": "T",
+      "actual": "丅",
+      "count": 1
+    },
+    {
+      "expected": "f",
+      "actual": "丬",
+      "count": 1
+    },
+    {
+      "expected": "j",
+      "actual": "讠",
+      "count": 1
+    },
+    {
+      "expected": "p",
+      "actual": "N",
+      "count": 1
+    },
+    {
+      "expected": "r",
+      "actual": "痴",
+      "count": 1
+    },
+    {
+      "expected": "s",
+      "actual": "口",
+      "count": 1
+    },
+    {
+      "expected": "s",
+      "actual": "r",
+      "count": 1
+    },
+    {
+      "expected": "v",
+      "actual": "Q",
+      "count": 1
+    },
+    {
+      "expected": "v",
+      "actual": "飞",
+      "count": 1
+    },
+    {
+      "expected": "w",
+      "actual": "巛",
+      "count": 1
+    },
+    {
+      "expected": "B",
+      "actual": "3",
+      "count": 1
+    },
+    {
+      "expected": "B",
+      "actual": "马",
+      "count": 1
+    },
+    {
+      "expected": "F",
+      "actual": "正",
+      "count": 1
+    },
+    {
+      "expected": "F",
+      "actual": "二",
+      "count": 1
+    },
+    {
+      "expected": "G",
+      "actual": "q",
+      "count": 1
+    },
+    {
+      "expected": "G",
+      "actual": "g",
+      "count": 1
+    },
+    {
+      "expected": "H",
+      "actual": "d",
+      "count": 1
+    },
+    {
+      "expected": "I",
+      "actual": "丿",
+      "count": 1
+    },
+    {
+      "expected": "K",
+      "actual": "汇",
+      "count": 1
+    },
+    {
+      "expected": "K",
+      "actual": "孔",
+      "count": 1
+    },
+    {
+      "expected": "L",
+      "actual": "小",
+      "count": 1
+    },
+    {
+      "expected": "P",
+      "actual": "了",
+      "count": 1
+    },
+    {
+      "expected": "P",
+      "actual": "卫",
+      "count": 1
+    },
+    {
+      "expected": "T",
+      "actual": "z",
+      "count": 1
+    },
+    {
+      "expected": "T",
+      "actual": "Z",
+      "count": 1
+    },
+    {
+      "expected": "V",
+      "actual": "飞",
+      "count": 1
+    },
+    {
+      "expected": "V",
+      "actual": "u",
+      "count": 1
+    },
+    {
+      "expected": "Y",
+      "actual": "q",
+      "count": 1
+    },
+    {
+      "expected": "1",
+      "actual": "工",
+      "count": 1
+    },
+    {
+      "expected": "4",
+      "actual": "H",
+      "count": 1
+    },
+    {
+      "expected": "7",
+      "actual": "尸",
+      "count": 1
+    },
+    {
+      "expected": "8",
+      "actual": "a",
+      "count": 1
+    }
+  ]
+}

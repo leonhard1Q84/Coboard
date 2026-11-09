@@ -1,0 +1,842 @@
+[
+  {
+    "name": "vector-english",
+    "expected": "HI",
+    "strokes": [
+      [
+        "stroke",
+        {
+          "id": "0",
+          "position": {
+            "x": 30,
+            "y": 30
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": -1,
+              "y": 30,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 0,
+              "y": 65,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "1",
+          "position": {
+            "x": 65,
+            "y": 30
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": -1,
+              "y": 34,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 0,
+              "y": 65,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "2",
+          "position": {
+            "x": 30,
+            "y": 61
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 17,
+              "y": 1,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 35,
+              "y": -1,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "3",
+          "position": {
+            "x": 86,
+            "y": 30
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 29,
+              "y": 1,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "4",
+          "position": {
+            "x": 100,
+            "y": 31
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": -1,
+              "y": 34,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 0,
+              "y": 64,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "5",
+          "position": {
+            "x": 85,
+            "y": 94
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 31,
+              "y": 1,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vector-chinese",
+    "expected": "中文",
+    "strokes": [
+      [
+        "stroke",
+        {
+          "id": "0",
+          "position": {
+            "x": 34,
+            "y": 45
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 0,
+              "y": 50,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "1",
+          "position": {
+            "x": 34,
+            "y": 45
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 62,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 61,
+              "y": 50,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            },
+            {
+              "x": 0,
+              "y": 49,
+              "pressure": 0.5,
+              "elapsed_ms": 90
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "2",
+          "position": {
+            "x": 65,
+            "y": 23
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": -1,
+              "y": 46,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 0,
+              "y": 96,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "3",
+          "position": {
+            "x": 157,
+            "y": 24
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 7,
+              "y": 10,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "4",
+          "position": {
+            "x": 130,
+            "y": 46
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 65,
+              "y": -1,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "5",
+          "position": {
+            "x": 143,
+            "y": 48
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 7,
+              "y": 19,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 21,
+              "y": 38,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            },
+            {
+              "x": 50,
+              "y": 64,
+              "pressure": 0.5,
+              "elapsed_ms": 90
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "6",
+          "position": {
+            "x": 181,
+            "y": 48
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": -8,
+              "y": 25,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": -26,
+              "y": 47,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            },
+            {
+              "x": -51,
+              "y": 66,
+              "pressure": 0.5,
+              "elapsed_ms": 90
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ]
+    ]
+  },
+  {
+    "name": "vector-mixed",
+    "expected": "中 API 30",
+    "strokes": [
+      [
+        "stroke",
+        {
+          "id": "0",
+          "position": {
+            "x": 34,
+            "y": 45
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 0,
+              "y": 50,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "1",
+          "position": {
+            "x": 34,
+            "y": 45
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 62,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 61,
+              "y": 50,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            },
+            {
+              "x": 0,
+              "y": 49,
+              "pressure": 0.5,
+              "elapsed_ms": 90
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "2",
+          "position": {
+            "x": 65,
+            "y": 23
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": -1,
+              "y": 46,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 0,
+              "y": 96,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "m0",
+          "position": {
+            "x": 135,
+            "y": 116
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 15,
+              "y": -70,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 33,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "m1",
+          "position": {
+            "x": 142,
+            "y": 90
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 19,
+              "y": -1,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "m2",
+          "position": {
+            "x": 186,
+            "y": 116
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": -1,
+              "y": -69,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 22,
+              "y": -69,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            },
+            {
+              "x": 32,
+              "y": -59,
+              "pressure": 0.5,
+              "elapsed_ms": 90
+            },
+            {
+              "x": 30,
+              "y": -40,
+              "pressure": 0.5,
+              "elapsed_ms": 120
+            },
+            {
+              "x": 0,
+              "y": -36,
+              "pressure": 0.5,
+              "elapsed_ms": 150
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "m3",
+          "position": {
+            "x": 236,
+            "y": 48
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 27,
+              "y": -1,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "m4",
+          "position": {
+            "x": 250,
+            "y": 48
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": -1,
+              "y": 68,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "m5",
+          "position": {
+            "x": 235,
+            "y": 116
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 29,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "m6",
+          "position": {
+            "x": 300,
+            "y": 52
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": 14,
+              "y": -6,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": 30,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            },
+            {
+              "x": 32,
+              "y": 14,
+              "pressure": 0.5,
+              "elapsed_ms": 90
+            },
+            {
+              "x": 16,
+              "y": 28,
+              "pressure": 0.5,
+              "elapsed_ms": 120
+            },
+            {
+              "x": 31,
+              "y": 34,
+              "pressure": 0.5,
+              "elapsed_ms": 150
+            },
+            {
+              "x": 33,
+              "y": 52,
+              "pressure": 0.5,
+              "elapsed_ms": 180
+            },
+            {
+              "x": 17,
+              "y": 64,
+              "pressure": 0.5,
+              "elapsed_ms": 210
+            },
+            {
+              "x": 0,
+              "y": 58,
+              "pressure": 0.5,
+              "elapsed_ms": 240
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ],
+      [
+        "stroke",
+        {
+          "id": "m7",
+          "position": {
+            "x": 375,
+            "y": 47
+          },
+          "points": [
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 0
+            },
+            {
+              "x": -13,
+              "y": 7,
+              "pressure": 0.5,
+              "elapsed_ms": 30
+            },
+            {
+              "x": -18,
+              "y": 33,
+              "pressure": 0.5,
+              "elapsed_ms": 60
+            },
+            {
+              "x": -14,
+              "y": 59,
+              "pressure": 0.5,
+              "elapsed_ms": 90
+            },
+            {
+              "x": 1,
+              "y": 69,
+              "pressure": 0.5,
+              "elapsed_ms": 120
+            },
+            {
+              "x": 14,
+              "y": 60,
+              "pressure": 0.5,
+              "elapsed_ms": 150
+            },
+            {
+              "x": 18,
+              "y": 32,
+              "pressure": 0.5,
+              "elapsed_ms": 180
+            },
+            {
+              "x": 14,
+              "y": 8,
+              "pressure": 0.5,
+              "elapsed_ms": 210
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "pressure": 0.5,
+              "elapsed_ms": 240
+            }
+          ],
+          "width": 3,
+          "color": "#1f2329"
+        }
+      ]
+    ]
+  }
+]

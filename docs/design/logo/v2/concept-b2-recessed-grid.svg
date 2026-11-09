@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%" height="100%">
+  <defs>
+    <!-- macOS Squircle Shadow -->
+    <filter id="appShadowB2" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+
+    <!-- Aperture Glow -->
+    <filter id="apertureGlowB2" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="20" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Base Canvas Gradient -->
+    <linearGradient id="bgB2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141722" />
+      <stop offset="100%" stop-color="#090B10" />
+    </linearGradient>
+
+    <!-- Inset Bevel Gradients (Simulating architectural window sill depth) -->
+    <linearGradient id="sillTopB2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="sillLeftB2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="sillRightB2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="sillBottomB2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0.1" />
+    </linearGradient>
+
+    <!-- Glass Pane Base -->
+    <linearGradient id="glassPaneB2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.07" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.02" />
+    </linearGradient>
+
+    <!-- World Spectrum Gradient -->
+    <linearGradient id="spectrumB2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="35%" stop-color="#818CF8" />
+      <stop offset="70%" stop-color="#F43F5E" />
+      <stop offset="100%" stop-color="#FBBF24" />
+    </linearGradient>
+
+    <!-- Rim Light -->
+    <linearGradient id="rimB2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.03" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. macOS Squircle Base -->
+  <g filter="url(#appShadowB2)">
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bgB2)" />
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="url(#rimB2)" stroke-width="2" />
+  </g>
+
+  <!-- 2. Architectural Window with Recessed Frame Depth (True Window Sill Perspective) -->
+  <!-- Outer Window: 210 to 814 (size 604) | Inner Window: 258 to 766 (size 508, depth: 48px) -->
+  <g id="recessedWindowFrame">
+    <!-- Top Sill -->
+    <polygon points="210,210 814,210 766,258 258,258" fill="url(#sillTopB2)" stroke="#475569" stroke-width="1.5" />
+    <!-- Left Sill (Highlight Angle) -->
+    <polygon points="210,210 258,258 258,766 210,814" fill="url(#sillLeftB2)" stroke="#475569" stroke-width="1.5" />
+    <!-- Right Sill (Shadow Angle) -->
+    <polygon points="814,210 814,814 766,766 766,258" fill="url(#sillRightB2)" stroke="#334155" stroke-width="1.5" />
+    <!-- Bottom Sill (Light Bounce) -->
+    <polygon points="210,814 258,766 766,766 814,814" fill="url(#sillBottomB2)" stroke="#475569" stroke-width="1.5" />
+
+    <!-- Outer Frame Rim -->
+    <rect x="210" y="210" width="604" height="604" rx="36" fill="none" stroke="#64748B" stroke-width="2.5" />
+
+    <!-- Inner Window Glass Pane -->
+    <rect x="258" y="258" width="508" height="508" rx="20" fill="url(#glassPaneB2)" stroke="#94A3B8" stroke-width="1.5" />
+
+    <!-- Asymmetric Pane Dividers (Concept B signature layout) -->
+    <!-- Vertical Pane Divider at x=560 -->
+    <line x1="560" y1="258" x2="560" y2="766" stroke="#475569" stroke-width="2.5" stroke-opacity="0.8" />
+    <!-- Right Horizontal Divider at y=480 -->
+    <line x1="560" y1="480" x2="766" y2="480" stroke="#475569" stroke-width="2" stroke-opacity="0.8" />
+    <!-- Left Horizontal Divider at y=620 -->
+    <line x1="258" y1="620" x2="560" y2="620" stroke="#475569" stroke-width="2" stroke-opacity="0.8" />
+  </g>
+
+  <!-- 3. The Pure Grand Aperture Arc (No stray dots, pure geometric authority) -->
+  <!-- Center: 480, 490 | Radius: 175 | Sweeping arc with rotation -->
+  <g id="pureApertureArc">
+    <!-- Glow -->
+    <circle cx="480" cy="490" r="175" 
+            fill="none" 
+            stroke="url(#spectrumB2)" 
+            stroke-width="50" 
+            stroke-linecap="round" 
+            stroke-dasharray="840 260" 
+            transform="rotate(-30 480 490)" 
+            filter="url(#apertureGlowB2)" 
+            opacity="0.4" />
+
+    <!-- Main Solid Geometric C Arc -->
+    <circle cx="480" cy="490" r="175" 
+            fill="none" 
+            stroke="url(#spectrumB2)" 
+            stroke-width="40" 
+            stroke-linecap="round" 
+            stroke-dasharray="840 260" 
+            transform="rotate(-30 480 490)" />
+
+    <!-- Top Focus Node (Bold Terminal, clear anchor) -->
+    <!-- Terminal coordinates calculated from radius & angle -->
+    <circle cx="628" cy="396" r="15" fill="#FFFFFF" />
+    <circle cx="628" cy="396" r="26" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.5" />
+
+    <!-- Clean, powerful, zero tiny dust speck in the center -->
+  </g>
+</svg>

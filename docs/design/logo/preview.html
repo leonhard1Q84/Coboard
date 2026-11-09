@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coboard Logo 方案演进与透视对比</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #38bdf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 24px;
+    }
+    .container { max-width: 1320px; margin: 0 auto; }
+    header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+    p.subtitle { color: var(--text-muted); font-size: 15px; }
+
+    .grid-concepts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    .concept-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .concept-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .badge {
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      background: #238636;
+      color: #fff;
+    }
+    .badge-blue { background: #1f6feb; }
+    .badge-gray { background: #6e7681; }
+    .concept-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; min-height: 52px; }
+
+    .preview-box {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: radial-gradient(circle at center, #1c2333 0%, #0d1117 100%);
+      border: 1px solid #21262d;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .preview-box img {
+      width: 78%;
+      height: 78%;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 30px rgba(0,0,0,0.55));
+    }
+
+    .sizes-strip {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      padding: 16px;
+      background: #090d13;
+      border-radius: 8px;
+      border: 1px solid #21262d;
+      margin-bottom: 16px;
+    }
+    .size-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .light-test-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 14px;
+      background: #f1f5f9;
+      border-radius: 8px;
+    }
+    .light-test-strip .label { font-size: 12px; color: #475569; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Coboard Logo 设计演进：包豪斯窗格与透视深度</h1>
+      <p class="subtitle">已彻底砍掉「右下角无意义折线」与「中心突兀细小噪点」，重点对比：原始平面版 vs 3D轴测透视版 vs 建筑凹槽景深版。</p>
+    </header>
+
+    <div class="grid-concepts">
+      <!-- 原版 Concept B (对照基线) -->
+      <div class="concept-card">
+        <div class="concept-title">
+          <span>原版 Concept B (平面基线)</span>
+          <span class="badge-gray badge">问题对照</span>
+        </div>
+        <div class="concept-desc">
+          <strong>问题点：</strong>纯 2D 平面无透视空间；中心 8px 小十字点在 Dock 栏变成孤立灰尘；右下角横折语义不明且像毛刺。
+        </div>
+        <div class="preview-box">
+          <img src="./concept-b-aperture-grid.svg" alt="Original Concept B" />
+        </div>
+        <div class="sizes-strip">
+          <div class="size-item">
+            <img src="./concept-b-aperture-grid.svg" width="64" height="64" />
+            <span>64px Dock</span>
+          </div>
+          <div class="size-item">
+            <img src="./concept-b-aperture-grid.svg" width="32" height="32" />
+            <span>32px</span>
+          </div>
+          <div class="size-item">
+            <img src="./concept-b-aperture-grid.svg" width="16" height="16" />
+            <span>16px</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 进化方案 B-1: 3D 轴测透视版 -->
+      <div class="concept-card" style="border-color: #38bdf8;">
+        <div class="concept-title">
+          <span>进化方案 B-1：3D 轴测透视窗格</span>
+          <span class="badge">强烈推荐</span>
+        </div>
+        <div class="concept-desc">
+          <strong>透视解法：</strong>将窗格赋予 15° 空间轴测倾角与立体倒角厚度；宏大 C 弧形成空间椭圆，穿透玻璃面板；彻底剔除一切杂碎毛刺。
+        </div>
+        <div class="preview-box">
+          <img src="./v2/concept-b1-isometric-grid.svg" alt="Concept B-1" />
+        </div>
+        <div class="sizes-strip">
+          <div class="size-item">
+            <img src="./v2/concept-b1-isometric-grid.svg" width="64" height="64" />
+            <span>64px Dock</span>
+          </div>
+          <div class="size-item">
+            <img src="./v2/concept-b1-isometric-grid.svg" width="32" height="32" />
+            <span>32px</span>
+          </div>
+          <div class="size-item">
+            <img src="./v2/concept-b1-isometric-grid.svg" width="16" height="16" />
+            <span>16px</span>
+          </div>
+        </div>
+        <div class="light-test-strip">
+          <span class="label">浅色桌面测试</span>
+          <img src="./v2/concept-b1-isometric-grid.svg" width="56" height="56" />
+          <img src="./v2/concept-b1-isometric-grid.svg" width="32" height="32" />
+        </div>
+      </div>
+
+      <!-- 进化方案 B-2: 建筑凹槽景深版 -->
+      <div class="concept-card">
+        <div class="concept-title">
+          <span>进化方案 B-2：建筑天窗景深版</span>
+          <span class="badge-blue badge">正交景深</span>
+        </div>
+        <div class="concept-desc">
+          <strong>透视解法：</strong>保持端正的正面包豪斯分割，通过 48px 四向斜切窗台呈现极深的采光天窗进深感；去除中心碎点与右下折线。
+        </div>
+        <div class="preview-box">
+          <img src="./v2/concept-b2-recessed-grid.svg" alt="Concept B-2" />
+        </div>
+        <div class="sizes-strip">
+          <div class="size-item">
+            <img src="./v2/concept-b2-recessed-grid.svg" width="64" height="64" />
+            <span>64px Dock</span>
+          </div>
+          <div class="size-item">
+            <img src="./v2/concept-b2-recessed-grid.svg" width="32" height="32" />
+            <span>32px</span>
+          </div>
+          <div class="size-item">
+            <img src="./v2/concept-b2-recessed-grid.svg" width="16" height="16" />
+            <span>16px</span>
+          </div>
+        </div>
+        <div class="light-test-strip">
+          <span class="label">浅色桌面测试</span>
+          <img src="./v2/concept-b2-recessed-grid.svg" width="56" height="56" />
+          <img src="./v2/concept-b2-recessed-grid.svg" width="32" height="32" />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

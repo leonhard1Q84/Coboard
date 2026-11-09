@@ -1,0 +1,158 @@
+{
+  "uncompressed_jsonl_sha256": "ce0ccbe339e88bc925f642faa004ec00b5aab38166af8a0606f3df90a6a4ca57",
+  "load": {
+    "backend": "Candle CPU, no Accelerate feature",
+    "elapsed_ms": 6.122083,
+    "kind": "load",
+    "repetitions": 30
+  },
+  "hot_updates": 1830,
+  "decode_errors": 0,
+  "single_character_occurrences": {
+    "single_raw": {
+      "count": 22,
+      "top1_correct": 6,
+      "top10_correct": 15
+    },
+    "single_resampled": {
+      "count": 22,
+      "top1_correct": 9,
+      "top10_correct": 18
+    }
+  },
+  "fixtures": [
+    {
+      "name": "vector-english",
+      "expected": "HI",
+      "observed_top1": [
+        "HI"
+      ],
+      "exact_correct_trials": 30,
+      "trials": 30,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 180,
+      "p50_ms": 2.250375,
+      "p95_ms": 4.593083,
+      "max_ms": 5.03725,
+      "classifier_calls": 270,
+      "cache_hits": 120,
+      "max_cache_entries": 9
+    },
+    {
+      "name": "vector-chinese",
+      "expected": "中文",
+      "observed_top1": [
+        "巾亢"
+      ],
+      "exact_correct_trials": 0,
+      "trials": 30,
+      "final_top5_contains_expected": false,
+      "character_edits_with_spaces": 2,
+      "character_edits_without_spaces": 2,
+      "updates": 210,
+      "p50_ms": 2.018459,
+      "p95_ms": 2.915375,
+      "max_ms": 6.095208,
+      "classifier_calls": 210,
+      "cache_hits": 120,
+      "max_cache_entries": 7
+    },
+    {
+      "name": "vector-mixed",
+      "expected": "中 API 30",
+      "observed_top1": [
+        "巾 …I 孔"
+      ],
+      "exact_correct_trials": 0,
+      "trials": 30,
+      "final_top5_contains_expected": false,
+      "character_edits_with_spaces": 5,
+      "character_edits_without_spaces": 5,
+      "updates": 330,
+      "p50_ms": 4.064959,
+      "p95_ms": 5.54875,
+      "max_ms": 10.244625000000001,
+      "classifier_calls": 540,
+      "cache_hits": 870,
+      "max_cache_entries": 18
+    },
+    {
+      "name": "late-H-crossbar",
+      "expected": "HI",
+      "observed_top1": [
+        "HI"
+      ],
+      "exact_correct_trials": 30,
+      "trials": 30,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 180,
+      "p50_ms": 3.235542,
+      "p95_ms": 6.798417000000001,
+      "max_ms": 27.036875,
+      "classifier_calls": 330,
+      "cache_hits": 210,
+      "max_cache_entries": 8
+    },
+    {
+      "name": "late-A-crossbar",
+      "expected": "中 API 30",
+      "observed_top1": [
+        "巾 …I 孔"
+      ],
+      "exact_correct_trials": 0,
+      "trials": 30,
+      "final_top5_contains_expected": false,
+      "character_edits_with_spaces": 5,
+      "character_edits_without_spaces": 5,
+      "updates": 330,
+      "p50_ms": 4.1507499999999995,
+      "p95_ms": 17.862625,
+      "max_ms": 19.179041,
+      "classifier_calls": 720,
+      "cache_hits": 870,
+      "max_cache_entries": 16
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian",
+      "expected": "明天",
+      "observed_top1": [
+        "明天"
+      ],
+      "exact_correct_trials": 30,
+      "trials": 30,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 360,
+      "p50_ms": 2.35975,
+      "p95_ms": 5.96525,
+      "max_ms": 26.1355,
+      "classifier_calls": 480,
+      "cache_hits": 480,
+      "max_cache_entries": 16
+    },
+    {
+      "name": "canonical-zhong-wen",
+      "expected": "中文",
+      "observed_top1": [
+        "申文"
+      ],
+      "exact_correct_trials": 0,
+      "trials": 30,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 1,
+      "character_edits_without_spaces": 1,
+      "updates": 240,
+      "p50_ms": 1.9628340000000002,
+      "p95_ms": 2.6622500000000002,
+      "max_ms": 3.0824160000000003,
+      "classifier_calls": 240,
+      "cache_hits": 120,
+      "max_cache_entries": 8
+    }
+  ]
+}

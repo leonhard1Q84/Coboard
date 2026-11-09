@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%" height="100%">
+  <defs>
+    <!-- macOS Squircle Shadow -->
+    <filter id="appShadowC" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+
+    <linearGradient id="baseBgC" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141720" />
+      <stop offset="100%" stop-color="#090B10" />
+    </linearGradient>
+
+    <!-- Spectrum Streams -->
+    <linearGradient id="streamCyan" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <linearGradient id="streamPurple" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
+
+    <linearGradient id="streamAmber" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EA580C" />
+      <stop offset="100%" stop-color="#FBBF24" />
+    </linearGradient>
+
+    <!-- Glass Horizon Window -->
+    <linearGradient id="glassWindowC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.03" />
+    </linearGradient>
+
+    <linearGradient id="rimC" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.02" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. macOS Squircle Base -->
+  <g filter="url(#appShadowC)">
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#baseBgC)" />
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="url(#rimC)" stroke-width="2" />
+  </g>
+
+  <!-- 2. Nested Windows (Depth towards the Outside World) -->
+  <g id="nestedPortals">
+    <!-- Outer Window Frame (Wall of the Desktop) -->
+    <rect x="220" y="220" width="584" height="584" rx="52" fill="url(#glassWindowC)" stroke="#334155" stroke-width="2" />
+    
+    <!-- Depth Bevel Line (Simulating window sill/aperture depth) -->
+    <path d="M 220 220 L 310 310 M 804 220 L 714 310 M 220 804 L 310 714 M 804 804 L 714 714" stroke="#475569" stroke-width="1.5" stroke-opacity="0.4" />
+
+    <!-- Inner Window Opening (The Portal onto Reality) -->
+    <rect x="310" y="310" width="404" height="404" rx="32" fill="#0B0E14" stroke="#475569" stroke-width="2" />
+  </g>
+
+  <!-- 3. The Prismatic Ray of the World Breaking In (Forms letter 'C') -->
+  <g id="prismaticBeams">
+    <!-- Outer Beam - Cyan Horizon (Sky/Infinite) -->
+    <path d="M 640 370 A 180 180 0 1 0 640 654" fill="none" stroke="url(#streamCyan)" stroke-width="24" stroke-linecap="round" />
+    
+    <!-- Middle Beam - Violet Shift (Logic/Depth) -->
+    <path d="M 590 410 A 120 120 0 1 0 590 614" fill="none" stroke="url(#streamPurple)" stroke-width="20" stroke-linecap="round" />
+
+    <!-- Inner Sun / Focal Node - Warm Amber (Human Expression/Insight) -->
+    <circle cx="512" cy="512" r="36" fill="url(#streamAmber)" />
+    
+    <!-- Aperture Crosshair Line -->
+    <circle cx="512" cy="512" r="64" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-dasharray="4 6" stroke-opacity="0.6" />
+    <line x1="512" y1="420" x2="512" y2="440" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" />
+    <line x1="512" y1="584" x2="512" y2="604" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" />
+    <line x1="420" y1="512" x2="440" y2="512" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" />
+    <line x1="584" y1="512" x2="604" y2="512" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" />
+  </g>
+</svg>

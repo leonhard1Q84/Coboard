@@ -1,0 +1,160 @@
+{
+  "uncompressed_jsonl_sha256": "d7138341b41f1d9158b658a32326765a52b0fb349d08c33e8416d320e80e992a",
+  "load": {
+    "elapsed_ms": 11.975209000000001,
+    "engine": "native_sparse_cnn_phase_ensemble",
+    "kind": "load"
+  },
+  "hot_updates": 1830,
+  "decode_errors": 0,
+  "single_character_occurrences": {
+    "single_raw": {
+      "count": 22,
+      "top1_correct": 17,
+      "top10_correct": 22
+    },
+    "single_resampled": {
+      "count": 0,
+      "top1_correct": 0,
+      "top10_correct": 0
+    }
+  },
+  "fixtures": [
+    {
+      "name": "vector-english",
+      "expected": "HI",
+      "observed_top1": [
+        "HI"
+      ],
+      "exact_correct_trials": 30,
+      "trials": 30,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 180,
+      "p50_ms": 6.452875000000001,
+      "p95_ms": 7.302958,
+      "max_ms": 29.440166,
+      "classifier_calls": 270,
+      "cache_hits": 120,
+      "max_cache_entries": 9
+    },
+    {
+      "name": "vector-chinese",
+      "expected": "中文",
+      "observed_top1": [
+        "中文"
+      ],
+      "exact_correct_trials": 30,
+      "trials": 30,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 210,
+      "p50_ms": 3.506833,
+      "p95_ms": 3.9,
+      "max_ms": 4.143584,
+      "classifier_calls": 210,
+      "cache_hits": 120,
+      "max_cache_entries": 7
+    },
+    {
+      "name": "vector-mixed",
+      "expected": "中 API 30",
+      "observed_top1": [
+        "中 API 30"
+      ],
+      "exact_correct_trials": 30,
+      "trials": 30,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 330,
+      "p50_ms": 7.105417,
+      "p95_ms": 8.099208,
+      "max_ms": 31.501834,
+      "classifier_calls": 540,
+      "cache_hits": 870,
+      "max_cache_entries": 18
+    },
+    {
+      "name": "late-H-crossbar",
+      "expected": "HI",
+      "observed_top1": [
+        "HI"
+      ],
+      "exact_correct_trials": 30,
+      "trials": 30,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 180,
+      "p50_ms": 6.6518749999999995,
+      "p95_ms": 11.135958,
+      "max_ms": 11.835083999999998,
+      "classifier_calls": 330,
+      "cache_hits": 210,
+      "max_cache_entries": 8
+    },
+    {
+      "name": "late-A-crossbar",
+      "expected": "中 API 30",
+      "observed_top1": [
+        "中 API 30"
+      ],
+      "exact_correct_trials": 30,
+      "trials": 30,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 330,
+      "p50_ms": 7.287833,
+      "p95_ms": 30.708790999999998,
+      "max_ms": 31.703084,
+      "classifier_calls": 720,
+      "cache_hits": 870,
+      "max_cache_entries": 16
+    },
+    {
+      "name": "slow-eight-stroke-ming-tian",
+      "expected": "明天",
+      "observed_top1": [
+        "明天"
+      ],
+      "exact_correct_trials": 30,
+      "trials": 30,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 360,
+      "p50_ms": 3.723208,
+      "p95_ms": 8.328583,
+      "max_ms": 24.943,
+      "classifier_calls": 480,
+      "cache_hits": 480,
+      "max_cache_entries": 16
+    },
+    {
+      "name": "canonical-zhong-wen",
+      "expected": "中文",
+      "observed_top1": [
+        "中文"
+      ],
+      "exact_correct_trials": 30,
+      "trials": 30,
+      "final_top5_contains_expected": true,
+      "character_edits_with_spaces": 0,
+      "character_edits_without_spaces": 0,
+      "updates": 240,
+      "p50_ms": 3.497709,
+      "p95_ms": 4.190250000000001,
+      "max_ms": 4.881791,
+      "classifier_calls": 240,
+      "cache_hits": 120,
+      "max_cache_entries": 8
+    }
+  ],
+  "measurement_scope": "release native CPU decoder compute; excludes IPC, queueing and UI",
+  "dataset_role": "synthetic development fixtures; not independent human accuracy",
+  "fixture_sha256": "3707910c81763431c00066168afc7c838577b28f4de3fa58867e2a131cba3cc6"
+}

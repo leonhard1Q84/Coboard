@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main",
+  "description": "Local document session in the main, overlay, and toolbar windows; no remote or filesystem grants.",
+  "windows": ["main", "overlay", "overlay-toolbar"],
+  "permissions": ["core:default", "core:window:allow-start-dragging"]
+}

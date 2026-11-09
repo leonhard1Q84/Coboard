@@ -1,0 +1,1082 @@
+{
+  "scope": "User trajectories and deterministic development transforms; same Rust session as desktop; no IPC, pen-up, paint or display timing; not held-out word accuracy",
+  "raw_sha256": "12eb126b72361241db47d3ad08519e0abe9d3ef698efe4b8c73c21804642ccf5",
+  "preparation": {
+    "elapsed_ms": 8.484375,
+    "kind": "prepare",
+    "scope": "local model preparation plus fixed vertical; filesystem cache uncontrolled"
+  },
+  "samples": [
+    {
+      "name": "user-connected-hello",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 156.00829199999998,
+      "p95_ms": 183.63037500000002,
+      "retry_p95_ms": 0.000709,
+      "first_trial_wall_ms": 169.41229099999998
+    },
+    {
+      "name": "hello-scale0.5-shear-0.12-density1",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "眦",
+      "p50_ms": 151.99870900000002,
+      "p95_ms": 157.291333,
+      "retry_p95_ms": 0.000709,
+      "first_trial_wall_ms": 160.04175
+    },
+    {
+      "name": "hello-scale0.5-shear-0.12-density3",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "眦",
+      "p50_ms": 153.842916,
+      "p95_ms": 171.61533400000002,
+      "retry_p95_ms": 0.000875,
+      "first_trial_wall_ms": 150.339834
+    },
+    {
+      "name": "hello-scale0.5-shear0-density1",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 156.64183300000002,
+      "p95_ms": 216.0935,
+      "retry_p95_ms": 0.000791,
+      "first_trial_wall_ms": 162.648
+    },
+    {
+      "name": "hello-scale0.5-shear0-density3",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 156.39279200000001,
+      "p95_ms": 166.16275,
+      "retry_p95_ms": 0.001041,
+      "first_trial_wall_ms": 155.298333
+    },
+    {
+      "name": "hello-scale0.5-shear0.12-density1",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 161.61008299999997,
+      "p95_ms": 196.903833,
+      "retry_p95_ms": 0.00075,
+      "first_trial_wall_ms": 192.836375
+    },
+    {
+      "name": "hello-scale0.5-shear0.12-density3",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 160.643125,
+      "p95_ms": 183.596,
+      "retry_p95_ms": 0.000875,
+      "first_trial_wall_ms": 161.880208
+    },
+    {
+      "name": "hello-scale1-shear-0.12-density1",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "眦",
+      "p50_ms": 153.490042,
+      "p95_ms": 165.46491699999999,
+      "retry_p95_ms": 0.000792,
+      "first_trial_wall_ms": 152.06125
+    },
+    {
+      "name": "hello-scale1-shear-0.12-density3",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "眦",
+      "p50_ms": 152.491458,
+      "p95_ms": 185.822708,
+      "retry_p95_ms": 0.000875,
+      "first_trial_wall_ms": 154.6745
+    },
+    {
+      "name": "hello-scale1-shear0-density1",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 156.448917,
+      "p95_ms": 218.001375,
+      "retry_p95_ms": 0.000834,
+      "first_trial_wall_ms": 175.005875
+    },
+    {
+      "name": "hello-scale1-shear0-density3",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 155.52237499999998,
+      "p95_ms": 158.744167,
+      "retry_p95_ms": 0.000834,
+      "first_trial_wall_ms": 153.192166
+    },
+    {
+      "name": "hello-scale1-shear0.12-density1",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 159.284459,
+      "p95_ms": 172.010208,
+      "retry_p95_ms": 0.000709,
+      "first_trial_wall_ms": 160.757709
+    },
+    {
+      "name": "hello-scale1-shear0.12-density3",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 159.009875,
+      "p95_ms": 162.33308399999999,
+      "retry_p95_ms": 0.000834,
+      "first_trial_wall_ms": 162.125
+    },
+    {
+      "name": "hello-scale2-shear-0.12-density1",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "眦",
+      "p50_ms": 152.606416,
+      "p95_ms": 155.424875,
+      "retry_p95_ms": 0.000709,
+      "first_trial_wall_ms": 158.21870800000002
+    },
+    {
+      "name": "hello-scale2-shear-0.12-density3",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "眦",
+      "p50_ms": 152.383958,
+      "p95_ms": 183.145833,
+      "retry_p95_ms": 0.000792,
+      "first_trial_wall_ms": 154.43829200000002
+    },
+    {
+      "name": "hello-scale2-shear0-density1",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 165.086042,
+      "p95_ms": 195.939417,
+      "retry_p95_ms": 0.000875,
+      "first_trial_wall_ms": 170.46241600000002
+    },
+    {
+      "name": "hello-scale2-shear0-density3",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 158.5165,
+      "p95_ms": 204.966917,
+      "retry_p95_ms": 0.000917,
+      "first_trial_wall_ms": 158.152541
+    },
+    {
+      "name": "hello-scale2-shear0.12-density1",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 161.309333,
+      "p95_ms": 201.071625,
+      "retry_p95_ms": 0.000833,
+      "first_trial_wall_ms": 158.893
+    },
+    {
+      "name": "hello-scale2-shear0.12-density3",
+      "expected": "hello",
+      "trials": 30,
+      "top1": [
+        "hello"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "毗",
+      "p50_ms": 160.349416,
+      "p95_ms": 238.118875,
+      "retry_p95_ms": 0.000917,
+      "first_trial_wall_ms": 160.572334
+    },
+    {
+      "name": "user-connected-memory",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 102.91208400000001,
+      "p95_ms": 111.901209,
+      "retry_p95_ms": 0.000833,
+      "first_trial_wall_ms": 109.772833
+    },
+    {
+      "name": "memory-scale0.5-shear-0.12-density1",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 102.88625,
+      "p95_ms": 108.08075000000001,
+      "retry_p95_ms": 0.000792,
+      "first_trial_wall_ms": 106.49799999999999
+    },
+    {
+      "name": "memory-scale0.5-shear-0.12-density3",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 103.055416,
+      "p95_ms": 116.601,
+      "retry_p95_ms": 0.001167,
+      "first_trial_wall_ms": 103.014375
+    },
+    {
+      "name": "memory-scale0.5-shear0-density1",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 104.85825,
+      "p95_ms": 148.339792,
+      "retry_p95_ms": 0.001333,
+      "first_trial_wall_ms": 100.423542
+    },
+    {
+      "name": "memory-scale0.5-shear0-density3",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 103.05283299999999,
+      "p95_ms": 161.219625,
+      "retry_p95_ms": 0.001167,
+      "first_trial_wall_ms": 109.356625
+    },
+    {
+      "name": "memory-scale0.5-shear0.12-density1",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 109.884625,
+      "p95_ms": 161.11762499999998,
+      "retry_p95_ms": 0.000875,
+      "first_trial_wall_ms": 110.49025
+    },
+    {
+      "name": "memory-scale0.5-shear0.12-density3",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 110.583583,
+      "p95_ms": 130.71550000000002,
+      "retry_p95_ms": 0.0011250000000000001,
+      "first_trial_wall_ms": 117.362167
+    },
+    {
+      "name": "memory-scale1-shear-0.12-density1",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 107.47166700000001,
+      "p95_ms": 204.166667,
+      "retry_p95_ms": 0.000958,
+      "first_trial_wall_ms": 101.246667
+    },
+    {
+      "name": "memory-scale1-shear-0.12-density3",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 104.9625,
+      "p95_ms": 179.025625,
+      "retry_p95_ms": 0.001166,
+      "first_trial_wall_ms": 104.471541
+    },
+    {
+      "name": "memory-scale1-shear0-density1",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 104.393834,
+      "p95_ms": 180.49966700000002,
+      "retry_p95_ms": 0.0012079999999999999,
+      "first_trial_wall_ms": 104.166209
+    },
+    {
+      "name": "memory-scale1-shear0-density3",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 102.3685,
+      "p95_ms": 130.47275,
+      "retry_p95_ms": 0.001167,
+      "first_trial_wall_ms": 104.21374999999999
+    },
+    {
+      "name": "memory-scale1-shear0.12-density1",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 109.618709,
+      "p95_ms": 111.676417,
+      "retry_p95_ms": 0.000958,
+      "first_trial_wall_ms": 108.484458
+    },
+    {
+      "name": "memory-scale1-shear0.12-density3",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 111.041209,
+      "p95_ms": 179.752583,
+      "retry_p95_ms": 0.0014169999999999999,
+      "first_trial_wall_ms": 108.794334
+    },
+    {
+      "name": "memory-scale2-shear-0.12-density1",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 102.264792,
+      "p95_ms": 104.78975,
+      "retry_p95_ms": 0.000792,
+      "first_trial_wall_ms": 102.799333
+    },
+    {
+      "name": "memory-scale2-shear-0.12-density3",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 102.654,
+      "p95_ms": 106.14491600000001,
+      "retry_p95_ms": 0.001167,
+      "first_trial_wall_ms": 108.95162499999999
+    },
+    {
+      "name": "memory-scale2-shear0-density1",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 102.682916,
+      "p95_ms": 145.59229200000001,
+      "retry_p95_ms": 0.001083,
+      "first_trial_wall_ms": 101.202958
+    },
+    {
+      "name": "memory-scale2-shear0-density3",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 101.43029100000001,
+      "p95_ms": 102.711667,
+      "retry_p95_ms": 0.0011250000000000001,
+      "first_trial_wall_ms": 101.91570899999999
+    },
+    {
+      "name": "memory-scale2-shear0.12-density1",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 111.79104099999999,
+      "p95_ms": 151.466458,
+      "retry_p95_ms": 0.001167,
+      "first_trial_wall_ms": 108.838083
+    },
+    {
+      "name": "memory-scale2-shear0.12-density3",
+      "expected": "memory",
+      "trials": 30,
+      "top1": [
+        "memory"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 109.899917,
+      "p95_ms": 144.78987500000002,
+      "retry_p95_ms": 0.001166,
+      "first_trial_wall_ms": 109.959666
+    },
+    {
+      "name": "user-connected-goal",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "斌",
+      "p50_ms": 123.53212500000001,
+      "p95_ms": 132.50645799999998,
+      "retry_p95_ms": 0.000875,
+      "first_trial_wall_ms": 125.38133300000001
+    },
+    {
+      "name": "goal-scale0.5-shear-0.12-density1",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "纠",
+      "p50_ms": 107.660375,
+      "p95_ms": 139.84745800000002,
+      "retry_p95_ms": 0.00125,
+      "first_trial_wall_ms": 113.921875
+    },
+    {
+      "name": "goal-scale0.5-shear-0.12-density3",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "纠",
+      "p50_ms": 105.84433299999999,
+      "p95_ms": 111.061875,
+      "retry_p95_ms": 0.001083,
+      "first_trial_wall_ms": 107.557792
+    },
+    {
+      "name": "goal-scale0.5-shear0-density1",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "斌",
+      "p50_ms": 122.2425,
+      "p95_ms": 155.620292,
+      "retry_p95_ms": 0.000833,
+      "first_trial_wall_ms": 120.359709
+    },
+    {
+      "name": "goal-scale0.5-shear0-density3",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "斌",
+      "p50_ms": 123.41449999999999,
+      "p95_ms": 142.388083,
+      "retry_p95_ms": 0.001041,
+      "first_trial_wall_ms": 122.97870800000001
+    },
+    {
+      "name": "goal-scale0.5-shear0.12-density1",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "疵",
+      "p50_ms": 125.21233300000002,
+      "p95_ms": 161.250083,
+      "retry_p95_ms": 0.0011250000000000001,
+      "first_trial_wall_ms": 122.105041
+    },
+    {
+      "name": "goal-scale0.5-shear0.12-density3",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "疵",
+      "p50_ms": 141.340666,
+      "p95_ms": 174.33879199999998,
+      "retry_p95_ms": 0.001167,
+      "first_trial_wall_ms": 124.30904199999999
+    },
+    {
+      "name": "goal-scale1-shear-0.12-density1",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "纠",
+      "p50_ms": 122.81904200000001,
+      "p95_ms": 173.098375,
+      "retry_p95_ms": 0.000959,
+      "first_trial_wall_ms": 123.170125
+    },
+    {
+      "name": "goal-scale1-shear-0.12-density3",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "纠",
+      "p50_ms": 109.35241699999999,
+      "p95_ms": 160.406,
+      "retry_p95_ms": 0.001084,
+      "first_trial_wall_ms": 125.115959
+    },
+    {
+      "name": "goal-scale1-shear0-density1",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "斌",
+      "p50_ms": 123.921875,
+      "p95_ms": 127.15041699999999,
+      "retry_p95_ms": 0.000833,
+      "first_trial_wall_ms": 126.420208
+    },
+    {
+      "name": "goal-scale1-shear0-density3",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "斌",
+      "p50_ms": 123.726375,
+      "p95_ms": 134.58108299999998,
+      "retry_p95_ms": 0.001167,
+      "first_trial_wall_ms": 123.460459
+    },
+    {
+      "name": "goal-scale1-shear0.12-density1",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "疵",
+      "p50_ms": 127.18104199999999,
+      "p95_ms": 143.601167,
+      "retry_p95_ms": 0.000916,
+      "first_trial_wall_ms": 120.258292
+    },
+    {
+      "name": "goal-scale1-shear0.12-density3",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "疵",
+      "p50_ms": 132.273375,
+      "p95_ms": 139.917125,
+      "retry_p95_ms": 0.001084,
+      "first_trial_wall_ms": 127.279792
+    },
+    {
+      "name": "goal-scale2-shear-0.12-density1",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "纠",
+      "p50_ms": 117.808584,
+      "p95_ms": 125.94941600000001,
+      "retry_p95_ms": 0.000792,
+      "first_trial_wall_ms": 120.950667
+    },
+    {
+      "name": "goal-scale2-shear-0.12-density3",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "纠",
+      "p50_ms": 116.727958,
+      "p95_ms": 125.42175,
+      "retry_p95_ms": 0.001,
+      "first_trial_wall_ms": 123.189583
+    },
+    {
+      "name": "goal-scale2-shear0-density1",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "斌",
+      "p50_ms": 144.856417,
+      "p95_ms": 168.5035,
+      "retry_p95_ms": 0.001083,
+      "first_trial_wall_ms": 148.29183300000003
+    },
+    {
+      "name": "goal-scale2-shear0-density3",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "斌",
+      "p50_ms": 138.796208,
+      "p95_ms": 149.002334,
+      "retry_p95_ms": 0.0012079999999999999,
+      "first_trial_wall_ms": 149.467625
+    },
+    {
+      "name": "goal-scale2-shear0.12-density1",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "疵",
+      "p50_ms": 134.961083,
+      "p95_ms": 152.361042,
+      "retry_p95_ms": 0.000875,
+      "first_trial_wall_ms": 133.400458
+    },
+    {
+      "name": "goal-scale2-shear0.12-density3",
+      "expected": "goal",
+      "trials": 30,
+      "top1": [
+        "goal"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "疵",
+      "p50_ms": 136.648834,
+      "p95_ms": 141.918125,
+      "retry_p95_ms": 0.001042,
+      "first_trial_wall_ms": 155.6395
+    },
+    {
+      "name": "user-connected-women",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 203.043209,
+      "p95_ms": 275.337375,
+      "retry_p95_ms": 0.000917,
+      "first_trial_wall_ms": 261.941916
+    },
+    {
+      "name": "我们-scale0.5-shear-0.12-density1",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 199.893417,
+      "p95_ms": 299.877333,
+      "retry_p95_ms": 0.000958,
+      "first_trial_wall_ms": 209.927333
+    },
+    {
+      "name": "我们-scale0.5-shear-0.12-density3",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 207.91475,
+      "p95_ms": 325.84341700000004,
+      "retry_p95_ms": 0.001459,
+      "first_trial_wall_ms": 200.038125
+    },
+    {
+      "name": "我们-scale0.5-shear0-density1",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 207.87662500000002,
+      "p95_ms": 424.798417,
+      "retry_p95_ms": 0.001042,
+      "first_trial_wall_ms": 215.244042
+    },
+    {
+      "name": "我们-scale0.5-shear0-density3",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 202.577959,
+      "p95_ms": 213.966541,
+      "retry_p95_ms": 0.001333,
+      "first_trial_wall_ms": 231.81983300000002
+    },
+    {
+      "name": "我们-scale0.5-shear0.12-density1",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 224.257,
+      "p95_ms": 506.75320800000003,
+      "retry_p95_ms": 0.0012079999999999999,
+      "first_trial_wall_ms": 208.52166599999998
+    },
+    {
+      "name": "我们-scale0.5-shear0.12-density3",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 207.00674999999998,
+      "p95_ms": 224.566625,
+      "retry_p95_ms": 0.0013340000000000001,
+      "first_trial_wall_ms": 214.417417
+    },
+    {
+      "name": "我们-scale1-shear-0.12-density1",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 196.272083,
+      "p95_ms": 200.0695,
+      "retry_p95_ms": 0.000875,
+      "first_trial_wall_ms": 202.54820800000002
+    },
+    {
+      "name": "我们-scale1-shear-0.12-density3",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 195.474208,
+      "p95_ms": 205.511542,
+      "retry_p95_ms": 0.0011250000000000001,
+      "first_trial_wall_ms": 196.081708
+    },
+    {
+      "name": "我们-scale1-shear0-density1",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 199.443125,
+      "p95_ms": 226.74175,
+      "retry_p95_ms": 0.001083,
+      "first_trial_wall_ms": 198.448
+    },
+    {
+      "name": "我们-scale1-shear0-density3",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 200.208875,
+      "p95_ms": 220.108333,
+      "retry_p95_ms": 0.0012079999999999999,
+      "first_trial_wall_ms": 197.626209
+    },
+    {
+      "name": "我们-scale1-shear0.12-density1",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 204.59254199999998,
+      "p95_ms": 269.01687499999997,
+      "retry_p95_ms": 0.0012920000000000002,
+      "first_trial_wall_ms": 206.901917
+    },
+    {
+      "name": "我们-scale1-shear0.12-density3",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 209.651625,
+      "p95_ms": 461.2845,
+      "retry_p95_ms": 0.00125,
+      "first_trial_wall_ms": 210.809416
+    },
+    {
+      "name": "我们-scale2-shear-0.12-density1",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 203.153041,
+      "p95_ms": 319.34079199999996,
+      "retry_p95_ms": 0.0012920000000000002,
+      "first_trial_wall_ms": 194.61766699999998
+    },
+    {
+      "name": "我们-scale2-shear-0.12-density3",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "ꎰ",
+      "p50_ms": 208.182708,
+      "p95_ms": 392.378042,
+      "retry_p95_ms": 0.0018750000000000001,
+      "first_trial_wall_ms": 279.355167
+    },
+    {
+      "name": "我们-scale2-shear0-density1",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 201.412417,
+      "p95_ms": 206.62566700000002,
+      "retry_p95_ms": 0.000916,
+      "first_trial_wall_ms": 201.68995900000002
+    },
+    {
+      "name": "我们-scale2-shear0-density3",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 210.40212499999998,
+      "p95_ms": 380.472583,
+      "retry_p95_ms": 0.001375,
+      "first_trial_wall_ms": 193.87787500000002
+    },
+    {
+      "name": "我们-scale2-shear0.12-density1",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 217.036084,
+      "p95_ms": 383.4955,
+      "retry_p95_ms": 0.000958,
+      "first_trial_wall_ms": 208.44383299999998
+    },
+    {
+      "name": "我们-scale2-shear0.12-density3",
+      "expected": "我们",
+      "trials": 30,
+      "top1": [
+        "我们"
+      ],
+      "correct_trials": 30,
+      "baseline_top1": "婀",
+      "p50_ms": 219.352792,
+      "p95_ms": 350.89916700000003,
+      "retry_p95_ms": 0.0014169999999999999,
+      "first_trial_wall_ms": 221.60804100000001
+    }
+  ],
+  "correct_samples": 76,
+  "version": "Before moving identical Han predecessor-placement guard ahead of model inference",
+  "source_sha256": {
+    "connected-before-placement-filter.rs": "7be8f1840c80b1b6947c6fc17d0d746e8c05cfa08aa7436624fd4f87ac13aa39",
+    "lib-before-placement-filter.rs": "e9e8d1d2e13c8c880f9e0201e5630243faa28e7f3dd84a9521d523d653571db1"
+  },
+  "load_caveat": "Concurrent common_eval evaluation detected; conditions not isolated."
+}

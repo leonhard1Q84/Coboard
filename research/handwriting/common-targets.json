@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "note": "Frozen product vocabulary v1, selected before this evaluation. Manual everyday/demo vocabulary, not a statistical frequency ranking. Case and spaces are significant.",
+  "digit": "0123456789",
+  "uppercase": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  "lowercase": "abcdefghijklmnopqrstuvwxyz",
+  "english-word": ["good", "hello", "world", "yes", "no", "ok", "please", "thanks", "today", "tomorrow", "time", "date", "name", "work", "home", "school", "book", "read", "write", "test", "start", "stop", "open", "close", "save", "undo", "redo", "copy", "paste", "draw", "line", "text", "note", "page", "screen", "share", "meeting", "project", "plan", "goal", "idea", "learn", "think", "memory", "remember", "people", "team", "water", "happy", "sorry", "help", "right", "left", "next", "back", "first", "last", "one", "two", "three"],
+  "number-string": ["10", "12", "20", "30", "99", "100", "2026", "12345", "3.14", "50%", "09:30", "1+2=3"],
+  "chinese-character": "的一是在不了有和人这中大为上个国我以要他时来用们生到作地于出就分对成会可主发年动同工也能下过子说产种面而方后多定行学法所民得经之进着等部度家电力里如水化高自二理起小物现天好你文画写笔记数三四五六七八九",
+  "chinese-phrase": ["我们", "中文", "你好", "谢谢", "今天", "明天", "时间", "开始", "结束", "保存", "撤销", "重做", "画布", "屏幕", "共享", "会议", "项目", "计划", "学习", "测试", "微笑"],
+  "mixed-line": ["中 API 30", "版本 v2", "第 1 页", "2026 年", "计划 A", "时间 10:30", "你好 hello", "good 好", "测试 test", "保存 Ctrl S", "宽 100", "比例 50%"],
+  "ambiguous": ["0Oo", "1Il", "2Zz", "5Ss", "8B", "rn", "m", "cl", "d", "good", "goal", "god", "food", "pool"],
+  "negative": ["line", "arrow", "circle", "rectangle", "cross", "sine", "spiral", "scribble"]
+}

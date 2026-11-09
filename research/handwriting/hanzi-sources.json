@@ -1,0 +1,43 @@
+{
+  "repository": "https://github.com/gugray/hanzi_lookup",
+  "commit": "01f90c3ab99a8fadf0696c28e5eb097223c500db",
+  "commit_date": "2019-05-15T20:01:10Z",
+  "version": "1.0.0 (official Cargo.toml)",
+  "files": [
+    {
+      "path": "web_demo/hanzi_lookup.js",
+      "url": "https://raw.githubusercontent.com/gugray/hanzi_lookup/01f90c3ab99a8fadf0696c28e5eb097223c500db/web_demo/hanzi_lookup.js",
+      "size": 5166,
+      "sha256": "fe6f70c1b4172951727a1b313313cff1dc1c663ff0c5209a7ccb42ae3e0a71ef",
+      "local": "/tmp/coboard-hanzi-probe/hanzi_lookup.js"
+    },
+    {
+      "path": "web_demo/hanzi_lookup_bg.wasm",
+      "url": "https://raw.githubusercontent.com/gugray/hanzi_lookup/01f90c3ab99a8fadf0696c28e5eb097223c500db/web_demo/hanzi_lookup_bg.wasm",
+      "size": 740534,
+      "sha256": "8d2affdbfffe651d62534fb6a4ad192d57cf3559631860a7aadb7cd48ffa7463",
+      "local": "/tmp/coboard-hanzi-probe/hanzi_lookup_bg.wasm"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/gugray/hanzi_lookup/01f90c3ab99a8fadf0696c28e5eb097223c500db/README.md",
+      "size": 6464,
+      "sha256": "1f3d4ad32bf090328724673a6ab49a592726b44706c967d5f15b2368fb1d068e",
+      "local": "/tmp/coboard-hanzi-probe/README.md"
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/gugray/hanzi_lookup/01f90c3ab99a8fadf0696c28e5eb097223c500db/LICENSE",
+      "size": 7652,
+      "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+      "local": "/tmp/coboard-hanzi-probe/LICENSE"
+    },
+    {
+      "path": "LICENSE-APL",
+      "url": "https://raw.githubusercontent.com/gugray/hanzi_lookup/01f90c3ab99a8fadf0696c28e5eb097223c500db/LICENSE-APL",
+      "size": 6901,
+      "sha256": "3a5e90c0957524a89e48203febcd4492ca4393678abaa7e5b4d70f3ff32b386d",
+      "local": "/tmp/coboard-hanzi-probe/LICENSE-APL"
+    }
+  ]
+}

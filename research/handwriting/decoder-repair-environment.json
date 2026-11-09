@@ -1,0 +1,26 @@
+{
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.9.6",
+  "rustc": "rustc 1.98.0 (88d9e12ae 2026-08-18) (Homebrew)",
+  "profile": "release, offline, locked; sequential CPU; fixed warm-up; filesystem cache/thermal state uncontrolled",
+  "sha256": {
+    "research/handwriting/common-targets.json": "3613737a531673b07a31a814c901b88c86af3ad15151f392002085778300b7a7",
+    "crates/coboard-vision-ml/src/connected.rs": "9b9648d7787d96af21e460cb855d73b0720e59421a9b96fc8a8dbc9043bd1d3b",
+    "crates/coboard-vision-ml/src/incremental.rs": "b02e8166c1584a59e428c10eeabac39a9aa2a5c9d06600a676a81a0e83fe1575",
+    "crates/coboard-vision-ml/src/incremental_tests.rs": "e8290324182cd4de3dc0bdbb3c521292a629de9075235905e2fab04eb57efd79",
+    "crates/coboard-vision-ml/src/lib.rs": "042835c66d5df5f084fb880af2527ce3290765a168679f103889ef0b5f403af6",
+    "crates/coboard-vision-ml/src/multipen.rs": "6eacf299218805ea51af647ed2dd722fb177841f3c74dbdff7128e881094d1e6",
+    "crates/coboard-vision-ml/src/recognition.rs": "8998ef73e9dc236e471e05e4e222b624cf80d97664d7fc9db487e304cd64a8d0",
+    "crates/coboard-vision-ml/src/stroke_normalization.rs": "4df58c00676d3804f8d556a31d94c19255cf9fe7e7b40dbae402fea3268fea2a",
+    "crates/coboard-vision-ml/data/english-lexicon.txt": "f1f1481ef429d0daea8ca1107ee92bac20b2b90596fc6986ecbd61f171813a47",
+    "research/handwriting/build-common-eval.py": "8edf95e207acc5f2f057c4f88e1c7a593e46801183f6ff8ca18919a8e1f408a5",
+    "research/handwriting/score-common-eval.py": "de1dd16807a9a20c365c0d73704c6e11e14d5b59d63c3038e7f044f8f6f43e8b",
+    "research/handwriting/run-common-eval.py": "d9125a141930fa6a0d2a99a368bbbcef3fd7682bad80dd7e617c8734130da87a",
+    "research/handwriting/connected-fixtures.json": "175830e30a66730b206cb3a1dd44cdff3be4b513ca2797e59a470290de7c0c4d",
+    "crates/coboard-vision-ml/examples/common_eval.rs": "7df4970c92952cb5efe20277e9344a9563e7334a3a260dab19827fb2b5d92bd3",
+    "Cargo.lock": "502be2859ea813c3d3b7eb629c52986834920ba922feecab945f099f5c8fed43",
+    "singleEngine.dll": "3908e7d0beb65dcaed238f256540937e3347bbe7a6c13d26a118a727e63cb57f",
+    "lm_HW_PB_7000_kn.arpa.7e9.prune.1e-7.lm.fixed": "f20a2428aa867eff1b92b373fdb2ae28cf298544b6c85253f5a81b98f2cec054"
+  }
+}
