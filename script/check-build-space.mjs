@@ -29,7 +29,7 @@ try {
     console.error(
       `构建已停止：构建盘仅剩 ${(available / gibibyte).toFixed(2)} GiB，至少需预留 1 GiB。\n` +
       '请先释放空间；全量构建建议预留 3 GiB 以上。\n' +
-      '若此前因磁盘满导致程序损坏，请退出开发进程后在仓库根目录运行 cargo clean，再重新构建。',
+      '若此前因磁盘满导致调试程序损坏，请保存内容并退出开发进程后，在仓库根目录运行 npm run clean:build，再重新构建。',
     );
     process.exitCode = 1;
   }

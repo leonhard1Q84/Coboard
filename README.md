@@ -55,6 +55,12 @@ npm --prefix apps/coboard-desktop ci
 # 仓库根目录：启动完整桌面应用（包含 Web 层与本地内核）
 npm run dev
 
+# 日常使用：构建精简的 release 应用，不启动或重启当前会话
+npm run build:app
+
+# 保存内容、退出应用和开发进程后，释放调试缓存（保留 release 应用）
+npm run clean:build
+
 # 仓库根目录：仅启动 Web 预览
 npm run dev:web
 
@@ -63,8 +69,12 @@ npm --prefix apps/coboard-desktop test
 npm --prefix apps/coboard-desktop run build
 ```
 
-根目录的 `npm run dev:web` 只启动 Web 层：可以书写，但没有本地内核，界面会显示"未连接本地存储"，不会假装保存成功。在 `apps/coboard-desktop` 目录内，`npm run dev` 仍只启动 Web 层，`npm run tauri dev` 启动完整桌面应用。该目录内执行 `npm run tauri build -- --debug --bundles app` 生成本地调试 `.app`；正式签名与分发尚未配置。
+日常使用先执行 `npm run build:app`，再打开 `target/release/bundle/macos/Coboard.app`，之后无需运行 Vite 或 Cargo。`./script/build_and_run.sh` 同样默认构建 release 并启动；`--debug` 才构建调试应用并进入 LLDB。`--preview` 使用独立应用标识构建 release 试用包。构建入口会校验完整签名，并检查 release `.app` 的文件字节总和不超过 30 MiB。首次 release 编译仍需要开发缓存空间；14.94 MiB 的应用不代表编译也只占这些空间。配置 `CARGO_TARGET_DIR` 时，产物位于相应目录。
+
+根目录的 `npm run dev:web` 只启动 Web 层：可以书写，但没有本地内核，界面会显示"未连接本地存储"，不会假装保存成功。在 `apps/coboard-desktop` 目录内，`npm run dev` 仍只启动 Web 层，`npm run tauri dev` 启动完整桌面应用。开发与调试产物用于修改代码，不作为日常运行的体积或性能基线。
 
 本地 `.app` 默认使用 ad hoc 签名（`signingIdentity = "-"`），封装应用资源并支持本机验证，无需开发者证书。`./script/build_and_run.sh --verify` 会构建、校验完整签名并启动应用；这不代表已完成 Developer ID 签名或 Apple 公证，不能作为对外发行验收。见 [本地签名决策](docs/decisions/ADR-006-local-macos-build-signing.md)。
 
-桌面启动和打包前会检查构建盘空间，少于 1 GiB 时停止；这只是最低余量，全量构建建议预留 3 GiB 以上。若构建出现 `No space left on device`，随后启动又报 `Permission denied`，可能是链接或剥离符号时留下了损坏的程序，不能仅靠 `chmod +x` 修复。退出开发进程、释放空间后，在仓库根目录运行 `cargo clean` 清除可重建产物，再运行 `npm run dev`；文档数据不在 `target` 内，不受此清理影响。
+桌面开发启动和打包前会检查构建盘空间，少于 1 GiB 时停止；这只是最低余量，全量构建建议预留 3 GiB 以上。若构建出现 `No space left on device`，随后启动又报 `Permission denied`，可能是链接或剥离符号时留下了损坏的程序，不能仅靠 `chmod +x` 修复。保存内容并退出应用、Tauri 开发进程和 Cargo 构建后，在仓库根目录运行 `npm run clean:build` 清除可重建的调试缓存与旧调试应用，再按需运行 `npm run dev`；release 应用和文档保留。命令无法检查进程或发现仍在运行时会拒绝清理。清理后的下次开发需要全量重编译，不要把它作为每次启动的前置步骤。
+
+现有实验手写识别仍沿用本机外部模型（另约 5.71 MiB），没有打包进 `.app`；其他机器的模型配置要求不变。体积测量条件、开发缓存与后续边界见 [轻量构建决策](docs/decisions/ADR-007-lean-local-builds.md)。

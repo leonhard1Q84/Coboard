@@ -17,4 +17,4 @@ Tauri 未配置签名身份时可以产出 `.app`，但其中的 Apple Silicon �
 
 这只服务于本机开发和本地打包，不能证明开发者身份，也不代替 Developer ID 签名、正式分发与 Apple 公证。将来分发需另行配置正式签名身份及公证流程。
 
-验证命令：`./script/build_and_run.sh --verify`；独立校验可用 `codesign --verify --deep --strict target/debug/bundle/macos/Coboard.app`。窗口显示与文档恢复须另作运行验证。
+验证命令：`./script/build_and_run.sh --verify`；按 ADR-007，默认现为 release，独立校验可用 `codesign --verify --deep --strict target/release/bundle/macos/Coboard.app`。`--debug` 的产物仍在 `target/debug`。窗口显示与文档恢复须另作运行验证。

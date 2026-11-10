@@ -40,6 +40,6 @@
 - 转换后用 `V` 双击文字更正，或用 `T` 点击编辑。当前使用画布默认文字样式；没有自动合并已经转换的上一段，也没有识别公式。
 - 当前为 PaddleOCR PP-OCRv5 mobile 原型。WebKit 的合成中、英笔迹已跑通，混写 `中 API 30` 输出为 `中API30`，空格未完整保留；真实连笔、多人字迹、换行、专有名词和速度尚未完成验收，不能承诺 Goodnotes 同等准确率。
 
-旧版独立试用可用 `./script/build_and_run.sh --preview` 构建运行，应用名为 **Coboard Ink Preview**；此命令目前仍构建旧 PaddleOCR 原型，不会自动获得 MyScript。它使用单独笔记目录，不覆盖原来的 Coboard。已有试用实例运行时脚本会拒绝重启，避免丢掉临时标注。
+独立试用可用 `./script/build_and_run.sh --preview` 构建运行，应用名为 **Coboard Ink Preview**；按 ADR-007 默认构建当前代码的 release 包，手写沿用本机已有的原生增量模型。它使用单独笔记目录，不覆盖原来的 Coboard。已有试用实例运行时脚本会拒绝重启，避免丢掉临时标注。
 
 引擎、授权与实测记录见 [引擎调研](handwriting-engine-research.md)。

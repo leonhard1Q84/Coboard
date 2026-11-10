@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build:app": "./script/build_and_run.sh --build-only",
+    "clean:build": "node script/clean-build-cache.mjs",
     "dev": "npm --prefix apps/coboard-desktop run tauri -- dev",
     "dev:web": "npm --prefix apps/coboard-desktop run dev --"
   }

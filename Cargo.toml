@@ -49,3 +49,13 @@ opt-level = 3
 
 [profile.test.package.coboard-vision-ml]
 opt-level = 3
+
+# Daily-use bundles: retain runtime optimizations and unwinding, discard symbols.
+# Thin LTO removes unused code across crate boundaries without a size-first -Oz.
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+debug = 0
+strip = "symbols"
+incremental = false
