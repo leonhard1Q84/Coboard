@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useOverlay, DEFAULT_BACKDROP } from '../../stores/overlay';
+import { useEffect, useRef, useState } from 'react';
+import { DEFAULT_BACKDROP, useOverlay } from '../../stores/overlay';
 import { useTools } from '../../stores/tools';
+import { BackdropIcon, CloseIcon, HelpIcon, PassthroughIcon, TrashIcon } from '../toolbar/icons';
 import { Toolbar } from '../toolbar/Toolbar';
 
 export function OverlayToolbar() {
@@ -8,40 +9,194 @@ export function OverlayToolbar() {
   const toolPanel = useTools((s) => s.panel);
   const setToolPanel = useTools((s) => s.setPanel);
   const [panel, setPanel] = useState<'help' | 'backdrop' | null>(null);
-  const [clearing, setClearing] = useState(false);
-  // One flyout at a time: a toolbar flyout closes this panel, and vice versa.
+  const [clearNotice, setClearNotice] = useState<number | null>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const clearTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  const dismissClearNotice = () => {
+    clearTimeout(clearTimer.current);
+    setClearNotice(null);
+  };
+
+  // One popover or toast at a time so popovers never collide with the undo toast.
   useEffect(() => {
-    if (toolPanel) setPanel(null);
+    if (toolPanel) {
+      setPanel(null);
+      dismissClearNotice();
+    }
   }, [toolPanel]);
+
+  useEffect(() => {
+    if (!panel) return;
+    const onDown = (e: PointerEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setPanel(null);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setPanel(null);
+    };
+    window.addEventListener('pointerdown', onDown);
+    window.addEventListener('keydown', onKey);
+    return () => {
+      window.removeEventListener('pointerdown', onDown);
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [panel]);
+
+  useEffect(() => () => clearTimeout(clearTimer.current), []);
+
   const togglePanel = (p: 'help' | 'backdrop') => {
     setToolPanel(null);
-    setPanel(panel === p ? null : p);
+    dismissClearNotice();
+    setPanel((cur) => (cur === p ? null : p));
   };
-  return (
-    <div className="overlay-toolbar-container">
-      {screen.error && <div className="screen-error" role="alert"><span>{screen.error}</span><button onClick={screen.dismissError}>关闭</button></div>}
-      {panel === 'help' && <section className="screen-panel" aria-label="屏幕讲解指南">
-        <div className="option-heading"><strong>在屏幕上讲解</strong><button onClick={() => setPanel(null)}>知道了</button></div>
-        <p><kbd>⌥Space</kbd> 呼出 / 收起 · <kbd>⌥P</kbd> 或 <kbd>Esc</kbd> 在绘制与穿透间切换；穿透时聚光灯标示鼠标位置。画笔、图形、文字与画布一致；按住 <kbd>\</kbd> 临时看清底图。</p>
-        <p>标注为临时内容，退出应用即清除，清屏可撤销。工具栏是否被观众看到取决于会议软件。</p>
-      </section>}
-      {panel === 'backdrop' && <section className="screen-panel" aria-label="背景压暗">
-        <div className="option-heading"><strong>让背景退后</strong><button onClick={() => setPanel(null)}>完成</button></div>
-        <label className="backdrop-menu-row">压暗 {Math.round(screen.state.backdrop.dim_opacity * 100)}%<input aria-label="背景压暗程度" type="range" min="0" max="0.85" step="0.05" value={screen.state.backdrop.dim_opacity} onChange={(e) => void screen.setBackdrop({ dim_opacity: Number(e.target.value), blur_px: 0, desaturate: 0 })} /></label>
-        <div className="screen-actions"><button onClick={() => void screen.setBackdrop({ dim_opacity: 0 })}>透明</button><button onClick={() => void screen.setBackdrop(DEFAULT_BACKDROP)}>柔和</button><button onClick={() => void screen.setBackdrop({ dim_opacity: 0.65 })}>专注</button></div>
-      </section>}
-      <Toolbar overlay />
-      <div className="screen-controls" role="toolbar" aria-label="屏幕讲解控制">
-        <span className="screen-drag" data-tauri-drag-region title="拖动工具栏" aria-label="拖动工具栏">⠿</span>
-        <button className="screen-mode" aria-pressed={screen.state.passthrough} onClick={() => void screen.setPassthrough(!screen.state.passthrough)} title="绘制 / 穿透 · ⌥P 或 Esc">{screen.state.passthrough ? '穿透中' : '绘制中'}</button>
-        <button aria-expanded={panel === 'backdrop'} onClick={() => togglePanel('backdrop')}>背景</button>
-        {screen.ink.selected && <button onClick={() => void screen.command('normalize')}>规整</button>}
-        {screen.ink.selected && <button onClick={() => void screen.command('delete')}>删除</button>}
-        <button disabled={!screen.ink.count} onClick={() => setClearing(!clearing)}>清屏</button>
-        <button aria-expanded={panel === 'help'} aria-label="帮助" title="帮助" onClick={() => togglePanel('help')}>?</button>
-        <button onClick={() => void screen.toggle(false)}>结束</button>
+
+  const handleClear = () => {
+    const count = screen.ink.count;
+    if (!count) return;
+    setPanel(null);
+    setToolPanel(null);
+    void screen.clearInk();
+    clearTimeout(clearTimer.current);
+    setClearNotice(count);
+    clearTimer.current = setTimeout(() => setClearNotice(null), 3500);
+  };
+
+  const handleUndoClear = () => {
+    dismissClearNotice();
+    void screen.command('undo');
+  };
+
+  const leading = (
+    <span className="screen-drag" data-tauri-drag-region title="拖动工具栏" aria-label="拖动工具栏">
+      ⠿
+    </span>
+  );
+
+  const trailing = (
+    <div className="toolbar-group" role="group" aria-label="屏幕控制">
+      <button
+        type="button"
+        className="screen-mode"
+        aria-pressed={screen.state.passthrough}
+        onClick={() => {
+          setPanel(null);
+          dismissClearNotice();
+          void screen.setPassthrough(!screen.state.passthrough);
+        }}
+        title="绘制 / 穿透 · ⌥P 或 Esc"
+      >
+        {PassthroughIcon}
+        <span>{screen.state.passthrough ? '穿透中' : '绘制中'}</span>
+      </button>
+
+      <div className="popover-anchor">
+        <button
+          type="button"
+          className="tool"
+          aria-label="背景压暗"
+          aria-expanded={panel === 'backdrop'}
+          aria-pressed={panel === 'backdrop'}
+          title="背景压暗"
+          onClick={() => togglePanel('backdrop')}
+        >
+          {BackdropIcon}
+        </button>
+        {panel === 'backdrop' && (
+          <section className="screen-panel popover-card popover-right" aria-label="背景压暗">
+            <div className="option-heading">
+              <strong>背景压暗</strong>
+              <span className="option-value">{Math.round(screen.state.backdrop.dim_opacity * 100)}%</span>
+            </div>
+            <label className="backdrop-menu-row">
+              <input
+                aria-label="背景压暗程度"
+                type="range"
+                min="0"
+                max="0.85"
+                step="0.05"
+                value={screen.state.backdrop.dim_opacity}
+                onChange={(e) => void screen.setBackdrop({ dim_opacity: Number(e.target.value), blur_px: 0, desaturate: 0 })}
+              />
+            </label>
+            <div className="screen-actions">
+              <button type="button" onClick={() => void screen.setBackdrop({ dim_opacity: 0 })}>透明</button>
+              <button type="button" onClick={() => void screen.setBackdrop(DEFAULT_BACKDROP)}>柔和</button>
+              <button type="button" onClick={() => void screen.setBackdrop({ dim_opacity: 0.65 })}>专注</button>
+            </div>
+          </section>
+        )}
       </div>
-      {clearing && <div className="screen-confirm" role="group" aria-label="确认清屏"><span>清除全部 {screen.ink.count} 个标注？可撤销。</span><button onClick={() => { void screen.clearInk(); setClearing(false); }}>清除</button><button onClick={() => setClearing(false)}>取消</button></div>}
+
+      <button
+        type="button"
+        className="tool"
+        aria-label="一键清屏"
+        title="一键清屏（可撤销）"
+        disabled={!screen.ink.count}
+        onClick={handleClear}
+      >
+        {TrashIcon}
+      </button>
+
+      <div className="popover-anchor">
+        <button
+          type="button"
+          className="tool"
+          aria-label="帮助"
+          aria-expanded={panel === 'help'}
+          aria-pressed={panel === 'help'}
+          title="快捷键与说明"
+          onClick={() => togglePanel('help')}
+        >
+          {HelpIcon}
+        </button>
+        {panel === 'help' && (
+          <section className="screen-panel popover-card popover-right" aria-label="屏幕讲解指南">
+            <div className="option-heading">
+              <strong>屏幕讲解</strong>
+              <button type="button" onClick={() => setPanel(null)}>关闭</button>
+            </div>
+            <p><kbd>⌥Space</kbd> 呼出/收起 · <kbd>⌥P</kbd> / <kbd>Esc</kbd> 切换穿透（聚光环跟随鼠标）· 按住 <kbd>\</kbd> 临时看清底图。</p>
+            <p><kbd>V</kbd> 框选 · <kbd>Q</kbd> 套索 · <kbd>C</kbd> 连接线 · <kbd>S</kbd> 图形 · <kbd>⌘G</kbd>/<kbd>⇧⌘G</kbd> 组合/拆组 · 标注可 <kbd>⌘Z</kbd> 撤销。</p>
+          </section>
+        )}
+      </div>
+
+      <button
+        type="button"
+        className="tool screen-exit"
+        aria-label="结束屏幕讲解"
+        title="结束 ⌥Space"
+        onClick={() => void screen.toggle(false)}
+      >
+        {CloseIcon}
+      </button>
+    </div>
+  );
+
+  return (
+    <div ref={rootRef} className="overlay-toolbar-container">
+      {screen.error && (
+        <div className="screen-error" role="alert">
+          <span>{screen.error}</span>
+          <button type="button" onClick={screen.dismissError}>关闭</button>
+        </div>
+      )}
+      {clearNotice !== null && (
+        <div className="screen-toast" role="status">
+          <span>已清除 {clearNotice} 个标注</span>
+          <button type="button" onClick={handleUndoClear}>撤销 ⌘Z</button>
+        </div>
+      )}
+      <Toolbar
+        overlay
+        leading={leading}
+        trailing={trailing}
+        onToolInteract={() => {
+          setPanel(null);
+          dismissClearNotice();
+        }}
+      />
     </div>
   );
 }

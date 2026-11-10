@@ -26,6 +26,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                             rect: [0.0, 0.0, 100.0, 40.0],
                             page: None,
                         }),
+                        group_ids: Vec::new(),
                     },
                     content: Content::DerivationCard {
                         pinned: true,
@@ -45,6 +46,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                         id: format!("stroke_{i}"),
                         position: Point::default(),
                         source: None,
+                        group_ids: Vec::new(),
                     },
                     content: Content::Stroke {
                         points: vec![

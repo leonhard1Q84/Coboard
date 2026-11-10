@@ -5,13 +5,15 @@ import { useOverlay } from '../../stores/overlay';
 /**
  * While the overlay ignores mouse events the WebView cannot see the pointer, so
  * the native side polls the global cursor and forwards it as `overlay-cursor`.
- * Coordinates are stored on CSS vars: the backdrop mask punches a hole and the
- * halo dot tracks the exact pointer position.
+ * Listening whenever the overlay is visible prevents missing the initial point
+ * emitted right as passthrough activates.
  */
 export function CursorSpotlight() {
+  const visible = useOverlay((s) => s.state.visible);
   const active = useOverlay((s) => s.state.visible && s.state.passthrough);
+
   useEffect(() => {
-    if (!active) return;
+    if (!visible) return;
     const root = document.documentElement;
     const un = listen<{ x: number; y: number }>('overlay-cursor', ({ payload }) => {
       const d = useOverlay.getState().state.display;
@@ -23,7 +25,12 @@ export function CursorSpotlight() {
       root.style.removeProperty('--spot-x');
       root.style.removeProperty('--spot-y');
     };
-  }, [active]);
+  }, [visible]);
+
   if (!active) return null;
-  return <div className="cursor-spot" aria-hidden="true" />;
+  return (
+    <div className="cursor-spot" aria-hidden="true">
+      <span className="cursor-spot-ring" />
+    </div>
+  );
 }

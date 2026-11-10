@@ -7,6 +7,15 @@ pub const SCHEMA_VERSION: u32 = 1;
 pub const MAX_NODES: usize = 100_000;
 pub const MAX_TEXT_BYTES: usize = 256 * 1024;
 pub const MAX_STROKE_POINTS: usize = 100_000;
+pub const MAX_SHAPE_POINTS: usize = 1024;
+pub const MAX_GROUP_DEPTH: usize = 32;
+pub const MAX_CONNECTOR_WAYPOINTS: usize = 32;
+pub const DEFAULT_CONNECTOR_WIDTH: f64 = 2.0;
+pub const DEFAULT_CONNECTOR_COLOR: &str = "#1f2329";
+
+fn valid_hex_color(color: &str) -> bool {
+    color.len() == 7 && color.starts_with('#') && color[1..].bytes().all(|c| c.is_ascii_hexdigit())
+}
 
 #[derive(Debug, Error, PartialEq)]
 pub enum DomainError {
@@ -68,6 +77,8 @@ pub struct NodeAttrs {
     pub position: Point,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub source: Option<SourceRef>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub group_ids: Vec<String>,
 }
 
 #[derive(Debug, Clone, Copy, Default, Serialize, Deserialize, PartialEq, Eq)]
@@ -86,8 +97,41 @@ pub enum BrushStyle {
 pub enum ShapeKind {
     Line,
     Arrow,
+    Curve,
+    Wave,
     Rectangle,
     Ellipse,
+    Triangle,
+    Diamond,
+}
+
+#[derive(Debug, Clone, Copy, Default, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub enum ConnectorAnchor {
+    #[default]
+    Auto,
+    Top,
+    Right,
+    Bottom,
+    Left,
+    Center,
+}
+
+#[derive(Debug, Clone, Copy, Default, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub enum ConnectorRoute {
+    #[default]
+    Straight,
+    Elbow,
+    Curve,
+}
+
+#[derive(Debug, Clone, Copy, Default, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub enum ConnectorHead {
+    #[default]
+    None,
+    Arrow,
 }
 
 pub const fn default_opacity() -> f64 {
@@ -133,10 +177,27 @@ pub enum Content {
         end: Point,
         width: f64,
         color: String,
+        fill: Option<String>,
+        corner_radius: Option<f64>,
+        text: Option<String>,
+        rotation: Option<f64>,
+        points: Vec<Point>,
     },
     Connector {
-        from: String,
-        to: String,
+        from: Option<String>,
+        to: Option<String>,
+        from_point: Option<Point>,
+        to_point: Option<Point>,
+        from_anchor: ConnectorAnchor,
+        to_anchor: ConnectorAnchor,
+        route: ConnectorRoute,
+        start_head: ConnectorHead,
+        end_head: ConnectorHead,
+        dashed: bool,
+        width: f64,
+        color: String,
+        waypoints: Vec<Point>,
+        label: Option<String>,
     },
 }
 
@@ -220,16 +281,100 @@ impl Serialize for Node {
                 end,
                 width,
                 color,
+                fill,
+                corner_radius,
+                text,
+                rotation,
+                points,
             } => {
                 attrs["kind"] = serde_json::to_value(kind).map_err(serde::ser::Error::custom)?;
                 attrs["end"] = serde_json::to_value(end).map_err(serde::ser::Error::custom)?;
                 attrs["width"] = (*width).into();
                 attrs["color"] = color.clone().into();
+                if let Some(fill) = fill {
+                    attrs["fill"] = fill.clone().into();
+                }
+                if let Some(radius) = corner_radius {
+                    attrs["corner_radius"] = (*radius).into();
+                }
+                if let Some(text) = text {
+                    attrs["text"] = text.clone().into();
+                }
+                if let Some(rotation) = rotation {
+                    attrs["rotation"] = (*rotation).into();
+                }
+                if !points.is_empty() {
+                    attrs["points"] =
+                        serde_json::to_value(points).map_err(serde::ser::Error::custom)?;
+                }
                 "shape"
             }
-            Content::Connector { from, to } => {
-                attrs["from"] = from.clone().into();
-                attrs["to"] = to.clone().into();
+            Content::Connector {
+                from,
+                to,
+                from_point,
+                to_point,
+                from_anchor,
+                to_anchor,
+                route,
+                start_head,
+                end_head,
+                dashed,
+                width,
+                color,
+                waypoints,
+                label,
+            } => {
+                if let Some(from) = from {
+                    attrs["from"] = from.clone().into();
+                }
+                if let Some(to) = to {
+                    attrs["to"] = to.clone().into();
+                }
+                if let Some(p) = from_point {
+                    attrs["from_point"] =
+                        serde_json::to_value(p).map_err(serde::ser::Error::custom)?;
+                }
+                if let Some(p) = to_point {
+                    attrs["to_point"] =
+                        serde_json::to_value(p).map_err(serde::ser::Error::custom)?;
+                }
+                if *from_anchor != ConnectorAnchor::Auto {
+                    attrs["from_anchor"] =
+                        serde_json::to_value(from_anchor).map_err(serde::ser::Error::custom)?;
+                }
+                if *to_anchor != ConnectorAnchor::Auto {
+                    attrs["to_anchor"] =
+                        serde_json::to_value(to_anchor).map_err(serde::ser::Error::custom)?;
+                }
+                if *route != ConnectorRoute::Straight {
+                    attrs["route"] =
+                        serde_json::to_value(route).map_err(serde::ser::Error::custom)?;
+                }
+                if *start_head != ConnectorHead::None {
+                    attrs["start_head"] =
+                        serde_json::to_value(start_head).map_err(serde::ser::Error::custom)?;
+                }
+                if *end_head != ConnectorHead::None {
+                    attrs["end_head"] =
+                        serde_json::to_value(end_head).map_err(serde::ser::Error::custom)?;
+                }
+                if *dashed {
+                    attrs["dashed"] = true.into();
+                }
+                if (*width - DEFAULT_CONNECTOR_WIDTH).abs() > 1e-6 {
+                    attrs["width"] = (*width).into();
+                }
+                if color != DEFAULT_CONNECTOR_COLOR {
+                    attrs["color"] = color.clone().into();
+                }
+                if !waypoints.is_empty() {
+                    attrs["waypoints"] =
+                        serde_json::to_value(waypoints).map_err(serde::ser::Error::custom)?;
+                }
+                if let Some(label) = label {
+                    attrs["label"] = label.clone().into();
+                }
                 "connector"
             }
         };
@@ -249,6 +394,16 @@ fn take<T: serde::de::DeserializeOwned>(
 ) -> Result<T, String> {
     serde_json::from_value(attrs.remove(key).ok_or_else(|| format!("missing {key}"))?)
         .map_err(|e| e.to_string())
+}
+
+fn take_opt<T: serde::de::DeserializeOwned>(
+    attrs: &mut serde_json::Map<String, Value>,
+    key: &str,
+) -> Result<Option<T>, String> {
+    match attrs.remove(key) {
+        Some(v) => serde_json::from_value(v).map_err(|e| e.to_string()),
+        None => Ok(None),
+    }
 }
 
 fn parse_text(v: &Value) -> Result<String, String> {
@@ -345,10 +500,28 @@ impl<'de> Deserialize<'de> for Node {
                     end: take(&mut a, "end")?,
                     width: take(&mut a, "width")?,
                     color: take(&mut a, "color")?,
+                    fill: take_opt(&mut a, "fill")?,
+                    corner_radius: take_opt(&mut a, "corner_radius")?,
+                    text: take_opt(&mut a, "text")?,
+                    rotation: take_opt(&mut a, "rotation")?,
+                    points: take_opt(&mut a, "points")?.unwrap_or_default(),
                 },
                 "connector" => Content::Connector {
-                    from: take(&mut a, "from")?,
-                    to: take(&mut a, "to")?,
+                    from: take_opt(&mut a, "from")?,
+                    to: take_opt(&mut a, "to")?,
+                    from_point: take_opt(&mut a, "from_point")?,
+                    to_point: take_opt(&mut a, "to_point")?,
+                    from_anchor: take_opt(&mut a, "from_anchor")?.unwrap_or_default(),
+                    to_anchor: take_opt(&mut a, "to_anchor")?.unwrap_or_default(),
+                    route: take_opt(&mut a, "route")?.unwrap_or_default(),
+                    start_head: take_opt(&mut a, "start_head")?.unwrap_or_default(),
+                    end_head: take_opt(&mut a, "end_head")?.unwrap_or_default(),
+                    dashed: take_opt(&mut a, "dashed")?.unwrap_or(false),
+                    width: take_opt(&mut a, "width")?.unwrap_or(DEFAULT_CONNECTOR_WIDTH),
+                    color: take_opt(&mut a, "color")?
+                        .unwrap_or_else(|| DEFAULT_CONNECTOR_COLOR.into()),
+                    waypoints: take_opt(&mut a, "waypoints")?.unwrap_or_default(),
+                    label: take_opt(&mut a, "label")?,
                 },
                 _ => return Err(format!("unknown or malformed JSONML tag: {tag}")),
             };
@@ -369,6 +542,7 @@ impl Node {
                 id: id.into(),
                 position,
                 source: None,
+                group_ids: Vec::new(),
             },
             content: Content::Paragraph { text: text.into() },
         }
@@ -377,6 +551,15 @@ impl Node {
         let invalid = |s: &str| DomainError::Invalid(s.into());
         if !valid_id(&self.attrs.id) || !self.attrs.position.valid() {
             return Err(invalid("invalid object identity or position"));
+        }
+        if self.attrs.group_ids.len() > MAX_GROUP_DEPTH {
+            return Err(invalid("group nesting budget exceeded"));
+        }
+        let mut seen_groups = BTreeSet::new();
+        for gid in &self.attrs.group_ids {
+            if !valid_id(gid) || !seen_groups.insert(gid.as_str()) {
+                return Err(invalid("invalid or duplicate group id"));
+            }
         }
         if let Some(s) = &self.attrs.source
             && (!valid_asset(&s.asset)
@@ -459,35 +642,99 @@ impl Node {
                 end,
                 width,
                 color,
+                fill,
+                corner_radius,
+                text,
+                rotation,
+                points,
             } => {
                 if !end.valid()
                     || !width.is_finite()
                     || *width <= 0.0
                     || *width > 1024.0
-                    || color.len() != 7
-                    || !color.starts_with('#')
-                    || !color[1..].bytes().all(|c| c.is_ascii_hexdigit())
+                    || !valid_hex_color(color)
+                    || fill.as_deref().is_some_and(|f| !valid_hex_color(f))
+                    || corner_radius.is_some_and(|r| !r.is_finite() || r < 0.0 || r > 1024.0)
+                    || rotation
+                        .is_some_and(|r| !r.is_finite() || r.abs() > std::f64::consts::TAU * 2.0)
+                    || points.len() > MAX_SHAPE_POINTS
+                    || points.iter().any(|p| !p.valid())
                 {
                     return Err(invalid("invalid shape"));
                 }
+                if let Some(t) = text {
+                    text_ok(t)?;
+                }
                 match kind {
-                    ShapeKind::Rectangle | ShapeKind::Ellipse => {
+                    ShapeKind::Rectangle
+                    | ShapeKind::Ellipse
+                    | ShapeKind::Triangle
+                    | ShapeKind::Diamond => {
                         if end.x <= 0.0 || end.y <= 0.0 {
                             return Err(invalid("shape dimensions must be positive"));
                         }
                     }
-                    ShapeKind::Line | ShapeKind::Arrow => {
+                    ShapeKind::Line | ShapeKind::Arrow | ShapeKind::Wave => {
                         if (end.x - self.attrs.position.x).hypot(end.y - self.attrs.position.y)
                             <= 0.0
                         {
                             return Err(invalid("line shape length must be positive"));
                         }
                     }
+                    ShapeKind::Curve => {
+                        let span =
+                            (end.x - self.attrs.position.x).hypot(end.y - self.attrs.position.y);
+                        if span <= 0.0 && !points.iter().any(|p| p.x.hypot(p.y) > 0.0) {
+                            return Err(invalid("curve shape must have non-zero extent"));
+                        }
+                    }
                 }
             }
-            Content::Connector { from, to } => {
-                if !valid_id(from) || !valid_id(to) || from == to {
+            Content::Connector {
+                from,
+                to,
+                from_point,
+                to_point,
+                width,
+                color,
+                waypoints,
+                label,
+                ..
+            } => {
+                if (from.is_some() == from_point.is_some())
+                    || (to.is_some() == to_point.is_some())
+                    || !width.is_finite()
+                    || *width <= 0.0
+                    || *width > 1024.0
+                    || !valid_hex_color(color)
+                    || waypoints.len() > MAX_CONNECTOR_WAYPOINTS
+                {
+                    return Err(invalid("invalid connector configuration"));
+                }
+                if from.as_deref().is_some_and(|id| !valid_id(id))
+                    || to.as_deref().is_some_and(|id| !valid_id(id))
+                {
                     return Err(invalid("invalid connector endpoints"));
+                }
+                if let (Some(f), Some(t)) = (from, to)
+                    && f == t
+                {
+                    return Err(invalid("invalid connector endpoints"));
+                }
+                if from_point.is_some_and(|p| !p.valid())
+                    || to_point.is_some_and(|p| !p.valid())
+                    || waypoints.iter().any(|p| !p.valid())
+                {
+                    return Err(invalid("invalid connector coordinates"));
+                }
+                if let (Some(p1), Some(p2)) = (from_point, to_point)
+                    && waypoints.is_empty()
+                    && (p2.x - p1.x).hypot(p2.y - p1.y) <= 0.0
+                {
+                    return Err(invalid("free connector length must be positive"));
+                }
+                if let Some(l) = label {
+                    text_ok(l)?;
                 }
             }
         }
@@ -508,6 +755,12 @@ impl Node {
         match &self.content {
             Content::Paragraph { text } => text.clone(),
             Content::MathBlock { latex } => latex.clone(),
+            Content::Shape {
+                text: Some(text), ..
+            } => text.clone(),
+            Content::Connector {
+                label: Some(label), ..
+            } => label.clone(),
             Content::DerivationCard { children, .. } => children
                 .iter()
                 .map(|b| match b {
@@ -519,6 +772,47 @@ impl Node {
             _ => String::new(),
         }
     }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct SemanticNode {
+    pub id: String,
+    pub kind: String,
+    pub position: Point,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub shape_kind: Option<ShapeKind>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub text: Option<String>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub group_ids: Vec<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct SemanticEdge {
+    pub id: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub from: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub to: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub from_point: Option<Point>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub to_point: Option<Point>,
+    pub directed: bool,
+    pub bidirectional: bool,
+    pub route: ConnectorRoute,
+    pub dashed: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub label: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct SemanticGraph {
+    pub document_id: String,
+    pub title: String,
+    pub revision: u64,
+    pub nodes: Vec<SemanticNode>,
+    pub edges: Vec<SemanticEdge>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
@@ -564,8 +858,8 @@ impl Document {
                     "node map key differs from stable id".into(),
                 ));
             }
-            if let Content::Connector { from, to } = &node.content {
-                for endpoint in [from, to] {
+            if let Content::Connector { from, to, .. } = &node.content {
+                for endpoint in [from.as_ref(), to.as_ref()].into_iter().flatten() {
                     let target = self
                         .nodes
                         .get(endpoint)
@@ -582,5 +876,69 @@ impl Document {
     }
     pub fn asset_hashes(&self) -> BTreeSet<&str> {
         self.nodes.values().flat_map(Node::asset_hashes).collect()
+    }
+    pub fn semantic_graph(&self) -> SemanticGraph {
+        let mut nodes = Vec::new();
+        let mut edges = Vec::new();
+        for node in self.nodes.values() {
+            match &node.content {
+                Content::Connector {
+                    from,
+                    to,
+                    from_point,
+                    to_point,
+                    route,
+                    start_head,
+                    end_head,
+                    dashed,
+                    label,
+                    ..
+                } => {
+                    let directed =
+                        *start_head == ConnectorHead::Arrow || *end_head == ConnectorHead::Arrow;
+                    let bidirectional =
+                        *start_head == ConnectorHead::Arrow && *end_head == ConnectorHead::Arrow;
+                    edges.push(SemanticEdge {
+                        id: node.attrs.id.clone(),
+                        from: from.clone(),
+                        to: to.clone(),
+                        from_point: *from_point,
+                        to_point: *to_point,
+                        directed,
+                        bidirectional,
+                        route: *route,
+                        dashed: *dashed,
+                        label: label.clone(),
+                    });
+                }
+                _ => {
+                    let (kind, shape_kind) = match &node.content {
+                        Content::Paragraph { .. } => ("paragraph", None),
+                        Content::MathBlock { .. } => ("math_block", None),
+                        Content::DerivationCard { .. } => ("derivation_card", None),
+                        Content::Image { .. } => ("image", None),
+                        Content::Stroke { .. } => ("stroke", None),
+                        Content::Shape { kind, .. } => ("shape", Some(*kind)),
+                        Content::Connector { .. } => unreachable!(),
+                    };
+                    let text = node.search_text();
+                    nodes.push(SemanticNode {
+                        id: node.attrs.id.clone(),
+                        kind: kind.into(),
+                        position: node.attrs.position,
+                        shape_kind,
+                        text: if text.is_empty() { None } else { Some(text) },
+                        group_ids: node.attrs.group_ids.clone(),
+                    });
+                }
+            }
+        }
+        SemanticGraph {
+            document_id: self.id.clone(),
+            title: self.title.clone(),
+            revision: self.revision,
+            nodes,
+            edges,
+        }
     }
 }

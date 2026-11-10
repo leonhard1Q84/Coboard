@@ -1,4 +1,5 @@
 import type { Brush, InkPoint, Point, ShapeNode, StrokeNode } from '../../ipc/types';
+import { curveControlPoint, isClosedShape, sampleWavePoints } from './shapes';
 
 /** 1€ filter: removes slow-motion jitter while keeping fast strokes responsive. */
 export class OneEuroFilter {
@@ -134,21 +135,139 @@ export function drawStroke(ctx: CanvasRenderingContext2D, node: StrokeNode, colo
   drawInk(ctx, strokeWorldPoints(node, dx, dy), { color, width: a.width, brush: a.brush ?? 'pen', opacity: a.opacity ?? 1 });
 }
 
-export function drawShape(ctx: CanvasRenderingContext2D, node: ShapeNode, color: string, dx = 0, dy = 0) {
-  const { kind, position, end, width } = node[1];
+function wrapLines(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
+  const out: string[] = [];
+  for (const para of text.split('\n')) {
+    if (!para) { out.push(''); continue; }
+    let line = '';
+    for (const ch of para) {
+      const candidate = line + ch;
+      if (line && ctx.measureText(candidate).width > maxWidth) {
+        out.push(line);
+        line = ch;
+      } else {
+        line = candidate;
+      }
+    }
+    if (line) out.push(line);
+  }
+  return out;
+}
+
+export function drawShape(
+  ctx: CanvasRenderingContext2D,
+  node: ShapeNode,
+  color: string,
+  dx = 0,
+  dy = 0,
+  opts?: { fillColor?: string; textColor?: string; hideText?: boolean },
+) {
+  const { kind, position, end, width, corner_radius, fill, text, rotation = 0, points } = node[1];
   const x = position.x + dx;
   const y = position.y + dy;
+
   ctx.save();
   ctx.strokeStyle = color;
   ctx.lineWidth = width;
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
-  ctx.beginPath();
-  if (kind === 'rectangle') ctx.rect(x, y, end.x, end.y);
-  else if (kind === 'ellipse') ctx.ellipse(x + end.x / 2, y + end.y / 2, end.x / 2, end.y / 2, 0, 0, Math.PI * 2);
-  else {
+
+  if (isClosedShape(kind)) {
+    const cx = x + end.x / 2;
+    const cy = y + end.y / 2;
+    if (rotation) {
+      ctx.translate(cx, cy);
+      ctx.rotate(rotation);
+      ctx.translate(-cx, -cy);
+    }
+
+    ctx.beginPath();
+    if (kind === 'rectangle') {
+      const r = corner_radius ? Math.min(corner_radius, end.x / 2, end.y / 2) : 0;
+      if (r > 0 && typeof ctx.roundRect === 'function') ctx.roundRect(x, y, end.x, end.y, r);
+      else if (r > 0) {
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + end.x, y, x + end.x, y + end.y, r);
+        ctx.arcTo(x + end.x, y + end.y, x, y + end.y, r);
+        ctx.arcTo(x, y + end.y, x, y, r);
+        ctx.arcTo(x, y, x + end.x, y, r);
+        ctx.closePath();
+      } else {
+        ctx.rect(x, y, end.x, end.y);
+      }
+    } else if (kind === 'ellipse') {
+      ctx.ellipse(cx, cy, end.x / 2, end.y / 2, 0, 0, Math.PI * 2);
+    } else if (kind === 'diamond') {
+      ctx.moveTo(cx, y);
+      ctx.lineTo(x + end.x, cy);
+      ctx.lineTo(cx, y + end.y);
+      ctx.lineTo(x, cy);
+      ctx.closePath();
+    } else {
+      // Triangle (preserve custom fitted vertices when present)
+      const verts =
+        points && points.length === 3
+          ? points.map((p) => ({ x: x + p.x, y: y + p.y }))
+          : [
+              { x: cx, y },
+              { x: x + end.x, y: y + end.y },
+              { x, y: y + end.y },
+            ];
+      ctx.moveTo(verts[0].x, verts[0].y);
+      ctx.lineTo(verts[1].x, verts[1].y);
+      ctx.lineTo(verts[2].x, verts[2].y);
+      ctx.closePath();
+    }
+
+    if (fill) {
+      ctx.save();
+      ctx.globalAlpha = 0.14;
+      ctx.fillStyle = opts?.fillColor ?? color;
+      ctx.fill();
+      ctx.restore();
+    }
+    ctx.stroke();
+
+    if (!opts?.hideText && text?.trim()) {
+      ctx.font = '500 14px -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif';
+      const maxW = Math.max(36, end.x * (kind === 'triangle' || kind === 'diamond' ? 0.65 : 0.86) - 12);
+      const lines = wrapLines(ctx, text.trim(), maxW);
+      const lineH = 20;
+      let textX = cx;
+      let textY = cy;
+      if (kind === 'triangle') {
+        if (points && points.length === 3) {
+          textX = x + (points[0].x + points[1].x + points[2].x) / 3;
+          textY = y + (points[0].y + points[1].y + points[2].y) / 3;
+        } else {
+          textY = y + end.y * 0.62;
+        }
+      }
+      ctx.fillStyle = opts?.textColor ?? color;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const startY = textY - ((lines.length - 1) * lineH) / 2;
+      lines.forEach((line, i) => ctx.fillText(line, textX, startY + i * lineH));
+    }
+  } else if (kind === 'wave') {
+    const pts = sampleWavePoints(node, dx, dy);
+    if (pts.length >= 2) {
+      ctx.beginPath();
+      tracePath(ctx, pts);
+      ctx.stroke();
+    }
+  } else if (kind === 'curve') {
     const ex = end.x + dx;
     const ey = end.y + dy;
+    const ctrl = curveControlPoint(node, dx, dy);
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.quadraticCurveTo(ctrl.x, ctrl.y, ex, ey);
+    ctx.stroke();
+  } else {
+    const ex = end.x + dx;
+    const ey = end.y + dy;
+    ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(ex, ey);
     if (kind === 'arrow') {
@@ -159,8 +278,9 @@ export function drawShape(ctx: CanvasRenderingContext2D, node: ShapeNode, color:
         ctx.lineTo(ex - head * Math.cos(angle + side * 0.45), ey - head * Math.sin(angle + side * 0.45));
       }
     }
+    ctx.stroke();
   }
-  ctx.stroke();
+
   ctx.restore();
 }
 

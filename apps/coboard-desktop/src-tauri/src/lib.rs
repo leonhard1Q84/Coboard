@@ -273,6 +273,12 @@ fn sync_overlay_passthrough(
         .store(passthrough && result.visible, Ordering::Relaxed);
     app.emit("overlay-state-changed", result)
         .map_err(window_error)?;
+    if passthrough
+        && result.visible
+        && let Some((x, y)) = coboard_macos::mouse_location_points()
+    {
+        let _ = app.emit_to("overlay", "overlay-cursor", CursorPoint { x, y });
+    }
     Ok(result)
 }
 
@@ -304,15 +310,16 @@ async fn resize_overlay_toolbar(
         );
         let old = toolbar.outer_size().map_err(window_error)?;
         let position = toolbar.outer_position().map_err(window_error)?;
+        let min_x = monitor.position().x;
+        let max_x = (monitor.position().x + monitor.size().width as i32 - (width * scale) as i32)
+            .max(min_x);
+        let centered_x = position.x + (old.width as i32 - (width * scale) as i32) / 2;
         toolbar
             .set_size(tauri::LogicalSize::new(width, height))
             .map_err(window_error)?;
         toolbar
             .set_position(tauri::PhysicalPosition::new(
-                position.x.clamp(
-                    monitor.position().x,
-                    monitor.position().x + monitor.size().width as i32 - (width * scale) as i32,
-                ),
+                centered_x.clamp(min_x, max_x),
                 (position.y + old.height as i32 - (height * scale) as i32)
                     .max(monitor.position().y),
             ))
@@ -524,7 +531,7 @@ pub fn run() {
             .visible(false)
             .shadow(false)
             .resizable(false)
-            .inner_size(760.0, 420.0)
+            .inner_size(980.0, 72.0)
             .always_on_top(true)
             .build()?;
 
@@ -546,20 +553,20 @@ pub fn run() {
             let poll_flag = cursor_active.clone();
             let poll_app = app.handle().clone();
             tauri::async_runtime::spawn(async move {
-                let mut last = (f64::NAN, f64::NAN);
+                let mut last: Option<(f64, f64)> = None;
                 loop {
                     if !poll_flag.load(Ordering::Relaxed) {
-                        last = (f64::NAN, f64::NAN);
-                        tokio::time::sleep(Duration::from_millis(150)).await;
+                        last = None;
+                        tokio::time::sleep(Duration::from_millis(120)).await;
                         continue;
                     }
-                    tokio::time::sleep(Duration::from_millis(16)).await;
                     if let Some((x, y)) = coboard_macos::mouse_location_points()
-                        && ((x - last.0).abs() > 0.5 || (y - last.1).abs() > 0.5)
+                        && last.is_none_or(|(lx, ly)| (x - lx).abs() > 0.5 || (y - ly).abs() > 0.5)
                     {
-                        last = (x, y);
+                        last = Some((x, y));
                         let _ = poll_app.emit_to("overlay", "overlay-cursor", CursorPoint { x, y });
                     }
+                    tokio::time::sleep(Duration::from_millis(16)).await;
                 }
             });
             app.manage(DesktopState {

@@ -1,9 +1,10 @@
-use crate::{Document, DomainError, Node, Point};
+use crate::{Content, Document, DomainError, Node, Point, ShapeKind, valid_id};
 use serde::{Deserialize, Serialize};
-use std::collections::VecDeque;
+use std::collections::{BTreeSet, VecDeque};
 
 pub const HISTORY_LIMIT: usize = 256;
 pub const MAX_HISTORY_BYTES: usize = 16 * 1024 * 1024;
+pub const MAX_OPERATIONS: usize = 32_768;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 #[serde(tag = "type", rename_all = "snake_case", deny_unknown_fields)]
@@ -11,6 +12,9 @@ pub enum Operation {
     Insert { node: Node },
     Delete { id: String },
     Move { id: String, position: Point },
+    Translate { ids: Vec<String>, dx: f64, dy: f64 },
+    Group { id: String, node_ids: Vec<String> },
+    Ungroup { id: String, node_ids: Vec<String> },
     Replace { node: Node },
     Rename { title: String },
 }
@@ -87,7 +91,7 @@ impl Editor {
                 .forward
                 .clone(),
         };
-        if operations.is_empty() || operations.len() > 4096 {
+        if operations.is_empty() || operations.len() > MAX_OPERATIONS {
             return Err(DomainError::Invalid("transaction operation budget".into()));
         }
         let mut next = self.document.clone();
@@ -135,6 +139,19 @@ impl Editor {
     }
 }
 
+fn unique_ids(ids: &[String], label: &str) -> Result<(), DomainError> {
+    if ids.is_empty() {
+        return Err(DomainError::Invalid(format!("empty {label} ids")));
+    }
+    let mut seen = BTreeSet::new();
+    for id in ids {
+        if !seen.insert(id.as_str()) {
+            return Err(DomainError::Invalid(format!("duplicate id in {label}")));
+        }
+    }
+    Ok(())
+}
+
 fn apply_one(doc: &mut Document, operation: &Operation) -> Result<Operation, DomainError> {
     Ok(match operation {
         Operation::Insert { node } => {
@@ -162,6 +179,95 @@ fn apply_one(doc: &mut Document, operation: &Operation) -> Result<Operation, Dom
             Operation::Move {
                 id: id.clone(),
                 position: old,
+            }
+        }
+        Operation::Translate { ids, dx, dy } => {
+            if !dx.is_finite() || !dy.is_finite() {
+                return Err(DomainError::Invalid("nonfinite translation".into()));
+            }
+            unique_ids(ids, "translate")?;
+            for id in ids {
+                let node = doc
+                    .nodes
+                    .get_mut(id)
+                    .ok_or_else(|| DomainError::NotFound(id.clone()))?;
+                node.attrs.position.x += *dx;
+                node.attrs.position.y += *dy;
+                if let Content::Shape {
+                    kind: ShapeKind::Line | ShapeKind::Arrow | ShapeKind::Curve | ShapeKind::Wave,
+                    end,
+                    ..
+                } = &mut node.content
+                {
+                    end.x += *dx;
+                    end.y += *dy;
+                } else if let Content::Connector {
+                    from_point,
+                    to_point,
+                    waypoints,
+                    ..
+                } = &mut node.content
+                {
+                    if let Some(p) = from_point {
+                        p.x += *dx;
+                        p.y += *dy;
+                    }
+                    if let Some(p) = to_point {
+                        p.x += *dx;
+                        p.y += *dy;
+                    }
+                    for wp in waypoints {
+                        wp.x += *dx;
+                        wp.y += *dy;
+                    }
+                }
+            }
+            Operation::Translate {
+                ids: ids.clone(),
+                dx: -*dx,
+                dy: -*dy,
+            }
+        }
+        Operation::Group { id, node_ids } => {
+            if !valid_id(id) {
+                return Err(DomainError::Invalid("invalid group id".into()));
+            }
+            unique_ids(node_ids, "group")?;
+            for nid in node_ids {
+                let node = doc
+                    .nodes
+                    .get_mut(nid)
+                    .ok_or_else(|| DomainError::NotFound(nid.clone()))?;
+                if node.attrs.group_ids.iter().any(|existing| existing == id) {
+                    return Err(DomainError::Duplicate(id.clone()));
+                }
+                node.attrs.group_ids.push(id.clone());
+            }
+            Operation::Ungroup {
+                id: id.clone(),
+                node_ids: node_ids.clone(),
+            }
+        }
+        Operation::Ungroup { id, node_ids } => {
+            if !valid_id(id) {
+                return Err(DomainError::Invalid("invalid group id".into()));
+            }
+            unique_ids(node_ids, "ungroup")?;
+            for nid in node_ids {
+                let node = doc
+                    .nodes
+                    .get_mut(nid)
+                    .ok_or_else(|| DomainError::NotFound(nid.clone()))?;
+                if node.attrs.group_ids.last() != Some(id) {
+                    return Err(DomainError::Invalid(
+                        "group stack mismatch on ungroup".into(),
+                    ));
+                }
+                node.attrs.group_ids.pop();
+            }
+            Operation::Group {
+                id: id.clone(),
+                node_ids: node_ids.clone(),
             }
         }
         Operation::Replace { node } => {
@@ -213,16 +319,33 @@ mod tests {
     }
     #[test]
     fn graph_validation_and_group_delete() {
+        use crate::{
+            ConnectorAnchor, ConnectorHead, ConnectorRoute, DEFAULT_CONNECTOR_COLOR,
+            DEFAULT_CONNECTOR_WIDTH,
+        };
         let mut e = editor();
         let connector = Node {
             attrs: NodeAttrs {
                 id: "edge".into(),
                 position: Point::default(),
                 source: None,
+                group_ids: Vec::new(),
             },
             content: Content::Connector {
-                from: "a".into(),
-                to: "b".into(),
+                from: Some("a".into()),
+                to: Some("b".into()),
+                from_point: None,
+                to_point: None,
+                from_anchor: ConnectorAnchor::Auto,
+                to_anchor: ConnectorAnchor::Auto,
+                route: ConnectorRoute::Elbow,
+                start_head: ConnectorHead::None,
+                end_head: ConnectorHead::Arrow,
+                dashed: false,
+                width: DEFAULT_CONNECTOR_WIDTH,
+                color: DEFAULT_CONNECTOR_COLOR.into(),
+                waypoints: vec![],
+                label: Some("因果".into()),
             },
         };
         e.apply(
@@ -234,6 +357,12 @@ mod tests {
             0,
         )
         .unwrap();
+        let graph = e.document().semantic_graph();
+        assert_eq!(graph.nodes.len(), 2);
+        assert_eq!(graph.edges.len(), 1);
+        assert_eq!(graph.edges[0].label.as_deref(), Some("因果"));
+        assert!(graph.edges[0].directed);
+        assert!(!graph.edges[0].bidirectional);
         assert!(
             e.apply(&edit(vec![Operation::Delete { id: "a".into() }]), 1)
                 .is_err()
@@ -249,6 +378,68 @@ mod tests {
         .unwrap();
         e.apply(&Action::Undo, 2).unwrap();
         assert_eq!(e.document().nodes.len(), 3);
+    }
+
+    #[test]
+    fn legacy_connector_jsonml_and_free_endpoint_roundtrip() {
+        let legacy = serde_json::json!(["connector", {"id": "c1", "position": {"x": 0, "y": 0}, "from": "a", "to": "b"}]);
+        let node: Node = serde_json::from_value(legacy).unwrap();
+        assert!(matches!(
+            node.content,
+            Content::Connector {
+                from: Some(ref f),
+                to: Some(ref t),
+                end_head: crate::ConnectorHead::None,
+                ..
+            } if f == "a" && t == "b"
+        ));
+        let roundtrip = serde_json::to_value(&node).unwrap();
+        assert_eq!(serde_json::from_value::<Node>(roundtrip).unwrap(), node);
+
+        let mut e = editor();
+        let free = Node {
+            attrs: NodeAttrs {
+                id: "c_free".into(),
+                position: Point { x: 10.0, y: 20.0 },
+                source: None,
+                group_ids: Vec::new(),
+            },
+            content: Content::Connector {
+                from: Some("a".into()),
+                to: None,
+                from_point: None,
+                to_point: Some(Point { x: 200.0, y: 120.0 }),
+                from_anchor: crate::ConnectorAnchor::Right,
+                to_anchor: crate::ConnectorAnchor::Auto,
+                route: crate::ConnectorRoute::Curve,
+                start_head: crate::ConnectorHead::None,
+                end_head: crate::ConnectorHead::Arrow,
+                dashed: true,
+                width: 4.0,
+                color: "#2f6fed".into(),
+                waypoints: vec![Point { x: 110.0, y: 50.0 }],
+                label: Some("指向屏幕区".into()),
+            },
+        };
+        e.apply(&edit(vec![add("a"), Operation::Insert { node: free }]), 0)
+            .unwrap();
+        e.apply(
+            &edit(vec![Operation::Translate {
+                ids: vec!["c_free".into()],
+                dx: 15.0,
+                dy: -10.0,
+            }]),
+            1,
+        )
+        .unwrap();
+        assert!(matches!(
+            e.document().nodes["c_free"].content,
+            Content::Connector {
+                to_point: Some(p),
+                ref waypoints,
+                ..
+            } if p == Point { x: 215.0, y: 110.0 } && waypoints == &vec![Point { x: 125.0, y: 40.0 }]
+        ));
     }
     #[test]
     fn new_edit_clears_redo_and_history_is_bounded() {
@@ -313,5 +504,139 @@ mod tests {
             height: 1.0,
         };
         assert!(e.apply(&edit(vec![Operation::Insert { node }]), 0).is_err());
+    }
+
+    #[test]
+    fn group_ungroup_and_translate_roundtrip_with_undo() {
+        let mut e = editor();
+        let line = Node {
+            attrs: NodeAttrs {
+                id: "line1".into(),
+                position: Point { x: 10.0, y: 20.0 },
+                source: None,
+                group_ids: Vec::new(),
+            },
+            content: Content::Shape {
+                kind: ShapeKind::Arrow,
+                end: Point { x: 110.0, y: 70.0 },
+                width: 4.0,
+                color: "#1f2329".into(),
+                fill: None,
+                corner_radius: None,
+                text: None,
+                rotation: None,
+                points: Vec::new(),
+            },
+        };
+        e.apply(
+            &edit(vec![add("a"), add("b"), Operation::Insert { node: line }]),
+            0,
+        )
+        .unwrap();
+        e.apply(
+            &edit(vec![Operation::Group {
+                id: "g1".into(),
+                node_ids: vec!["a".into(), "b".into()],
+            }]),
+            1,
+        )
+        .unwrap();
+        assert_eq!(e.document().nodes["a"].attrs.group_ids, vec!["g1"]);
+        assert_eq!(e.document().nodes["b"].attrs.group_ids, vec!["g1"]);
+        e.apply(
+            &edit(vec![Operation::Group {
+                id: "g2".into(),
+                node_ids: vec!["a".into(), "b".into(), "line1".into()],
+            }]),
+            2,
+        )
+        .unwrap();
+        assert_eq!(e.document().nodes["a"].attrs.group_ids, vec!["g1", "g2"]);
+        assert_eq!(e.document().nodes["line1"].attrs.group_ids, vec!["g2"]);
+        e.apply(
+            &edit(vec![Operation::Translate {
+                ids: vec!["a".into(), "b".into(), "line1".into()],
+                dx: 25.0,
+                dy: -10.0,
+            }]),
+            3,
+        )
+        .unwrap();
+        assert_eq!(
+            e.document().nodes["a"].attrs.position,
+            Point { x: 25.0, y: -10.0 }
+        );
+        assert_eq!(
+            e.document().nodes["line1"].attrs.position,
+            Point { x: 35.0, y: 10.0 }
+        );
+        assert!(matches!(
+            e.document().nodes["line1"].content,
+            Content::Shape { end, .. } if end == Point { x: 135.0, y: 60.0 }
+        ));
+        // Wrong stack order fails atomically
+        assert!(
+            e.apply(
+                &edit(vec![Operation::Ungroup {
+                    id: "g1".into(),
+                    node_ids: vec!["a".into(), "b".into()],
+                }]),
+                4
+            )
+            .is_err()
+        );
+        e.apply(
+            &edit(vec![Operation::Ungroup {
+                id: "g2".into(),
+                node_ids: vec!["a".into(), "b".into(), "line1".into()],
+            }]),
+            4,
+        )
+        .unwrap();
+        assert_eq!(e.document().nodes["a"].attrs.group_ids, vec!["g1"]);
+        assert!(e.document().nodes["line1"].attrs.group_ids.is_empty());
+        // Undo ungroup + translate + group
+        e.apply(&Action::Undo, 5).unwrap();
+        assert_eq!(e.document().nodes["a"].attrs.group_ids, vec!["g1", "g2"]);
+        e.apply(&Action::Undo, 6).unwrap();
+        assert_eq!(e.document().nodes["a"].attrs.position, Point::default());
+        assert!(matches!(
+            e.document().nodes["line1"].content,
+            Content::Shape { end, .. } if end == Point { x: 110.0, y: 70.0 }
+        ));
+        // JSONML roundtrip preserves group_ids and omits empty
+        let json_a = serde_json::to_value(&e.document().nodes["a"]).unwrap();
+        assert_eq!(json_a[1]["group_ids"], serde_json::json!(["g1", "g2"]));
+        assert_eq!(
+            serde_json::from_value::<Node>(json_a).unwrap(),
+            e.document().nodes["a"]
+        );
+    }
+
+    #[test]
+    fn rejects_invalid_group_ids_and_duplicate_translate_ids() {
+        let mut e = editor();
+        e.apply(&edit(vec![add("a"), add("b")]), 0).unwrap();
+        assert!(
+            e.apply(
+                &edit(vec![Operation::Translate {
+                    ids: vec!["a".into(), "a".into()],
+                    dx: 1.0,
+                    dy: 1.0,
+                }]),
+                1
+            )
+            .is_err()
+        );
+        assert!(
+            e.apply(
+                &edit(vec![Operation::Group {
+                    id: "bad group!".into(),
+                    node_ids: vec!["a".into()],
+                }]),
+                1
+            )
+            .is_err()
+        );
     }
 }
